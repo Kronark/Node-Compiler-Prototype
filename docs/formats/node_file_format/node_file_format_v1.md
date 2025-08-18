@@ -1,7 +1,7 @@
 <!--
 Notes:
 - N denoted variable byte integers, where fully set bytes (i.e. 11111111) signal an additional byte to be read, byte ordering is little endian
- -->
+-->
 
 # Header
 
