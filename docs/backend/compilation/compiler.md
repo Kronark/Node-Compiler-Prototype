@@ -1,12 +1,13 @@
 # Compilation
 
 Procedure:
-- Traverse node graph along connections
+- Traverse node graph along connections<br>
     --> start at output root
 
 ## Requires
 
-*Nothing*
+- Compilation
+    - Stack
 
 ## Required By
 
