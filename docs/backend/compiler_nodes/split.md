@@ -12,6 +12,8 @@ A built-in node that splits provided input data according to a specified rule an
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 

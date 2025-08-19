@@ -15,6 +15,8 @@ A built-in node responsible for converting an input datum into an output datum o
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 

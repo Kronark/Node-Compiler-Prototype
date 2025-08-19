@@ -16,6 +16,8 @@ A built-in node responsible for providing various forms of time data to the comp
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 

@@ -11,6 +11,8 @@ A built-in node that measures and outputs the size of provided input data accord
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 
