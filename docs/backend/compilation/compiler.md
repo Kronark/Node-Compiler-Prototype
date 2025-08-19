@@ -8,6 +8,8 @@ Procedure:
 
 - Compilation
     - Stack
+- Project
+    - Project
 
 ## Required By
 
