@@ -1,4 +1,4 @@
-# Node Data Type Backend V1
+# Node Data Type
 
 An internal data type representing a custom node space. Parsed from any of the file formats specified in `formats/node_file_format/`. May contain additional data structures not included in the original file format.
 
@@ -9,4 +9,4 @@ An internal data type representing a custom node space. Parsed from any of the f
 ## Required By
 
 - Node File Format
-    - Parsing V1 Backend
+    - Parsing V1
