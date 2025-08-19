@@ -2,7 +2,8 @@
 
 ## Code
 
-- All naming is in *snake_case* (e.g. this_is_a_name)
+- Variables and function are named in *snake_case* (e.g. this_is_a_name)
+- Variable names that are reserved by keywords and can't be circumvented elegantly are denoted with an additional "_" suffix
 - Fields are grouped by purpose
 - Imports are alphabetically ordered
 - Types need to be explicitely defined (no `auto`, `any` or similar)
