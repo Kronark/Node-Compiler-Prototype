@@ -6,6 +6,8 @@ A built-in node responsible for repeating input data a desired amount of times, 
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 

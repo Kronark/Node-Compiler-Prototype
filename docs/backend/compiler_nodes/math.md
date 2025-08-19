@@ -6,6 +6,8 @@ A built-in node responsible for applying mathematical operations to a set of num
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 

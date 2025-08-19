@@ -6,6 +6,8 @@ A built-in node responsible for reversing input data.
 
 - Compilation
     - Compiler
+- Nodes
+    - Node Data Type
 
 ## Required By
 
