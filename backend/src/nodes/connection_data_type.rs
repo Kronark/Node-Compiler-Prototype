@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use crate::nodes::type_data_type::Type;
 
 pub struct Connection
@@ -9,7 +10,7 @@ pub struct Connection
 
 impl Connection
 {
-    pub fn new(i : u32, s : u32, t : Type) -> Self
+    pub const fn new(i : u32, s : u32, t : Type) -> Self
     {
         Self {
             instance_id: i,
@@ -17,12 +18,16 @@ impl Connection
             type_: t
         }
     }
+}
 
-    pub fn print(&self)
+impl Display for Connection
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
     {
-        println!(
-            "Connection from {}, slot {}, type {}",
-            self.instance_id, self.socket_slot, self.type_.identifier
+        write!(
+            f,
+            "Connection from {}, slot {}, {}",
+            self.instance_id, self.socket_slot, self.type_
         )
     }
 }
