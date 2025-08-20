@@ -1,3 +1,6 @@
+use std::ops::Deref;
+use std::fmt::Display;
+
 pub struct Type
 {
     pub identifier: String
@@ -12,12 +15,22 @@ impl Type
             identifier: String::from(i)
         }
     }
+}
 
-    pub fn print(&self)
+impl Deref for Type
+{
+    type Target = String;
+
+    fn deref(&self) -> &Self::Target
     {
-        println!(
-            "{}",
-            self.identifier.as_str()
-        )
+        &self.identifier
+    }
+}
+
+impl Display for Type
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
+    {
+        write!(f, "{}", self.identifier)
     }
 }
