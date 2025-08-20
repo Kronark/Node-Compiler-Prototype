@@ -44,8 +44,8 @@ impl Socket
 
     pub fn get_type(&self) -> &SocketType { &self.type_ }
 
-    pub fn set_slot(&self, new_slot : u32) { self.slot = new_slot }
-    pub fn get_slot(&self) -> u32 { &self.slot }
+    pub fn set_slot(&mut self, new_slot : u32) { self.slot = new_slot }
+    pub fn get_slot(&self) -> u32 { self.slot }
 
     pub fn set_value() { todo!("Standardised value type missing.") }
     pub fn get_value() { todo!("Standardised value type missing.") }
