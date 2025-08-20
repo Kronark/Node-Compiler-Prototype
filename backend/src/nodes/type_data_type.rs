@@ -1,7 +1,7 @@
 use std::ops::Deref;
 use std::fmt::Display;
 use std::hash::{Hash, Hasher};
-use std::cmp::PartialEq;
+use std::cmp::{PartialEq, Eq};
 
 pub struct Type
 {
@@ -56,3 +56,5 @@ impl PartialEq for Type
         self.identifier == other.identifier
     }
 }
+
+impl Eq for Type {}
