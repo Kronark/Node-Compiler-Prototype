@@ -16,7 +16,7 @@ impl Connection
         }
     }
 
-    pub fn print(&self) { println!("Connection into {}, slot {}, type {}", self.instance_id, self.socket_slot, self.type_.as_str()) }
+    pub fn print(&self) { println!("Connection from {}, slot {}, type {}", self.instance_id, self.socket_slot, self.type_.as_str()) }
 
     pub fn set_instance_id(&mut self, new_instance : u32) { self.instance_id = new_instance }
     pub fn get_instance_id(&self) -> u32 { self.instance_id }
