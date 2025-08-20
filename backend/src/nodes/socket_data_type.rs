@@ -11,7 +11,7 @@ pub struct Socket
 {
     name: String,
     type_: SocketType,
-    slot: u8,
+    slot: u32,
     value: u8,
     parameters: u8,
     permitted: u8,
@@ -44,8 +44,8 @@ impl Socket
 
     pub fn get_type(&self) -> &SocketType { &self.type_ }
 
-    pub fn set_slot() { todo!("Variable byte number type missing.") }
-    pub fn get_slot() { todo!("Variable byte number type missing.") }
+    pub fn set_slot(&self, new_slot : u32) { self.slot = new_slot }
+    pub fn get_slot(&self) -> u32 { &self.slot }
 
     pub fn set_value() { todo!("Standardised value type missing.") }
     pub fn get_value() { todo!("Standardised value type missing.") }
