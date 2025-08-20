@@ -1,5 +1,7 @@
 use std::ops::Deref;
 use std::fmt::Display;
+use std::hash::{Hash, Hasher};
+use std::cmp::PartialEq;
 
 pub struct Type
 {
@@ -36,5 +38,21 @@ impl Display for Type
             "{}",
             self.identifier
         )
+    }
+}
+
+impl Hash for Type
+{
+    fn hash<H : Hasher>(&self, state: &mut H)
+    {
+        self.identifier.hash(state)
+    }
+}
+
+impl PartialEq for Type
+{
+    fn eq(&self, other: &Self) -> bool
+    {
+        self.identifier == other.identifier
     }
 }
