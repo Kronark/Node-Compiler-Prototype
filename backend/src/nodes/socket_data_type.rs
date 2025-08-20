@@ -55,7 +55,10 @@ impl Socket
         }
     }
 
-    pub fn is_permitted() { todo!("Permission check missing") }
+    pub fn is_permitted(&self, query : Type) -> bool
+    {
+        self.permitted.contains(&query)
+    }
 }
 
 impl Display for Socket
