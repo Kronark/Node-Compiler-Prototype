@@ -34,7 +34,7 @@ impl Socket
             value: 0,
             parameters: 0,
             permitted: 0,
-            connection: Connection::new(0, 0, String::from("Test Type")),
+            connection: Connection::new(0, 0, "".to_string()),
             is_outgoing: io,
             is_repetition: ir
         }
