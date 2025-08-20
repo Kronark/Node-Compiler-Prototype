@@ -1,3 +1,5 @@
+use crate::nodes::connection_data_type::Connection;
+
 pub enum SocketType
 {
     Named,
@@ -15,7 +17,7 @@ pub struct Socket
     value: u8,
     parameters: u8,
     permitted: u8,
-    connection: u8,
+    connection: Connection,
     is_outgoing: bool,
     is_repetition: bool
 }
@@ -31,7 +33,7 @@ impl Socket
             value: 0,
             parameters: 0,
             permitted: 0,
-            connection: 0,
+            connection: Connection::new(0, 0, String::from("Test Type")),
             is_outgoing: io,
             is_repetition: ir
         }
