@@ -18,5 +18,11 @@ impl Connection
         }
     }
 
-    pub fn print(&self) { println!("Connection from {}, slot {}, type {}", self.instance_id, self.socket_slot, self.type_.identifier) }
+    pub fn print(&self)
+    {
+        println!(
+            "Connection from {}, slot {}, type {}",
+            self.instance_id, self.socket_slot, self.type_.identifier
+        )
+    }
 }
