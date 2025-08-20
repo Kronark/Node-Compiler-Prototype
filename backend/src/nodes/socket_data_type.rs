@@ -9,6 +9,7 @@ pub enum SocketType
     Text
 }
 
+// TODO: backend technically does not give a shit about the name of a socket, probably could remove that
 pub struct Socket
 {
     name: String,
