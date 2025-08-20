@@ -13,5 +13,11 @@ impl Type
         }
     }
 
-    pub fn print(&self) { println!("{}", self.identifier.as_str()) }
+    pub fn print(&self)
+    {
+        println!(
+            "{}",
+            self.identifier.as_str()
+        )
+    }
 }
