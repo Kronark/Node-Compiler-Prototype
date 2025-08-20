@@ -7,6 +7,7 @@
 - Fields are grouped by purpose
 - Imports are alphabetically ordered
 - Types need to be explicitely defined (no `auto`, `any` or similar)
+- All files need an empty line at the end
 
 ## Version Control
 
