@@ -12,6 +12,21 @@ pub enum SocketType
     Text
 }
 
+impl Display for SocketType
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
+    {
+        match self
+        {
+            SocketType::Named => write!(f, "named"),
+            SocketType::Number => write!(f, "number"),
+            SocketType::Select => write!(f, "select"),
+            SocketType::Switch => write!(f, "switch"),
+            SocketType::Text => write!(f, "text")
+        }
+    }
+}
+
 pub struct Socket
 {
     pub is_outgoing: bool,
@@ -47,6 +62,13 @@ impl Display for Socket
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
     {
-        todo!("Display not implemented for Socket yet.")
+        let direction : &str = if self.is_outgoing { "<" } else { ">" };
+        let repetition : &str = if self.is_repetition { "↻" } else { "⁠—" };
+
+        write!(
+            f,
+            "{} {} {} {}\n    PARAMETERS\n    PERMITTED\n    VALUE\n    CONNECTION",
+            direction, repetition, self.slot, self.type_
+        )
     }
 }
