@@ -1,4 +1,7 @@
+use std::fmt::Display;
+use std::collections::HashSet;
 use crate::nodes::connection_data_type::Connection;
+use crate::nodes::type_data_type::Type;
 
 pub enum SocketType
 {
@@ -9,59 +12,41 @@ pub enum SocketType
     Text
 }
 
-// TODO: backend technically does not give a shit about the name of a socket, probably could remove that
 pub struct Socket
 {
-    name: String,
-    type_: SocketType,
-    slot: u32,
-    value: u8,
-    parameters: u8,
-    permitted: u8,
-    connection: Connection,
-    is_outgoing: bool,
-    is_repetition: bool
+    pub is_outgoing: bool,
+    pub is_repetition: bool,
+    pub slot: u32,
+    pub type_: SocketType,
+    pub parameters: u8,
+    pub permitted: HashSet<Type>,
+    pub value: u8,
+    pub connection: Option<Connection>
 }
 
 impl Socket
 {
-    pub fn new(n : String, t : SocketType, io : bool, ir : bool) -> Self
+    pub fn new(io : bool, ir : bool, s : u32, t : SocketType, c : Option<Connection>) -> Self
     {
         Self {
-            name: n,
-            type_: t,
-            slot: 0,
-            value: 0,
-            parameters: 0,
-            permitted: 0,
-            connection: Connection::new(0, 0, "".to_string()),
             is_outgoing: io,
-            is_repetition: ir
+            is_repetition: ir,
+            slot: s,
+            type_: t,
+            parameters: 0,
+            permitted: HashSet::new(),
+            value: 0,
+            connection: c
         }
     }
 
-    pub fn print(&self) { println!("Socket {}, DIRECTION REPETITION TYPE, SLOT", self.name.as_str()) }
+    pub fn is_permitted() { todo!("Permission check missing") }
+}
 
-    pub fn set_name(&mut self, new_name : String) { self.name = new_name }
-    pub fn get_name(&self) -> &String { &self.name }
-
-    pub fn get_type(&self) -> &SocketType { &self.type_ }
-
-    pub fn set_slot(&mut self, new_slot : u32) { self.slot = new_slot }
-    pub fn get_slot(&self) -> u32 { self.slot }
-
-    pub fn set_value() { todo!("Standardised value type missing.") }
-    pub fn get_value() { todo!("Standardised value type missing.") }
-
-    pub fn get_parameters() { todo!("Different parameter struct required for different socket types.")}
-
-    pub fn is_permitted() { todo!("Compiler type representation missing.") }
-    pub fn get_permitted() { todo!("Compiler type representation missing.") }
-
-    pub fn set_connection() { todo!("Connection type missing.") }
-    pub fn get_connection() { todo!("Connection type missing.") }
-
-    pub fn is_outgoing(&self) -> bool { self.is_outgoing }
-
-    pub fn is_repetition(&self) -> bool { self.is_repetition }
+impl Display for Socket
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
+    {
+        todo!("Display not implemented for Socket yet.")
+    }
 }
