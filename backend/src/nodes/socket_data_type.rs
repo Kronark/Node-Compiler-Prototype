@@ -1,31 +1,8 @@
 use std::fmt::Display;
 use std::collections::HashSet;
 use crate::nodes::connection_data_type::Connection;
+use crate::nodes::socket_type_data_type::SocketType;
 use crate::nodes::type_data_type::Type;
-
-pub enum SocketType
-{
-    Named,
-    Number,
-    Select,
-    Switch,
-    Text
-}
-
-impl Display for SocketType
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
-    {
-        match self
-        {
-            SocketType::Named => write!(f, "named"),
-            SocketType::Number => write!(f, "number"),
-            SocketType::Select => write!(f, "select"),
-            SocketType::Switch => write!(f, "switch"),
-            SocketType::Text => write!(f, "text")
-        }
-    }
-}
 
 pub struct Socket
 {
