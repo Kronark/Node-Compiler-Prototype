@@ -12,3 +12,4 @@ A wrapper type representing compiler types. Due to their abundance and variable 
     - Parsing V1
 - Nodes
     - Socket
+    - Connection
