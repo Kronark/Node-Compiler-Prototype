@@ -27,6 +27,10 @@ impl Display for SocketParameter
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
     {
-        todo!("Display not implemented for SocketParameter yet.")
+        write!(
+            f,
+            "{}",
+            "Display not implemented for SocketParameters."
+        )
     }
 }
