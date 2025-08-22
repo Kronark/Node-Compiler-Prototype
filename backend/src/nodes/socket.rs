@@ -1,9 +1,9 @@
 use std::fmt::Display;
 use std::collections::HashSet;
-use crate::nodes::connection_data_type::Connection;
-use crate::nodes::socket_type_data_type::SocketType;
-use crate::nodes::value_data_type::Value;
-use crate::nodes::type_data_type::Type;
+use crate::nodes::connection::Connection;
+use crate::nodes::socket_type::SocketType;
+use crate::nodes::value::Value;
+use crate::nodes::r#type::Type;
 
 pub struct Socket
 {

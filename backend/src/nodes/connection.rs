@@ -1,5 +1,5 @@
 use std::fmt::Display;
-use crate::nodes::type_data_type::Type;
+use crate::nodes::r#type::Type;
 
 pub struct Connection
 {
