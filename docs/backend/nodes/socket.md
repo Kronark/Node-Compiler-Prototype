@@ -11,4 +11,4 @@ An internal data type representing a node socket. Parsed from any of the file fo
 - Node File Format
     - Parsing V1
 - Nodes
-    - Instance Data Type
+    - Instance
