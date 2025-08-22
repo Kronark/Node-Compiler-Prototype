@@ -10,8 +10,7 @@ impl<const N:usize> From<&[u8;N]> for Value
 {
     fn from(value: &[u8;N]) -> Self
     {
-        Self
-        {
+        Self {
             data:value.to_vec()
         }
     }
@@ -21,8 +20,7 @@ impl<const N:usize> From<[u8;N]> for Value
 {
     fn from(value: [u8;N]) -> Self
     {
-        Self
-        {
+        Self {
             data:value.to_vec()
         }
     }
@@ -32,8 +30,7 @@ impl From<&[u8]> for Value
 {
     fn from(value: &[u8]) -> Self
     {
-        Self
-        {
+        Self {
             data:value.to_vec()
         }
     }
@@ -43,8 +40,7 @@ impl From<&str> for Value
 {
     fn from(s: &str) -> Self
     {
-        Self
-        {
+        Self {
             data: s.as_bytes().to_vec(),
         }
     }
@@ -62,8 +58,7 @@ impl From<u32> for Value
 {
     fn from(num: u32) -> Self
     {
-        Self
-        {
+        Self {
             data: num.to_ne_bytes().to_vec(),
         }
     }
@@ -73,8 +68,7 @@ impl From<f32> for Value
 {
     fn from(num: f32) -> Self
     {
-        Self
-        {
+        Self {
             data: num.to_ne_bytes().to_vec(),
         }
     }
