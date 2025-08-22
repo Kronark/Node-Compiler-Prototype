@@ -5,11 +5,11 @@ An internal data type representing a node instance. Parsed from any of the file 
 ## Requires
 
 - Nodes
-    - Socket Data Type
+    - Socket
 
 ## Required By
 
 - Node File Format
     - Parsing V1
 - Nodes
-    - Node Data Type
+    - Node
