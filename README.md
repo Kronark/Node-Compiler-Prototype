@@ -9,4 +9,5 @@ A collaborative effort towards a fully featured prototype of the byte compiler d
 We appreciate every contribution with a pull-request. See our full [contribution guidelines](./docs/CONTRIBUTION.md).
 
 ## Project Overview
-- TODO
+
+Terminology utilised within this project and its resulting ecosystem is outlined in our [lexicon](./docs/LEXICON.md).
