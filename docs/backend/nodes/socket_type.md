@@ -1,4 +1,4 @@
-# Socket Type Data Type
+# Socket Type
 
 An enumeration of possible types a socket can take. Needs to be printable. The possible socket types so far are as follows:
 
