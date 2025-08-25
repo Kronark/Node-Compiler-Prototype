@@ -1,4 +1,4 @@
-# Connection Data Type
+# Connection
 
 A type representing a connection from a target to an origin. Needs to contain the following:
 
