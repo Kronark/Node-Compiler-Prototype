@@ -39,6 +39,8 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
         - Empty string signals no character limitation.
     - Default:
         - The default value.
+6. Colour:
+    - Default: the default value.
 
 ## Requires
 
