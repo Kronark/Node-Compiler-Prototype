@@ -1,4 +1,4 @@
-# Split Node
+# Split Node ([Backend](../backend.md))
 
 A built-in node that splits provided input data according to a specified rule and outputs each component separatly or as a single collection stream. Splitting rules may include:
 
