@@ -1,4 +1,4 @@
-# Connection
+# Connection ([Frontend](../frontend.md))
 
 A type representing a connection from a target to an origin. Needs to contain the following:
 
@@ -10,12 +10,9 @@ While the above contents can be directly parsed from the node file format, it ma
 
 ## Requires
 
-- Nodes
-    - Type
+- [Type](./type.md)
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Socket](./socket.md)
+- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)

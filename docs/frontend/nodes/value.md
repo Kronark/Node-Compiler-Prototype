@@ -1,4 +1,4 @@
-# Value
+# Value ([Frontend](../frontend.md))
 
 A wrapper type representing the value of a socket. Needs to be able to carry arbitrary forms of data. Two possible implementation paths could be considered:
 
@@ -11,7 +11,5 @@ A wrapper type representing the value of a socket. Needs to be able to carry arb
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Socket](./socket.md)
+- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
