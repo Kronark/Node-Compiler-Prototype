@@ -7,3 +7,15 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
 - Node graph visualisation
 - Node graph modification
 - Node file modification
+
+## Overview
+
+- <a href="./grid/grid.md" style="background:crimson;padding:0 5px;color:white">Grid</a>
+- <a href="./tools/tools.md" style="background:chartreuse;padding:0 5px;color:black">Tools</a>
+- <a href="./menu/menu.md" style="background:darkmagenta;padding:0 5px;color:white">Menu</a>
+
+<div id="grid" style="aspect-ratio:16/9;width:98%;background:crimson;padding:1%">
+    <div id="tools" style="width:98%;height:6%;background:chartreuse;padding:1%">
+        <div id="menu" style="width:10%;height:100%;background:darkmagenta"></div>
+    </div>
+</div>
