@@ -1,4 +1,4 @@
-# Traversal
+# Traversal ([Frontend](../frontend.md))
 
 A module providing functionality for navigating the compiler's node graph view more efficiently. Features should include:
 

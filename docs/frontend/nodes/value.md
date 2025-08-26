@@ -1,4 +1,4 @@
-# Value
+# Value ([Frontend](../frontend.md))
 
 A wrapper type representing the value of a socket. Needs to be able to carry arbitrary forms of data. Two possible implementation paths could be considered:
 
