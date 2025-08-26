@@ -1,4 +1,4 @@
-# Time Node
+# Time Node ([Backend](../backend.md))
 
 A built-in node responsible for providing various forms of time data to the compilation process. Such forms include:
 

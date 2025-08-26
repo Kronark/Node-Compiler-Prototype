@@ -1,4 +1,4 @@
-# Socket
+# Socket ([Backend](../backend.md))
 
 An internal data type representing a node socket. Parsed from any of the file formats specified in `formats/node_file_format/` or indirectly created during use of the software. May contain additional data structures not included in the original file format. Furthermore, components encoded in the file format may be moved to external data structures. Potential fields include the following:
 
