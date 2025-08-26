@@ -1,4 +1,4 @@
-# Grid
+# Communication ([Frontend](../frontend.md))
 
 
 

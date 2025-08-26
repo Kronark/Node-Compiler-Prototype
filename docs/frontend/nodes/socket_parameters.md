@@ -1,4 +1,4 @@
-# Socket Parameters
+# Socket Parameters ([Frontend](../frontend.md))
 
 An enumeration of possible parameters a socket of a certain type can take. Needs to be printable. All parameters are defined as heap allocated strings. The parameters of each socket type are defined as follows:
 
@@ -46,7 +46,5 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Socket](./socket.md)
+- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
