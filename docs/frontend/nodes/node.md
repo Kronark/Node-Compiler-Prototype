@@ -7,6 +7,8 @@ A graphical representation of an underlying data structure representing a node a
 3. `roots`: Connection data pertaining to the input and output roots of the node space. See `node_roots` for more information.
 4. `instances`: An array of node instances. See `instance` for more information.
 
+The node space component to this frontend version of the datatype should provide functionality for showing and hiding entire node spaces as necessitated by space traversal.
+
 ## Requires
 
 - [Node Settings](./node_settings.md)
@@ -15,7 +17,8 @@ A graphical representation of an underlying data structure representing a node a
 
 ## Required By
 
-- [Node Parsing](../node_file_format/parsing/node_parsing_v1.md)
-- [Node Serialisation](../node_file_format/serialisation/node_serialisation_v1.md)
-- [Layout Parsing](../layout_file_format/parsing/layout_parsing_v1.md)
-- [Layout Serialisation](../layout_file_format/serialisation/layout_serialisation_v1.md)
+- [Node Parsing](../node_file_format/parsing/node_parsing.md)
+- [Node Serialisation](../node_file_format/serialisation/node_serialisation.md)
+- [Layout Parsing](../layout_file_format/parsing/layout_parsing.md)
+- [Layout Serialisation](../layout_file_format/serialisation/layout_serialisation.md)
+- [Overlays](../overlays/overlays.md)
