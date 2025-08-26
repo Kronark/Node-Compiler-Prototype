@@ -9,4 +9,4 @@ A utility module providing drag and drop functionality for GUI components it is 
 ## Required By
 
 - [Grid](../grid/grid.md)
-- [Node](../node/node.md)
+- [Node](../nodes/node.md)
