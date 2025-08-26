@@ -15,4 +15,7 @@ A graphical representation of an underlying data structure representing a node a
 
 ## Required By
 
-*Nothing*
+- [Node Parsing](../node_file_format/parsing/node_parsing_v1.md)
+- [Node Serialisation](../node_file_format/serialisation/node_serialisation_v1.md)
+- [Layout Parsing](../layout_file_format/parsing/layout_parsing_v1.md)
+- [Layout Serialisation](../layout_file_format/serialisation/layout_serialisation_v1.md)
