@@ -68,6 +68,7 @@ Notes:
                 - 011 = incoming select
                 - 100 = incoming switch
                 - 101 = incoming text
+                - 110 = incoming colour
             - repetitive [1 bit]
             - connected [1 bit]
             - switch value [1 bit]
