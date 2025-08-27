@@ -1,4 +1,4 @@
-# Socket Type ([Backend](../backend.md))
+# Socket Type ([Frontend](../frontend.md))
 
 An enumeration of possible types a socket can take. Needs to be printable. The possible socket types so far are as follows:
 
@@ -28,5 +28,5 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 
 ## Required By
 
-- [Node Parsing](../node_file_format/parsing.md)
 - [Socket](./socket.md)
+- [Node Parsing](../node_file_format/parsing.md)
