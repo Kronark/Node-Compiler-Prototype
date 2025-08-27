@@ -5,3 +5,11 @@ The backend of the Kronark Node Compiler is written in ***rust***. It's standalo
 ## Responsibilities
 
 - Node graph compilation
+
+## Overview
+
+TODO
+
+## Task Dependencies
+
+TODO

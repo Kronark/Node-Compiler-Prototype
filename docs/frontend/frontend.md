@@ -28,3 +28,7 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
     - [Drag](./drag/drag.md)
     - [Hotkeys](./hotkeys/hotkeys.md)
     - [Traversal](./traversal/traversal.md)
+
+## Task Dependencies
+
+TODO
