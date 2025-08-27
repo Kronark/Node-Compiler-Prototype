@@ -11,7 +11,5 @@ A wrapper type representing the value of a socket. Needs to be able to carry arb
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)

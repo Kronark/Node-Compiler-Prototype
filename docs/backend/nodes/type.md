@@ -8,8 +8,6 @@ A wrapper type representing compiler types. Due to their abundance and variable 
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
-    - Connection
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)
+- [Connection](./connection.md)

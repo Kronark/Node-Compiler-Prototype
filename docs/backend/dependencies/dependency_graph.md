@@ -4,8 +4,7 @@ A data structure for efficiently querying all dependencies of a given node space
 
 ## Requires
 
-- Project
-    - Project
+- [Project](../project/project.md)
 
 ## Required By
 
