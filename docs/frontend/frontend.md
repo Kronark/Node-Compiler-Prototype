@@ -18,13 +18,17 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
     - [Overlays](./overlays/overlays.md)
 - [History](./history/history.md)
 - Parsing
-    - [Node Parsing](./node_file_format/parsing/node_parsing.md)
-    - [Layout Parsing](./layout_file_format/parsing/layout_parsing.md)
+    - [Node Parsing](./node_file_format/parsing.md)
+    - [Layout Parsing](./layout_file_format/parsing.md)
 - Serialisation
-    - [Node Serialisation](./node_file_format/serialisation/node_serialisation.md)
-    - [Layout Serialisation](./layout_file_format/serialisation/layout_serialisation.md)
+    - [Node Serialisation](./node_file_format/serialisation.md)
+    - [Layout Serialisation](./layout_file_format/serialisation.md)
 - User Input
     - [Clipboard](./clipboard/clipboard.md)
     - [Drag](./drag/drag.md)
     - [Hotkeys](./hotkeys/hotkeys.md)
     - [Traversal](./traversal/traversal.md)
+
+## Task Dependencies
+
+TODO

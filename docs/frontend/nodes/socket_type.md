@@ -19,6 +19,8 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 5. Text:
     - Provides a *single line text* input if not connected
     - Permitted characters, minimum length and maximum length controlled via parameters
+6. Colour:
+    - Provides a *colour picker* input if not connected
 
 ## Requires
 
@@ -27,4 +29,4 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)

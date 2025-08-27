@@ -10,4 +10,4 @@ A wrapper type representing compiler types. Due to their abundance and variable 
 
 - [Socket](./socket.md)
 - [Connection](./connection.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)

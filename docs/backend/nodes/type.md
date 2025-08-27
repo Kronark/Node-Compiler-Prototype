@@ -1,4 +1,4 @@
-# Type
+# Type ([Backend](../backend.md))
 
 A wrapper type representing compiler types. Due to their abundance and variable size, should be a heap allocated String internally. Needs to be compatible with a Set data structure for implementation of the `permitted` field in *sockets*. Can **not** be empty.
 
@@ -8,8 +8,6 @@ A wrapper type representing compiler types. Due to their abundance and variable 
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
-    - Connection
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)
+- [Connection](./connection.md)
