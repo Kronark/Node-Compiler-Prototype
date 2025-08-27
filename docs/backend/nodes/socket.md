@@ -22,7 +22,5 @@ An internal data type representing a node socket. Parsed from any of the file fo
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Instance
+- [Node Parsing](../node_file_format/parsing.md)
+- [Instance](./instance.md)

@@ -48,7 +48,5 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)

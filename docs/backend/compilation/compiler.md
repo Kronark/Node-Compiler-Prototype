@@ -6,10 +6,8 @@ Procedure:
 
 ## Requires
 
-- Compilation
-    - Stack
-- Project
-    - Project
+- [Stack](./stack.md)
+- [Project](../project/project.md)
 
 ## Required By
 

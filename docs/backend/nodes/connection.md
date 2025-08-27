@@ -15,7 +15,5 @@ While the above contents can be directly parsed from the node file format, it ma
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)

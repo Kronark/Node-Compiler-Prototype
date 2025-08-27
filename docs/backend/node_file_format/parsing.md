@@ -4,8 +4,7 @@ Parses relevant data from the node file formats described in `formats/node_file_
 
 ## Requires
 
-- Node
-    - Node Data Type Backend V1
+- [Node](../nodes/node.md)
 
 ## Required By
 
