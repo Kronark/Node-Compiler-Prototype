@@ -4,7 +4,7 @@ Module responsible for serialising layout information into the newest version of
 
 ## Requires
 
-- [Node](../../nodes/node.md)
+- [Node](../nodes/node.md)
 
 ## Required By
 

@@ -4,7 +4,7 @@ Module responsible for parsing the different versions of the layout file format 
 
 ## Requires
 
-- [Node](../../nodes/node.md)
+- [Node](../nodes/node.md)
 
 ## Required By
 
