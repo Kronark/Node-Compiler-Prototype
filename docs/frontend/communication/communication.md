@@ -1,0 +1,11 @@
+# Communication ([Frontend](../frontend.md))
+
+The module responsible for *receiving* and *dispatching* data from and to the [backend](../../backend/backend.md). Communication overhead needs to be minimised, so utilising a non-network-based approach such as *shared memory* would be beneficial.
+
+## Requires
+
+*Nothing*
+
+## Required By
+
+*Nothing*
