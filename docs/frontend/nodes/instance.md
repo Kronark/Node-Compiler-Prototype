@@ -4,6 +4,7 @@ An internal data type representing a node instance. Parsed from any of the file 
 
 1. `type`: The definition this node is an instance of.
 2. `name`: The name of the node instance.
+3. `position`: The position of the node instance.
 3. `sockets`: An array of sockets within the node instance.
 
 ## Requires
@@ -14,3 +15,6 @@ An internal data type representing a node instance. Parsed from any of the file 
 
 - [Node](./node.md)
 - [Node Parsing](../node_file_format/parsing.md)
+- [Node Serialisation](../node_file_format/serialisation.md)
+- [Layout Parsing](../layout_file_format/parsing.md)
+- [Layout Serialisation](../layout_file_format/serialisation.md)

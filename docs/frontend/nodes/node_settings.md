@@ -14,3 +14,6 @@ A structure of node specific settings relevant for node instances and node file 
 
 - [Node](./node.md)
 - [Node Parsing](../node_file_format/parsing.md)
+- [Node Serialisation](../node_file_format/serialisation.md)
+- [Layout Parsing](../layout_file_format/parsing.md)
+- [Layout Serialisation](../layout_file_format/serialisation.md)
