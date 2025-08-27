@@ -29,4 +29,4 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)

@@ -13,4 +13,4 @@ An internal data type representing a node instance. Parsed from any of the file 
 ## Required By
 
 - [Node](./node.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)
