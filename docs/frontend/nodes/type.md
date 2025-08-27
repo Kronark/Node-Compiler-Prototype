@@ -11,3 +11,6 @@ A wrapper type representing compiler types. Due to their abundance and variable 
 - [Socket](./socket.md)
 - [Connection](./connection.md)
 - [Node Parsing](../node_file_format/parsing.md)
+- [Node Serialisation](../node_file_format/serialisation.md)
+- [Layout Parsing](../layout_file_format/parsing.md)
+- [Layout Serialisation](../layout_file_format/serialisation.md)
