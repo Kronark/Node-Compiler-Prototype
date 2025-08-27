@@ -1,4 +1,4 @@
-# Socket Type
+# Socket Type ([Backend](../backend.md))
 
 An enumeration of possible types a socket can take. Needs to be printable. The possible socket types so far are as follows:
 
@@ -19,6 +19,8 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 5. Text:
     - Provides a *single line text* input if not connected
     - Permitted characters, minimum length and maximum length controlled via parameters
+6. Colour:
+    - Provides a *colour picker* input if not connected
 
 ## Requires
 
@@ -26,7 +28,5 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)

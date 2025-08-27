@@ -12,4 +12,4 @@ A wrapper type representing the value of a socket. Needs to be able to carry arb
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)

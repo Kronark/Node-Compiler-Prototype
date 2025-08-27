@@ -39,6 +39,8 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
         - Empty string signals no character limitation.
     - Default:
         - The default value.
+6. Colour:
+    - Default: the default value.
 
 ## Requires
 
@@ -47,4 +49,4 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)

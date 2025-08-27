@@ -6,12 +6,16 @@ This feature is provided with the intention of empowering users to monitor a giv
 
 While overlays should largely be user specified, not only in data association but also ultimate colour mapping - built-in functionalities can benefit from this system as well. For instance, *tunnels* are utilised to hide complex connection networks and make a specific node graph more maintainable. However, visualising where a tunnel is sending data within a node space may be beneficial in specific circumstances. The overlay system could then be used to toggle visibility during node graph development.
 
-<div style="display:grid;grid-template-rows:400px 400px;grid-template-columns:400px 400px;">
-    <img src="../../assets/overlays/1.jpg">
-    <img src="../../assets/overlays/3.jpg">
-    <img src="../../assets/overlays/4.jpg">
-    <img src="../../assets/overlays/2.jpg">
-</div>
+<table>
+    <tr>
+        <td><img src="../../assets/overlays/1.jpg"></td>
+        <td><img src="../../assets/overlays/3.jpg"></td>
+    </tr>
+    <tr>
+        <td><img src="../../assets/overlays/4.jpg"></td>
+        <td><img src="../../assets/overlays/2.jpg"></td>
+    </tr>
+</table>
 
 ## Requires
 

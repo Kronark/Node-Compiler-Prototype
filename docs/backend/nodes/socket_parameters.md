@@ -1,4 +1,4 @@
-# Socket Parameters
+# Socket Parameters ([Backend](../backend.md))
 
 An enumeration of possible parameters a socket of a certain type can take. Needs to be printable. All parameters are defined as heap allocated strings. The parameters of each socket type are defined as follows:
 
@@ -39,6 +39,8 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
         - Empty string signals no character limitation.
     - Default:
         - The default value.
+6. Colour:
+    - Default: the default value.
 
 ## Requires
 
@@ -46,7 +48,5 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
 
 ## Required By
 
-- Node File Format
-    - Parsing V1
-- Nodes
-    - Socket
+- [Node Parsing](../node_file_format/parsing.md)
+- [Socket](./socket.md)
