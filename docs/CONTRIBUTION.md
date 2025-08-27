@@ -9,6 +9,10 @@
 - Types need to be explicitely defined (no `auto`, `any` or similar)
 - All files need an empty line at the end
 
+## Comments
+
+Place comments above statements where it is not immediately obvious from that statement, what or why it is being done. This includes many of the **rust macros** used to quickly define traits of a given data structure. In general, they should describe *why* the statement exists, not *what* it is doing.
+
 ## Version Control
 
 - Branches are named in *kebab-case* (e.g. this-is-a-branch-name)
