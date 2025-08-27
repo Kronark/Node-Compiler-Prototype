@@ -6,6 +6,7 @@ An internal data type representing a node socket. Parsed from any of the file fo
 2. `is_repetition`: Whether or not the socket is part of a repetitive sequence.
 3. `slot`: The slot index within the hosting node instance for the socket.
 4. `type`: The type of the socket. See `socket_type` for further information.
+5. `name`: The label text associated with the socket, rendered beside its input.
 5. `parameters`: The parameters of the socket. See `socket_parameters` for further information.
 6. `permitted`: A set of type identifiers that are permitted to connect to the socket.
 7. `value`: The value of the socket.
