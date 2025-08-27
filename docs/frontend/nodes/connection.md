@@ -15,4 +15,4 @@ While the above contents can be directly parsed from the node file format, it ma
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format_frontend/parsing/node_parsing_frontend_v1.md)
+- [Node Parsing](../node_file_format/parsing.md)
