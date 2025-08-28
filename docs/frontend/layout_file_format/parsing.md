@@ -5,6 +5,7 @@ Module responsible for parsing the different versions of the layout file format 
 ## Requires
 
 - [Node](../nodes/node.md)
+- [Layout Serialisation](./serialisation.md)
 
 ## Required By
 
