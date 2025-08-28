@@ -6,7 +6,7 @@ The tool developed in this repository. It is a *compiler* due to the fact that i
 
 ## Node
 
-A draggable collection of sockets which is expected to perform a specific operation on provided input values. Contains at least one nodule for connection establishment to other nodes. In context of the compiler, a node is an abstract concept living in memory only.
+A draggable collection of sockets which is expected to perform a specific operation on provided input values. Contains at least one pin for connection establishment to other nodes. In context of the compiler, a node is an abstract concept living in memory only.
 
 ## Node Instance (also: "Node", "Instance")
 
@@ -14,11 +14,11 @@ An instance is an individual of a group, each member of which shares the same un
 
 ## Socket
 
-An individual input of a node instance. Associated with a label and / or an input field of a specific type. Depending on this type, a nodule is associated with the given socket for connection establishment. Sockets are associated with a direction. In context of the compiler, a socket can only be associated with an input field if it is of incoming / input direction. If the socket is of outgoing / output direction, it can merely be labeled.
+An individual input of a node instance. Associated with a label and / or an input field of a specific type. Depending on this type, a pin is associated with the given socket for connection establishment. Sockets are associated with a direction. In context of the compiler, a socket can only be associated with an input field if it is of incoming / input direction. If the socket is of outgoing / output direction, it can merely be labeled.
 
-## Nodule
+## Pin
 
-A connection point of a socket within a node instance. In context of the compiler, the creation of a new connection is initialised by clicking a given nodule. Further, the completion of a connection procedure is accomplished by clicking another nodule. Additionally note that a nodule of an output socket can initialise *many* connections and one of an input socket can only ever hold *one* connection.
+A connection point of a socket within a node instance. In context of the compiler, the creation of a new connection is initialised by clicking a given pin. Further, the completion of a connection procedure is accomplished by clicking another pin. Additionally note that a pin of an output socket can initialise *many* connections and one of an input socket can only ever hold *one* connection.
 
 ## Connection
 
