@@ -5,6 +5,7 @@ Module responsible for parsing the different versions of the node file format as
 ## Requires
 
 - [Node](../nodes/node.md)
+- [Node Serialisation](./serialisation.md)
 
 ## Required By
 
