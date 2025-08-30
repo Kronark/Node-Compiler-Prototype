@@ -81,9 +81,9 @@ input root pos y = float ;
 output root pos x = float ;
 output root pos y = float ;
 
-root positions = {input root pos x,
+root positions = input root pos x,
   input root pos y, output root pos x,
-  output root pos y} ;
+  output root pos y ;
 
 item id = vbi ;
 layout x = float ;
