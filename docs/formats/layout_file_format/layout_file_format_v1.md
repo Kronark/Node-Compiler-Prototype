@@ -2,15 +2,16 @@
 Notes:
 - all positions are single precision floating point
 - all widths and heights are single precision floating point
-- N denoted variable byte integers, where fully set bytes (i.e. 11111111) signal an additional byte to be read, byte ordering is little endian
+- N denotes variable byte integers, where the most significant bit flags an additional byte to be read, byte ordering is little endian
 -->
 
-# Header
+# Markdown Representation
+## Header
 
-- `kronlyt` magic number [7]
+- `kronlyt\0` magic number [8]
 - version number [1]
 
-# Roots
+## Roots
 
 - root positions:
     - input root position x [4]
@@ -18,7 +19,7 @@ Notes:
     - output root position x [4]
     - output root position y [4]
 
-# Groups
+## Groups
 
 - group count [N]
 - groups:
@@ -30,7 +31,7 @@ Notes:
         - group width [4]
         - group height [4]
 
-# Comments
+## Comments
 
 - comment count [N]
 - comments:
@@ -42,7 +43,7 @@ Notes:
         - comment width [4]
         - comment height [4]
 
-# Instances
+## Instances
 
 - instances:
     - item id [N]
@@ -50,3 +51,58 @@ Notes:
         - instance position x [4]
         - instance position y [4]
     - instance width [4]
+
+# [EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) Representation
+Assuming "1"/"0" represent on/off bits, the file format is described by the following EBNF grammar:
+```ebnf
+bit = "1" | "0" ;
+byte = 8 * bit ;
+
+one prefixed byte = "1", 7 * bit ;
+zero prefixed byte = "0", 7 * bit ;
+
+(* variable byte integer, little endian *)
+vbi = {one prefixed byte}, zero prefixed byte ;
+
+(* any count of items. assume any repetition
+  prefixed by count is repeated that many times *)
+count = vbi ;
+
+float = 4 * byte ;
+
+kronlyt = "01101011", "01110010", "01101111",
+  "01101110", "01101100", "01111001",
+  "01110100", "00000000" ;
+
+version number = byte ;
+
+input root pos x = float ;
+input root pos y = float ;
+output root pos x = float ;
+output root pos y = float ;
+
+root positions = {input root pos x,
+  input root pos y, output root pos x,
+  output root pos y} ;
+
+item id = vbi ;
+layout x = float ;
+layout y = float ;
+layout width = float ;
+layout height = float ;
+
+item layout = item id, layout x,
+  layout y, layout width, layout height ;
+
+group = item layout ;
+groups = count, {group} ;
+
+comment = item layout ;
+comments = count, {comment} ;
+
+instance = item layout ;
+instances = {instance} ;
+
+file = kronlyt, version number, root positions,
+  groups, comments, instances ;
+```

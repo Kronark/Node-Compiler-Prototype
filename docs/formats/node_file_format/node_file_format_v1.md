@@ -86,7 +86,7 @@ structure in the file, but it's included for forwards-compatibility
     - comment length [N]
     - comment [string]
 
-# EBNF Representation
+# [EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) Representation
 Assuming "1"/"0" represent on/off bits, the file format is described by the following EBNF grammar:
 ```ebnf
 bit = "0" | "1" ;
