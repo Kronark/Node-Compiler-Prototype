@@ -1,35 +1,36 @@
 <!--
 Notes:
-- N denoted variable byte integers, where fully set bytes (i.e. 11111111) signal an additional byte to be read, byte ordering is little endian
+- N denotes variable byte integers, where the most significant bit flags an additional byte to be read, byte ordering is little endian
 -->
 
-# Header
+# Markdown Representation
+## Header
 
 - `kronode\0` magic number [8]
 - version number [1]
 
-# Roots
+## Roots
 
 - output root connection count [N]
 - output root connections:
     - connection node [N]
     - connection socket [N]
 
-# Nodes
+## Nodes
 
 - table size [N]
 - table items:
     - node name length [N]
     - node name [string]
 
-# Types
+## Types
 
 - table size [N]
 - table items:
     - type name length [N]
     - type name [string]
 
-# Instances
+## Instances
 
 - instance count [N]
 - instances:
@@ -62,7 +63,7 @@ Notes:
                 - value length [N]
                 - value [string]
 
-# Groups
+## Groups
 
 - group count [N]
 - groups:
@@ -74,10 +75,10 @@ Notes:
     - group items:
         - item id [N]
 
-# Comments
+## Comments
 
 // count isn't strictly necessary since this is the last
-// structure in the file, but it's included for forwards-compatibility
+structure in the file, but it's included for forwards-compatibility
 - comment count [N]
 - comments:
     - item id [N]
@@ -91,9 +92,10 @@ Assuming "1"/"0" represent on/off bits, the file format is described by the foll
 bit = "0" | "1" ;
 byte = 8 * bit ;
 zero prefixed byte = "0", 7 * bit ;
+one prefixed byte = "1", 7 * bit ;
 
-(* variable byte integer *)
-vbi = {"11111111"}, zero prefixed byte ;
+(* variable byte integer, little endian *)
+vbi = {one prefixed byte}, zero prefixed byte ;
 
 (* any count of items. assume any repetition
   prefixed by count is repeated that many times *)
