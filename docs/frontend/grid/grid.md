@@ -7,7 +7,7 @@ A visualisation of the virtual space node graphs are constructed within. Intende
 
 ## Requires
 
-- [Drag](../drag/drag.md)
+- [Dragable](../properties/dragable/dragable.md)
 - [Camera](../camera/camera.md)
 
 ## Required By
