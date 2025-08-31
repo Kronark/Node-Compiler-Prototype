@@ -1,4 +1,4 @@
-# Drag
+# Dragable
 
 A utility module providing drag and drop functionality for GUI components it is applied to.
 
