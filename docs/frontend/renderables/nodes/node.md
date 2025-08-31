@@ -18,8 +18,8 @@ The node space component to this frontend version of the datatype should provide
 
 ## Required By
 
-- [Node Parsing](../node_file_format/parsing.md)
-- [Node Serialisation](../node_file_format/serialisation.md)
-- [Layout Parsing](../layout_file_format/parsing.md)
-- [Layout Serialisation](../layout_file_format/serialisation.md)
-- [Overlays](../overlays/overlays.md)
+- [Node Parsing](../../node_file_format/parsing.md)
+- [Node Serialisation](../../node_file_format/serialisation.md)
+- [Layout Parsing](../../layout_file_format/parsing.md)
+- [Layout Serialisation](../../layout_file_format/serialisation.md)
+- [Overlays](../../user_interface/graph_view/overlays/overlays.md)
