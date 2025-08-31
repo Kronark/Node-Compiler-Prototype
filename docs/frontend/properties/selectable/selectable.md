@@ -4,9 +4,9 @@ A utility module providing selection functionality for renderables. Needs to mai
 
 ## Requires
 
-- [Nodes](../../nodes/node.md)
-- [Comments](../../comments/comment.md)
-- [Groups](../../groups/group.md)
+- [Comments](../../renderables/comments/comment.md)
+- [Groups](../../renderables/groups/group.md)
+- [Nodes](../../renderables/nodes/node.md)
 
 ## Required By
 

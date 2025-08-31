@@ -7,7 +7,7 @@ A module providing functionality for navigating the compiler's node graph view m
 
 ## Requires
 
-- [Node](../nodes/node.md)
+- [Node](../../renderables/nodes/node.md)
 
 ## Required By
 
