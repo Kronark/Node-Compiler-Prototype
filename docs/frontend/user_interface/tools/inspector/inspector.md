@@ -4,8 +4,8 @@ A GUI component which helps users debug node related data. Should showcase all i
 
 ## Requires
 
-- TODO: node selections
-- [Window](../window/window.md)
+- [Selectable](../../../properties/selectable/selectable.md)
+- [Window](../../window/window.md)
 
 ## Required By
 
