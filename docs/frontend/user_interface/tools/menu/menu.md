@@ -1,4 +1,4 @@
-# Menu ([Frontend](../frontend.md))
+# Menu ([Frontend](../../../frontend.md))
 
 A GUI component and underlying data structure providing an organised view of available nodes to the user. Nodes are grouped by their corresponding modules. Available nodes include:
 
