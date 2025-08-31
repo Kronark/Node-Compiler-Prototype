@@ -8,5 +8,5 @@ A utility module providing drag and drop functionality for GUI components it is 
 
 ## Required By
 
-- [Grid](../../grid/grid.md)
-- [Node](../../nodes/node.md)
+- [Grid](../../user_interface/graph_view/grid/grid.md)
+- [Node](../../renderables/nodes/node.md)
