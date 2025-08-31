@@ -8,7 +8,7 @@ Middleware for assigning functionality to keyboard inputs *if no input field is 
 
 ## Requires
 
-- [History](../history/history.md)
+- [History](../../history/history.md)
 - [Traversal](../traversal/traversal.md)
 
 ## Required By
