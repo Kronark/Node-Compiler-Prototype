@@ -16,7 +16,7 @@ The colour associated with the node space a node instance represents should fill
 ## Required By
 
 - [Node](./node.md)
-- [Node Parsing](../node_file_format/parsing.md)
-- [Node Serialisation](../node_file_format/serialisation.md)
-- [Layout Parsing](../layout_file_format/parsing.md)
-- [Layout Serialisation](../layout_file_format/serialisation.md)
+- [Node Parsing](../../node_file_format/parsing.md)
+- [Node Serialisation](../../node_file_format/serialisation.md)
+- [Layout Parsing](../../layout_file_format/parsing.md)
+- [Layout Serialisation](../../layout_file_format/serialisation.md)
