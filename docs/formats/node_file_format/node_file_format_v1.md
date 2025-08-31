@@ -77,8 +77,6 @@ Notes:
 
 ## Comments
 
-// count isn't strictly necessary since this is the last
-structure in the file, but it's included for forwards-compatibility
 - comment count [N]
 - comments:
     - item id [N]

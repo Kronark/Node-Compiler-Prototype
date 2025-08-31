@@ -4,8 +4,9 @@ Module responsible for serialising node data into the newest version of the node
 
 ## Requires
 
-- [Node](../../nodes/node.md)
+- [Node](../renderables/nodes/node.md)
 
 ## Required By
 
-*Nothing*
+- [Frontend Node Parsing](./parsing.md)
+- [Backend Node Parsing](../../backend/node_file_format/parsing.md)

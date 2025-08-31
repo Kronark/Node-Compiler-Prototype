@@ -49,7 +49,7 @@ An enumeration of possible parameters a socket of a certain type can take. Needs
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../node_file_format/parsing.md)
-- [Node Serialisation](../node_file_format/serialisation.md)
-- [Layout Parsing](../layout_file_format/parsing.md)
-- [Layout Serialisation](../layout_file_format/serialisation.md)
+- [Node Parsing](../../node_file_format/parsing.md)
+- [Node Serialisation](../../node_file_format/serialisation.md)
+- [Layout Parsing](../../layout_file_format/parsing.md)
+- [Layout Serialisation](../../layout_file_format/serialisation.md)
