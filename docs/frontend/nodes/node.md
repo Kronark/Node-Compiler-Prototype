@@ -14,7 +14,7 @@ The node space component to this frontend version of the datatype should provide
 - [Node Settings](./node_settings.md)
 - [Node Roots](./node_roots.md)
 - [Instance](./instance.md)
-- [Drag](../drag/drag.md)
+- [Dragable](../properties/dragable/dragable.md)
 
 ## Required By
 
