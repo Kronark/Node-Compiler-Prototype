@@ -18,6 +18,7 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
 - Properties
     - [Collapsible](./properties/collapsible/collapsible.md)
     - [Dragable](./properties/dragable/dragable.md)
+    - [Selectable](./properties/selectable/selectable.md)
 - Renderables
     - [Comments](./renderables/comments/comment.md)
     - [Group](./renderables/groups/group.md)
