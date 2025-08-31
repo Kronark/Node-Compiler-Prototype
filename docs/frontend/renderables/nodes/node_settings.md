@@ -1,4 +1,4 @@
-# Node Settings ([Frontend](../frontend.md))
+# Node Settings ([Frontend](../../frontend.md))
 
 A structure of node specific settings relevant for node instances and node file storage. This type should contain the following:
 

@@ -1,4 +1,4 @@
-# Comment ([Frontend](../frontend.md))
+# Comment ([Frontend](../../frontend.md))
 
 A draggable box containing text. Needs to be associated with a specific node instance or group. Serves the purpose of allowing developers of a node space to communicate functionality inside of the node graph they are building.
 

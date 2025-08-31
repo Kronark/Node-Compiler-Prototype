@@ -1,4 +1,4 @@
-# Socket Type ([Frontend](../frontend.md))
+# Socket Type ([Frontend](../../frontend.md))
 
 An enumeration of possible types a socket can take. Needs to be printable. The possible socket types so far are as follows:
 
