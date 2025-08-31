@@ -10,7 +10,7 @@ The menu component needs to query the dependencies of a node space when it is op
 
 ## Requires
 
-- [Communication](../communication/communication.md)
+- [Communication](../../../communication/communication.md)
 - [Window](../../window/window.md)
 
 ## Required By
