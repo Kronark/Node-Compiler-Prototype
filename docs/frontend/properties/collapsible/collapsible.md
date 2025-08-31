@@ -4,9 +4,9 @@ Functionality that can be applied to nodes, comments and groups - allowing them 
 
 ## Requires
 
-- [Nodes](../../nodes/node.md)
-- [Comments](../../comments/comment.md)
-- [Groups](../../groups/group.md)
+- [Comments](../../renderables/comments/comment.md)
+- [Groups](../../renderables/groups/group.md)
+- [Nodes](../../renderables/nodes/node.md)
 
 ## Required By
 
