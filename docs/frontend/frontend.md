@@ -37,6 +37,7 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
         - [Overlays](./user_interface/graph_view/overlays/overlays.md)
     - Tools
         - [Inspector](./user_interface/tools/inspector/inspector.md)
+        - [Issues](./user_interface/tools/issues/issues.md)
         - [Menu](./user_interface/tools/menu/menu.md)
     - [Window](./window/window.md)
 
