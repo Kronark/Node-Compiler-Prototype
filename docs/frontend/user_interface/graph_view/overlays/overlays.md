@@ -8,12 +8,12 @@ While overlays should largely be user specified, not only in data association bu
 
 <table>
     <tr>
-        <td><img src="../../assets/overlays/1.jpg"></td>
-        <td><img src="../../assets/overlays/3.jpg"></td>
+        <td><img src="../../../../assets/overlays/1.jpg"></td>
+        <td><img src="../../../../assets/overlays/3.jpg"></td>
     </tr>
     <tr>
-        <td><img src="../../assets/overlays/4.jpg"></td>
-        <td><img src="../../assets/overlays/2.jpg"></td>
+        <td><img src="../../../../assets/overlays/4.jpg"></td>
+        <td><img src="../../../../assets/overlays/2.jpg"></td>
     </tr>
 </table>
 
