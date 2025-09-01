@@ -1,4 +1,4 @@
-# Option Node ([Frontend](../../frontend.md))
+# Option Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for adding options to a selection input. Connected options to a singular selection port are ordered alphanumerically. An option node's sockets are defined as follows:
 

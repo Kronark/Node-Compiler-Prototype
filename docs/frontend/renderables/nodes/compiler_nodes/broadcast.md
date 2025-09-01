@@ -1,4 +1,4 @@
-# Broadcast Node ([Frontend](../../frontend.md))
+# Broadcast Node ([Frontend](../../../frontend.md))
 
 A compiler node allowing users to configure sockets inside of a custom node space, but render them in a grandparent node instance instead of the default parent instance level. A broadcast node's sockets are defined as follows:
 

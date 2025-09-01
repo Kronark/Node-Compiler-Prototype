@@ -1,4 +1,4 @@
-# Tunnel Node ([Frontend](../../frontend.md))
+# Tunnel Node ([Frontend](../../../frontend.md))
 
 A compiler node allowing users to provide data at different places within a node graph without needing to draw connections. A tunnel node's sockets are defined as follows:
 

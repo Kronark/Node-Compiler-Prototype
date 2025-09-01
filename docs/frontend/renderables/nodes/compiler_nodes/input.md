@@ -1,4 +1,4 @@
-# Input Node ([Frontend](../../frontend.md))
+# Input Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for providing a node graph with an input stream of outside data. An input node's sockets are defined as follows:
 

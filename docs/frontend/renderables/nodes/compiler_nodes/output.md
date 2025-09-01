@@ -1,4 +1,4 @@
-# Output Node ([Frontend](../../frontend.md))
+# Output Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for providing a node graph with an output stream, as well as a place to define a node's settings. An output node's sockets are defined as follows:
 
