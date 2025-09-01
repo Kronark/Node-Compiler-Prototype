@@ -42,27 +42,19 @@ If *1* is *active*:<br>
     - "Switch"
     - "Text" (Default)
 
-If *5* is not *select*:<br>
-
 6. Switch Input - Unnamed<br>
-    - Inactive: "Not Connectible"
-    - Active: "Connectible"
-
-End If
-
-7. Switch Input - Unnamed<br>
     - Inactive: "No Repetition" (Default)
     - Active: "Repetition"
 
 If *6* is *active*:<br>
 
-8. Number Input - "Repetition Minimum"
+7. Number Input - "Repetition Minimum"
     - Minimum: "1"
     - Maximum: ""
     - Step: "1"
     - Default: "1"
 
-9. Number Input - "Repetition Maximum"
+8. Number Input - "Repetition Maximum"
     - Minimum: "1"
     - Maximum: ""
     - Step: "1"
@@ -72,15 +64,15 @@ End If
 
 End If
 
-10. *Variable amount of socket-type specific settings - see [socket parameters](../socket_parameters.md)*
+9. *Variable amount of socket-type specific settings - see [socket parameters](../socket_parameters.md)*
 
 If *1* is *active*:<br>
 
-11. Named Output - *Dynamic Name*
+10. Named Output - *Dynamic Name*
 
 Else If *1* is *inactive*:<br>
 
-11. Named Input - *Dynamic Name*
+10. Named Input - *Dynamic Name*
 
 End If
 
