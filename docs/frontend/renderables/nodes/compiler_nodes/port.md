@@ -1,6 +1,6 @@
 # Port Node ([Frontend](../../frontend.md))
 
-A compiler node responsible for defining a socket and providing its data to or receiving its data from the node graph within a given node space. A port node's sockets are defined as follows:
+A compiler node responsible for defining a socket (in a parent node instance) and providing its data to or receiving its data from the node graph within a given node space. A port node's sockets are defined as follows:
 
 ___
 
