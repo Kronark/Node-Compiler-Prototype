@@ -38,7 +38,7 @@ End If
 
 ___
 
-The broadcast node renders a *named socket* in place of the socket defined by the connected [port node](port.md). During traversal, this socket is treated like a port's channel socket. This allows users to further propagate a socket to a *greatgranparent node instance* or higher, if desired.
+The broadcast node renders a *named socket* in place of the socket defined by the connected [port node](./port.md). During traversal, this socket is treated like a port's channel socket. This allows users to further propagate a socket to a *greatgranparent node instance* or higher, if desired.
 
 A broadcast node is always connected to the *channel* socket of a [port node](./port.md). This means in case of an *input port*, they are placed to the *left* within a node graph, *before* the socket definition. In case of an *output port*, they are placed to the *right* within a node node graph, *after* the socket definition.
 
