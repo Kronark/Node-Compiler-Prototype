@@ -26,6 +26,8 @@ ___
 
 A type node is always connected to the *data* socket of a [port node](./port.md). This means in case of an *input port*, they are placed to the *right* within a node graph, *after* the socket definition. In case of an *output port*, they are placed to the *left* within a node node graph, *before* the socket definition.
 
+While an *input port* can accept *multiple* type node connections, an output port can only ever by associated with *a single one*.
+
 ## Requires
 
 - [Node](../node.md)
