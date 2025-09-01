@@ -1,4 +1,4 @@
-# Type Node ([Frontend](../../frontend.md))
+# Type Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for adding type information to a data stream. The name associated with a type is used to control which connections can be established. A type node's sockets are defined as follows:
 
