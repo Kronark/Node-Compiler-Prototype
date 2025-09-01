@@ -29,7 +29,7 @@ End If
 4. Text Input - "Name"<br>
     - Minimum: "0"
     - Maximum: ""
-    - Step: ""
+    - Valid: ""
     - Default: "Socket"
 
 If *1* is *active*:<br>
