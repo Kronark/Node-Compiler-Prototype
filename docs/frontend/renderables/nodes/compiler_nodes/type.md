@@ -7,7 +7,7 @@ ___
 1. Named Input - "Data"
 
 2. Switch Input - Unnamed
-    - Inactive: "Not Default"
+    - Inactive: "Not Default" (Default)
     - Active: "Default"
     - *Notes*:
         - Exactly one of multiple type nodes connected to a specific [port node](./port.md) can be marked as *default type*. It needs to be ensured that multiple or no default types are either automatically fixed or appropriately highlighted by the [compiler backend](../../../../backend/backend.md).
@@ -16,6 +16,7 @@ ___
     - Minimum: "1"
     - Maximum: ""
     - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_"
+    - Default: "new_type"
     - *Notes*:
         - Type name specification may be overhauled with a module path system akin to namespaces in traditional programming.
 
