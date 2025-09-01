@@ -1,4 +1,4 @@
-# Node Roots ([Frontend](../frontend.md))
+# Node Roots ([Frontend](../../frontend.md))
 
 A structure containing information regarding the input and output root nodes of a node space. Should contain the following:
 

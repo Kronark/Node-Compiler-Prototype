@@ -1,4 +1,4 @@
-# Overlays ([Frontend](../frontend.md))
+# Overlays ([Frontend](../../../frontend.md))
 
 A module responsible for visualising peripheral data associated with the instances contained in a node space. Ties into the data association system provided by the backend, which allows the association of node spaces with numerical and categorical data. This feature is inspired by a system employed by the video game "Oxygen Not Included", as shown below. Within the game, players can visualise different otherwise hardly visible, if not completely invisible properties of a space. The images show in order from top left to bottom right: the basic view, an overlay showing electrical circuits, an overlay showing germs and an overlay showing air quality. A similar feature is proposed for the node compiler for debugging and optimisation purposes.
 
@@ -8,12 +8,12 @@ While overlays should largely be user specified, not only in data association bu
 
 <table>
     <tr>
-        <td><img src="../../assets/overlays/1.jpg"></td>
-        <td><img src="../../assets/overlays/3.jpg"></td>
+        <td><img src="../../../../assets/overlays/1.jpg"></td>
+        <td><img src="../../../../assets/overlays/3.jpg"></td>
     </tr>
     <tr>
-        <td><img src="../../assets/overlays/4.jpg"></td>
-        <td><img src="../../assets/overlays/2.jpg"></td>
+        <td><img src="../../../../assets/overlays/4.jpg"></td>
+        <td><img src="../../../../assets/overlays/2.jpg"></td>
     </tr>
 </table>
 
