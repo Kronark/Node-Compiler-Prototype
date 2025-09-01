@@ -1,4 +1,4 @@
-# Window ([Frontend](../frontend.md))
+# Window ([Frontend](../../frontend.md))
 
 A component responsible for triggering the creation of a window and associated render targets on startup of the frontend process.
 

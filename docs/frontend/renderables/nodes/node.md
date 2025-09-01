@@ -1,4 +1,4 @@
-# Node ([Frontend](../frontend.md))
+# Node ([Frontend](../../frontend.md))
 
 A graphical representation of an underlying data structure representing a node as utilised by the compiler backend. An internal data type representing a custom node space is attached to the graphical component. Parsed from any of the file formats specified in `formats/node_file_format/` or created during use of the software. May contain additional data structures not included in the original file format. Furthermore, components encoded in the file format may be moved to external data structures. Potential fields include the following:
 
