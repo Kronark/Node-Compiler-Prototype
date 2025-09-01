@@ -4,12 +4,11 @@ A compiler node responsible for providing a node graph with an output stream, as
 
 ___
 
-1. Text Input - "Module"<br>
+1. Repetitive Text Input - "Module"<br>
     - Minimum: "0"
     - Maximum: ""
-    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ /_"
+    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
     - Default: ""
-    - Permitted: *module paths*
 
 2. Text Input - "Name"<br>
     - Minimum: "1"
@@ -20,7 +19,7 @@ ___
 3. Colour Input - "Colour"<br>
     - Default: "0, 0, 0"
 
-4. Named Repetitive Input - Unnamed
+4. Repetitive Named Input - Unnamed
 
 ___
 
