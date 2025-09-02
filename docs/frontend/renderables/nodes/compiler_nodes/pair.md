@@ -47,6 +47,7 @@ When rendering a pair of sockets, label information in form of the socket "name"
 ## Requires
 
 - [Node](../node.md)
+- [Port](./port.md)
 
 ## Required By
 
