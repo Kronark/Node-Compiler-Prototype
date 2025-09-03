@@ -7,7 +7,7 @@ A utility module providing all relevant functionality required to control the 2D
 
 ## Requires
 
-*Nothing*
+- [Window](../../window/window.md)
 
 ## Required By
 
