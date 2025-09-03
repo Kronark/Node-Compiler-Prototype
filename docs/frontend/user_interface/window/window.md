@@ -8,4 +8,7 @@ A component responsible for triggering the creation of a window and associated r
 
 ## Required By
 
-- [Menu](../menu/menu.md)
+- [Menu](../tools/menu/menu.md)
+- [Issues](../tools/issues/issues.md)
+- [Inspector](../tools/inspector/inspector.md)
+- [Camera](../graph_view/camera/camera.md)
