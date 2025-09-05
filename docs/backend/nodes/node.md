@@ -9,10 +9,9 @@ An internal data type representing a custom node space. Parsed from any of the f
 
 ## Requires
 
-- Nodes
-    - Node Settings
-    - Node Roots
-    - Instance
+- [Instance](./instance.md)
+- [Node Settings](./node_settings.md)
+- [Node Roots](./node_roots.md)
 
 ## Required By
 
