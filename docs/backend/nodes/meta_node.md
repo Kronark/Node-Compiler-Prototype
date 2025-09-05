@@ -10,8 +10,10 @@ The motivation behind *meta nodes* is to eliminate as many *black boxes* as poss
 
 ## Requires
 
-- [IR Compilation](../compilation/ir_compiler.md)
+- [Instance](./instance.md)
+- [Node Settings](./node_settings.md)
+- [Node Roots](./node_roots.md)
 
 ## Required By
 
-*Nothing*
+- [Node Parsing](../node_file_format/parsing.md)
