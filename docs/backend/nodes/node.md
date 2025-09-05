@@ -15,4 +15,5 @@ An internal data type representing a custom node space. Parsed from any of the f
 
 ## Required By
 
+- [Compiler](../compilation/node_compiler.md)
 - [Node Parsing](../node_file_format/parsing.md)

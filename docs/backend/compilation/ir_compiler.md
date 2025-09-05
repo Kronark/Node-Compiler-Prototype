@@ -8,7 +8,8 @@ Note that the IR and this separate compiler loop are *temporary*, as their purpo
 
 - [Intermediate Representation](./ir.md)
 - [Meta Nodes](../nodes/meta_node.md)
+- [Compiler](./node_compiler.md)
 
 ## Required By
 
-- [Compiler](./node_compiler.md)
+*Nothing*
