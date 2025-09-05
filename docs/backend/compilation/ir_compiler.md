@@ -1,10 +1,13 @@
 # IR Compiler ([Backend](../backend.md))
 
-A separate JIT (just-in-time) compilation process utilised by the [meta nodes](../meta_nodes/meta_node.md) system. The [node compiler](./node_compiler.md) invokes the IR compiler when a *meta node* is encountered. The IR compiler then compiles and executes the associated code of the traversed meta node and retrives the results for further use in the [node compiler](./node_compiler.md).
+A separate compilation process utilised by the [meta nodes](../meta_nodes/meta_node.md) system. The IR compiler is responsible for converting the *temporary* [IR](./ir.md) into machine code runnable on the local system.
+
+Note that the IR and this separate compiler loop are *temporary*, as their purpose is to help us bootstrap our way into *self-hosting* the meta node system. The goal is to compile meta nodes using custom programming nodes that emit machine code for the current platform - the *exact* same used in non-meta node spaces.
 
 ## Requires
 
 - [Intermediate Representation](./ir.md)
+- [Meta Nodes](../meta_nodes/meta_node.md)
 
 ## Required By
 
