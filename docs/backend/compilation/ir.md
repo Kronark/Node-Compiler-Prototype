@@ -1,6 +1,6 @@
 # Intermediate Representation ([Backend](../backend.md))
 
-A module defining the intermediate representation (IR) utilised by the [meta nodes](../meta_nodes/meta_node.md) system of the node compiler. The IR is specified as follows:
+A module defining the intermediate representation (IR) utilised by the [meta nodes](../nodes/meta_node.md) system of the node compiler. The IR is specified as follows:
 
 ___
 - **Control Flow**:
