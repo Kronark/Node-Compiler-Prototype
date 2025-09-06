@@ -14,12 +14,15 @@ The node space component to this frontend version of the datatype should provide
 - [Node Settings](./node_settings.md)
 - [Node Roots](./node_roots.md)
 - [Instance](./instance.md)
-- [Dragable](../properties/dragable/dragable.md)
 
 ## Required By
 
-- [Node Parsing](../../node_file_format/parsing.md)
 - [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Parsing](../../layout_file_format/parsing.md)
 - [Layout Serialisation](../../layout_file_format/serialisation.md)
 - [Overlays](../../user_interface/graph_view/overlays/overlays.md)
+- [Selectable](../../properties/selectable/selectable.md)
+- [Collapsible](../../properties/collapsible/collapsible.md)
+- [Comment](../comments/comment.md)
+- [Group](../groups/group.md)
+- [Input](./compiler_nodes/input.md)
+- [Output](./compiler_nodes/output.md)

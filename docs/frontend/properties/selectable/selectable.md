@@ -11,5 +11,4 @@ A utility module providing selection functionality for renderables. Needs to mai
 ## Required By
 
 - [Clipboard](../../user_input/clipboard/clipboard.md)
-- [Dragable](../dragable/dragable.md)
 - [Inspecter](../../user_interface/tools/inspector/inspector.md)
