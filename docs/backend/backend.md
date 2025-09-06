@@ -5,6 +5,7 @@ The backend of the Kronark Node Compiler is written in ***rust***. It's standalo
 ## Responsibilities
 
 - Node graph compilation
+- Cache file maintenance
 
 ## Overview
 
@@ -16,8 +17,3 @@ The backend of the Kronark Node Compiler is written in ***rust***. It's standalo
 - [Node Parsing](./node_file_format/parsing.md)
 - [Node Data](./nodes/node.md)
 - [Project](./project/project.md)
-
-
-## Task Dependencies
-
-TODO
