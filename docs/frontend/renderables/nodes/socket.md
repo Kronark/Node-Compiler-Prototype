@@ -16,14 +16,9 @@ An internal data type representing a node socket. Parsed from any of the file fo
 
 - [Socket Parameters](./socket_parameters.md)
 - [Socket Type](./socket_type.md)
-- [Type](./type.md)
 - [Value](./value.md)
 - [Connection](./connection.md)
 
 ## Required By
 
 - [Instance](./instance.md)
-- [Node Parsing](../../node_file_format/parsing.md)
-- [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Parsing](../../layout_file_format/parsing.md)
-- [Layout Serialisation](../../layout_file_format/serialisation.md)

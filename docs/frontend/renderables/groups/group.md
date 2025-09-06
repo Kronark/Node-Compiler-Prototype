@@ -9,4 +9,5 @@ A draggable box capable of *containing* node instances and comments, allowing th
 
 ## Required By
 
-*Nothing*
+- [Collapsible](../../properties/collapsible/collapsible.md)
+- [Selectable](../../properties/selectable/selectable.md)

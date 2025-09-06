@@ -10,3 +10,5 @@ A utility module providing drag and drop functionality for GUI components it is 
 
 - [Grid](../../user_interface/graph_view/grid/grid.md)
 - [Node](../../renderables/nodes/node.md)
+- [Comment](../../renderables/comments/comment.md)
+- [Group](../../renderables/groups/group.md)

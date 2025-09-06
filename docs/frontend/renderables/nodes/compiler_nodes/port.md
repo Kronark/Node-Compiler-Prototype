@@ -89,7 +89,6 @@ The final socket of a port node, the socket providing or receiving data to be re
 
 ## Requires
 
-- [Node](../node.md)
 - [Input](./input.md)
 - [Output](./output.md)
 
