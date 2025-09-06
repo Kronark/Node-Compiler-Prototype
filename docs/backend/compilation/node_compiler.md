@@ -29,6 +29,14 @@ ___
 
 Note that a significant component of the node compilation approach is its efficient [*caching*](../cache/cache.md). The above compilation loop only scales adequately if the traversal of unaffected node sub-graphs is skipped for a given user input.
 
+Further note that this compilation loop needs to keep track of node graph *activation* states, which is not outlined above. Essentially, if a node is connected to an [input node](../nodes/compiler_nodes/input.md), that node is activated. Other nodes connected to an activated node are also activated. Additionally, truth values can be utilised for activation - however, further design work is necessary, as shown below.
+
+___
+Input Node --> Input Port Node for *truth socket* --> Type Node --> ... --> Type Node --> Output Port Node --> Output Node
+
+If the truth value is set to *false* in this scenario, the output socket would not be rendered. However, propagating activation to output ports is necessary to allow for different outputs for different scenarios. It needs to be ensured that sockets vanishing due to truth value change do *not* cause fatal compiler errors.
+___
+
 ## Requires
 
 - [Node](../nodes/node.md)
