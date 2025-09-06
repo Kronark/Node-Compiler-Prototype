@@ -27,7 +27,7 @@ ___
         --> go to 2
 ___
 
-Note that a significant component of the node compilation approach is its efficient *caching*. The above compilation loop only scales adequately if the traversal of unaffected node sub-graphs is skipped for a given user input.
+Note that a significant component of the node compilation approach is its efficient [*caching*](../cache/cache.md). The above compilation loop only scales adequately if the traversal of unaffected node sub-graphs is skipped for a given user input.
 
 ## Requires
 
@@ -39,4 +39,4 @@ Note that a significant component of the node compilation approach is its effici
 ## Required By
 
 - [IR Compiler](./ir_compiler.md)
-- TODO: caching task
+- [Cache](../cache/cache.md)
