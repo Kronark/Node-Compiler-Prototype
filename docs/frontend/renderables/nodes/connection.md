@@ -15,7 +15,3 @@ While the above contents can be directly parsed from the node file format, it ma
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../../node_file_format/parsing.md)
-- [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Parsing](../../layout_file_format/parsing.md)
-- [Layout Serialisation](../../layout_file_format/serialisation.md)

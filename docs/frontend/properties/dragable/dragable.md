@@ -4,9 +4,11 @@ A utility module providing drag and drop functionality for GUI components it is 
 
 ## Requires
 
-*Nothing*
+- [Window](../../user_interface/window/window.md)
 
 ## Required By
 
 - [Grid](../../user_interface/graph_view/grid/grid.md)
 - [Node](../../renderables/nodes/node.md)
+- [Comment](../../renderables/comments/comment.md)
+- [Group](../../renderables/groups/group.md)

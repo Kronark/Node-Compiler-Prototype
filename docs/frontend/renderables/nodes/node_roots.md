@@ -13,7 +13,3 @@ A structure containing information regarding the input and output root nodes of 
 ## Required By
 
 - [Node](./node.md)
-- [Node Parsing](../../node_file_format/parsing.md)
-- [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Parsing](../../layout_file_format/parsing.md)
-- [Layout Serialisation](../../layout_file_format/serialisation.md)

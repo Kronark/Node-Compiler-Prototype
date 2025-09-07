@@ -15,5 +15,5 @@ An abstraction layer to keep track of the currently active project root space fo
 
 ## Required By
 
-- [Compiler](../compilation/compiler.md)
+- [Compiler](../compilation/node_compiler.md)
 - [Dependencies](../dependencies/dependency_graph.md)

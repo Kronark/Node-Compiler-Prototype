@@ -4,7 +4,7 @@ A utility module providing methods for copying and pasting socket values and nod
 
 ## Requires
 
-*Nothing*
+- [Selectable](../../properties/selectable/selectable.md)
 
 ## Required By
 

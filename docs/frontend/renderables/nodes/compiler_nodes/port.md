@@ -89,8 +89,12 @@ The final socket of a port node, the socket providing or receiving data to be re
 
 ## Requires
 
-- [Node](../node.md)
+- [Input](./input.md)
+- [Output](./output.md)
 
 ## Required By
 
-*Nothing*
+- [Broadcast](./broadcast.md)
+- [Option](./option.md)
+- [Pair](./pair.md)
+- [Type](./type.md)
