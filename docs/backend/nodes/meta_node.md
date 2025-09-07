@@ -16,4 +16,5 @@ The motivation behind *meta nodes* is to eliminate as many *black boxes* as poss
 
 ## Required By
 
+- [Compiler](../compilation/node_compiler.md)
 - [Node Parsing](../node_file_format/parsing.md)
