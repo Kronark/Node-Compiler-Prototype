@@ -46,7 +46,7 @@ A broadcast node is only ever associated with *one* [port node](./port.md).
 
 ## Requires
 
-- [Node](../node.md)
+- [Port](./port.md)
 
 ## Required By
 

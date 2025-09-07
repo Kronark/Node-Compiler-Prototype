@@ -29,7 +29,3 @@ An enumeration of possible types a socket can take. Needs to be printable. The p
 ## Required By
 
 - [Socket](./socket.md)
-- [Node Parsing](../../node_file_format/parsing.md)
-- [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Parsing](../../layout_file_format/parsing.md)
-- [Layout Serialisation](../../layout_file_format/serialisation.md)

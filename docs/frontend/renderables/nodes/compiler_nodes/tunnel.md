@@ -30,7 +30,8 @@ The motiviation behind this node is node graph clarity, as highly complex node g
 
 ## Requires
 
-- [Node](../node.md)
+- [Type](./type.md)
+- [Option](./option.md)
 
 ## Required By
 
