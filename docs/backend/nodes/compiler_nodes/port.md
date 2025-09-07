@@ -87,6 +87,8 @@ The final socket of a port node, the socket providing or receiving data to be re
 - Switch: "Truth"
 - Text: "Text"
 
+In the backend this task includes functionality for *expression evaluation*. The parameter values of *minima* and *maxima* for both **text** and **number** sockets, as well as the *number step* parameter value can be defined as an expression instead of a concrete value. This allows users to specify limitations mathematically, which is especially useful for the *number step* parameter e.g. for forcing an input to be *power of 2*. See [socket parameters](../socket_parameters.md) for more details. The textual syntax of various mathematical expressions needs to be re-evaluated on re-compilation of a port node. It should support most common ascii representations of mathematical expressions such as `x/y` for division or `x^y` for exponentiation.
+
 ## Requires
 
 - [Node](../node.md)
