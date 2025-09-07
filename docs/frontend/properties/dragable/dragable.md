@@ -4,7 +4,7 @@ A utility module providing drag and drop functionality for GUI components it is 
 
 ## Requires
 
-*Nothing*
+- [Window](../../user_interface/window/window.md)
 
 ## Required By
 

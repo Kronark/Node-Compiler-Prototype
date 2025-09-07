@@ -4,7 +4,7 @@ A data structure holding a history of edits for a given project. Provides functi
 
 ## Requires
 
-*Nothing*
+- [Window](../user_interface/window/window.md)
 
 ## Required By
 
