@@ -4,7 +4,7 @@ Module responsible for serialising node data into the newest version of the node
 
 ## Requires
 
-- [Node](../renderables/nodes/node.md)
+- [Group](../renderables/groups/group.md)
 
 ## Required By
 

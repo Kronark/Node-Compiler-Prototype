@@ -4,9 +4,7 @@ A utility module providing resizability functionality for renderables. Should ex
 
 ## Requires
 
-- [Comments](../../renderables/comments/comment.md)
 - [Groups](../../renderables/groups/group.md)
-- [Nodes](../../renderables/nodes/node.md)
 
 ## Required By
 

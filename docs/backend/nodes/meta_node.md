@@ -10,11 +10,8 @@ The motivation behind *meta nodes* is to eliminate as many *black boxes* as poss
 
 ## Requires
 
-- [Instance](./instance.md)
-- [Node Settings](./node_settings.md)
-- [Node Roots](./node_roots.md)
+- [Node](./node.md)
 
 ## Required By
 
 - [Node Compiler](../compilation/node_compiler.md)
-- [Node Parsing](../node_file_format/parsing.md)
