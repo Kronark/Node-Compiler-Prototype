@@ -45,15 +45,24 @@ Notes:
 
 ## Instances
 
+- instance count [N]
 - instances:
     - item id [N]
     - instance position:
         - instance position x [4]
         - instance position y [4]
     - instance width [4]
+    - instance socket count [N]
+    - instance sockets:
+        - connection pin count [N]
+        - connection pins:
+          - pin position x [4]
+          - pin position y [4]
 
 # [EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) Representation
-Assuming "1"/"0" represent on/off bits, the file format is described by the following EBNF grammar:
+
+Assuming "1" / "0" represent on/off bits, the file format is described by the following EBNF grammar:
+
 ```ebnf
 bit = "1" | "0" ;
 byte = 8 * bit ;
@@ -91,7 +100,7 @@ layout y = float ;
 layout width = float ;
 layout height = float ;
 
-item layout = item id, layout x,
+item layout = item id, layout x, 
   layout y, layout width, layout height ;
 
 group = item layout ;
@@ -100,8 +109,12 @@ groups = count, {group} ;
 comment = item layout ;
 comments = count, {comment} ;
 
-instance = item layout ;
-instances = {instance} ;
+socket = count, layout x, layout y ;
+sockets = {socket} ;
+
+instance = item id, layout x,
+  layout y, layout width, count, sockets ;
+instances = count, {instance} ;
 
 file = kronlyt, version number, root positions,
   groups, comments, instances ;
