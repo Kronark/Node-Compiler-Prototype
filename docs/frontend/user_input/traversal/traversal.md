@@ -8,6 +8,7 @@ A module providing functionality for navigating the compiler's node graph view m
 ## Requires
 
 - [Node](../../renderables/nodes/node.md)
+- [History](../../history/history.md)
 
 ## Required By
 

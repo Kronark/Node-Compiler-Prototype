@@ -8,4 +8,4 @@ A data structure holding a history of edits for a given project. Provides functi
 
 ## Required By
 
-- [Hotkeys](../user_input/hotkeys/hotkeys.md)
+- [Traversal](../user_input/traversal/traversal.md)

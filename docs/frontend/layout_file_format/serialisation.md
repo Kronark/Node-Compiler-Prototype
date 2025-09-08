@@ -4,7 +4,7 @@ Module responsible for serialising layout information into the newest version of
 
 ## Requires
 
-- [Node](../renderables/nodes/node.md)
+- [Group](../renderables/groups/group.md)
 
 ## Required By
 

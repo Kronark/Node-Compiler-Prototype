@@ -12,7 +12,7 @@ An input node, much like its [output node](./output.md) counterpart, can not be 
 
 ## Requires
 
-- [Node](../node.md)
+- [Group](../../groups/group.md)
 
 ## Required By
 

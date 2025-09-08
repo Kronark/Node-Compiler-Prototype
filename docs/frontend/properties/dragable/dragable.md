@@ -8,7 +8,5 @@ A utility module providing drag and drop functionality for GUI components it is 
 
 ## Required By
 
-- [Grid](../../user_interface/graph_view/grid/grid.md)
-- [Node](../../renderables/nodes/node.md)
-- [Comment](../../renderables/comments/comment.md)
-- [Group](../../renderables/groups/group.md)
+- [Camera](../../user_interface/graph_view/camera/camera.md)
+- [Pin](../../renderables/nodes/pin.md)

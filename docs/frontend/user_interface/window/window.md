@@ -10,5 +10,5 @@ A component responsible for triggering the creation of a window and associated r
 
 - [Menu](../tools/menu/menu.md)
 - [Issues](../tools/issues/issues.md)
-- [Inspector](../tools/inspector/inspector.md)
 - [Camera](../graph_view/camera/camera.md)
+- [History](../../history/history.md)

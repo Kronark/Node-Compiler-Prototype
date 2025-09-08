@@ -7,7 +7,7 @@ A utility module providing all relevant functionality required to control the 2D
 
 ## Requires
 
-- [Window](../../window/window.md)
+- [Dragable](../../../properties/dragable/dragable.md)
 
 ## Required By
 
