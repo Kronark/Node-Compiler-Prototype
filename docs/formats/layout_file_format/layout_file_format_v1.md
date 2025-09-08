@@ -53,7 +53,9 @@ Notes:
     - instance width [4]
 
 # [EBNF](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) Representation
-Assuming "1"/"0" represent on/off bits, the file format is described by the following EBNF grammar:
+
+Assuming "1" / "0" represent on/off bits, the file format is described by the following EBNF grammar:
+
 ```ebnf
 bit = "1" | "0" ;
 byte = 8 * bit ;
