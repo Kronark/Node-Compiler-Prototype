@@ -19,7 +19,7 @@ While overlays should largely be user specified, not only in data association bu
 
 ## Requires
 
-- [Node](../../../renderables/nodes/node.md)
+- [Group](../../../renderables/groups/group.md)
 
 ## Required By
 
