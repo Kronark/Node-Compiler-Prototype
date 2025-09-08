@@ -18,6 +18,7 @@ An internal data type representing a node socket. Parsed from any of the file fo
 - [Socket Type](./socket_type.md)
 - [Value](./value.md)
 - [Connection](./connection.md)
+- [Pin](./pin.md)
 
 ## Required By
 
