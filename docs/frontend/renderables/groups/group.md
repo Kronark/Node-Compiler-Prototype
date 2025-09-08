@@ -4,7 +4,6 @@ A draggable box capable of *containing* node instances and comments, allowing th
 
 ## Requires
 
-- [Node](../nodes/node.md)
 - [Comment](../comments/comment.md)
 
 ## Required By
@@ -12,3 +11,4 @@ A draggable box capable of *containing* node instances and comments, allowing th
 - [Collapsible](../../properties/collapsible/collapsible.md)
 - [Selectable](../../properties/selectable/selectable.md)
 - [Resizable](../../properties/resizable/resizeable.md)
+- [Overlay](../../user_interface/graph_view/overlays/overlays.md)

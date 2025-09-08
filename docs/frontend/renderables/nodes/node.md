@@ -19,11 +19,4 @@ The node space component to this frontend version of the datatype should provide
 
 - [Node Serialisation](../../node_file_format/serialisation.md)
 - [Layout Serialisation](../../layout_file_format/serialisation.md)
-- [Overlays](../../user_interface/graph_view/overlays/overlays.md)
-- [Selectable](../../properties/selectable/selectable.md)
-- [Collapsible](../../properties/collapsible/collapsible.md)
-- [Resizable](../../properties/resizable/resizeable.md)
 - [Comment](../comments/comment.md)
-- [Group](../groups/group.md)
-- [Input](./compiler_nodes/input.md)
-- [Output](./compiler_nodes/output.md)

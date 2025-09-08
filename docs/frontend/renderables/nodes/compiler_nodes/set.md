@@ -22,7 +22,7 @@ Internally, the sequence of values from socket 2 are concatenated to form the un
 
 ## Requires
 
-- [Node](../node.md)
+- [Group](../../groups/group.md)
 
 ## Required By
 

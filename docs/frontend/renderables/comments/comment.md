@@ -8,6 +8,4 @@ A draggable box containing text. Needs to be associated with a specific node ins
 
 ## Required By
 
-- [Collapsible](../../properties/collapsible/collapsible.md)
-- [Selectable](../../properties/selectable/selectable.md)
-- [Resizable](../../properties/resizable/resizeable.md)
+- [Group](../groups/group.md)
