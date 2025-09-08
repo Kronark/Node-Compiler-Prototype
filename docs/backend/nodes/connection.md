@@ -10,8 +10,7 @@ While the above contents can be directly parsed from the node file format, it ma
 
 ## Requires
 
-- Nodes
-    - Type
+- [Type](./type.md)
 
 ## Required By
 
