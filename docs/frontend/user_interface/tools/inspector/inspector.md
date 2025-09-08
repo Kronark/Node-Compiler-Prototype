@@ -5,7 +5,6 @@ A GUI component which helps users debug node related data. Should showcase all i
 ## Requires
 
 - [Selectable](../../../properties/selectable/selectable.md)
-- [Window](../../window/window.md)
 
 ## Required By
 
