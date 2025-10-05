@@ -34,9 +34,10 @@ While an *input port* can accept *multiple* type node connections, an output por
 
 ## Requires
 
-- [Node](../node.md)
 - [Port](./port.md)
 
 ## Required By
 
-*Nothing*
+- [Item](./item.md)
+- [Package](./package.md)
+- [Tunnel](./tunnel.md)
