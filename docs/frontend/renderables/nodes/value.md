@@ -5,6 +5,8 @@ A wrapper type representing the value of a socket. Needs to be able to carry arb
 1. An arbitrary length array of bytes, with functionality to interpret these bytes in different ways
 2. An enumeration of all potential data types, with functionality to convert between them
 
+Data packaging, i.e. the association of *sub-values* with *label strings*, needs to be supported.
+
 ## Requires
 
 *Nothing*

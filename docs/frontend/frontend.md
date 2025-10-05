@@ -1,6 +1,6 @@
 # Frontend
 
-The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's standalone purpose is the visualisation and modification of a project's node graph. It can *not* compile a given node graph with performed modifications. It can *only* receive node graph data via its file browser or communication from the [**backend**](../backend/backend.md) and then display that node graph in an optimal fashion.
+The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's standalone purpose is the visualisation and modification of a project's node graph. It can *not* compile a given node graph with performed modifications. It can *only* receive node graph data via its file browser or communication from the [**backend**](../backend/backend.md) and then display that node graph in an optimal fashion.
 
 ## Responsibilities
 
@@ -27,8 +27,10 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***C#***. It's sta
         - [Broadcast Node](./renderables/nodes/compiler_nodes/broadcast.md)
         - [Get Node](./renderables/nodes/compiler_nodes/get.md)
         - [Input Node](./renderables/nodes/compiler_nodes/input.md)
+        - [Item Node](./renderables/nodes/compiler_nodes/item.md)
         - [Option Node](./renderables/nodes/compiler_nodes/option.md)
         - [Output Node](./renderables/nodes/compiler_nodes/output.md)
+        - [Package Node](./renderables/nodes/compiler_nodes/package.md)
         - [Pair Node](./renderables/nodes/compiler_nodes/pair.md)
         - [Port Node](./renderables/nodes/compiler_nodes/port.md)
         - [Set Node](./renderables/nodes/compiler_nodes/set.md)
