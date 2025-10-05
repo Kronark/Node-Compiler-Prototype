@@ -44,7 +44,6 @@ The motiviation behind this node is simplifying the common task of defining key-
 
 ## Requires
 
-- [Node](../node.md)
 - [Port](./port.md)
 
 ## Required By
