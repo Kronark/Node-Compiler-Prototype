@@ -30,11 +30,11 @@ func main() {
 			case app.FrameEvent:
 				operations.Reset()
 				
-				graphics_context := app.NewContext(&operations, event)
+				graphicsContext := app.NewContext(&operations, event)
 				
 				// TODO: Rendering
 
-				event.Frame(graphics_context.Ops)
+				event.Frame(graphicsContext.Ops)
 			}
 		}
 	}()
