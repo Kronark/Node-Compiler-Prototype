@@ -26,4 +26,6 @@ Place comments above statements where it is not immediately obvious from that st
 
 Necessary implementation workload is defined in the markdown files in `docs/`. Different tasks have varying dependencies, which are linked in each respective task file. On task completion, the task file is rewritten into adequate of the produced code. The current full dependency tree of all tasks can be visualised as follows:
 
-![Dependency Graph](https://drive.google.com/uc?export=view&id=1sX5xJ0rxBn9cmiEVpaq3EL1eGFfyQEmt)
+<p align="center">
+    <img style="display:block;" src="./assets/dependency_graph/dependency_graph.drawio.svg">
+</p>
