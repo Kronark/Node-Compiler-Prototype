@@ -20,9 +20,8 @@ An option node is always connected to an [input port node](./port.md) if it is o
 
 ## Requires
 
-- [Node](../node.md)
 - [Port](./port.md)
 
 ## Required By
 
-*Nothing*
+- [Tunnel](./tunnel.md)

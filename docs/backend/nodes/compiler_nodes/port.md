@@ -91,7 +91,6 @@ In the backend this task includes functionality for *expression evaluation*. The
 
 ## Requires
 
-- [Node](../node.md)
 - [Input](./input.md)
 - [Output](./output.md)
 

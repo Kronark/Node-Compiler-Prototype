@@ -17,3 +17,7 @@ An internal data type representing a custom node space. Parsed from any of the f
 
 - [Node Parsing](../node_file_format/parsing.md)
 - [Meta Node](./meta_node.md)
+- [Input Node](./compiler_nodes/input.md)
+- [Output Node](./compiler_nodes/output.md)
+- [Set Node](./compiler_nodes/set.md)
+- [Get Node](./compiler_nodes/get.md)
