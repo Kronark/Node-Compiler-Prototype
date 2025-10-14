@@ -1,3 +1,4 @@
+// Frontend is a GUI for editing Kronark Node Compiler nodespaces.
 package main
 
 import (
