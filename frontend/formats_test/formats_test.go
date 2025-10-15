@@ -11,7 +11,7 @@ import (
 )
 
 // TestReadWriteVbi tests that [defs.Vbi] s written to by [WriteVbi] are read the same by [ReadVbi].
-// 
+//
 // It tests the range [0, 2^14].
 func TestReadWriteVbi(t *testing.T) {
 	for i := range int(math.Pow(2,14)) + 1 {
@@ -46,9 +46,11 @@ func TestMinVbiSize(t *testing.T) {
 			t.Errorf("failed to write vbi: %s", err.Error())
 		}
 		
-		bytesRequired := int(math.Max(1, math.Ceil(math.Log2(float64(i+1)) / 7)))
+		bitsRequired := math.Ceil(math.Log2(float64(i+1)))
+		bytesRequired := int(math.Ceil(bitsRequired / 7))
+		bytesRequired = max(1, bytesRequired) // minimum is 1 for our use case
 		
-		t.Logf("%#b", buffer.Bytes())
+		t.Logf("vbi of %d is %#b", i, buffer.Bytes())
 		
 		if bytesRequired != buffer.Len() {
 			t.Errorf("number %d requires %d bytes but %d bytes were written (%#b)", i, bytesRequired, buffer.Len(), buffer.Bytes())
