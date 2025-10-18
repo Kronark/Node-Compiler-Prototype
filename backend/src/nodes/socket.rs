@@ -3,24 +3,26 @@ use std::collections::HashSet;
 use crate::nodes::connection::Connection;
 use crate::nodes::socket_type::SocketType;
 use crate::nodes::socket_parameters::SocketParameter;
-use crate::nodes::value::Value;
-use crate::nodes::r#type::Type;
+use crate::nodes::data_value::DataValue;
+use crate::nodes::data_type::DataType;
+use crate::nodes::vbi::VBI;
 
 pub struct Socket
 {
     pub is_outgoing: bool,
     pub is_repetition: bool,
-    pub slot: u32,
+    pub slot: VBI,
     pub type_: SocketType,
     pub parameters: SocketParameter,
-    pub permitted: HashSet<Type>,
-    pub value: Option<Value>,
+    pub permitted: HashSet<DataType>,
+    pub default_value: String,
+    pub value: Option<DataValue>,
     pub connection: Option<Connection>
 }
 
 impl Socket
 {
-    pub fn new(io : bool, ir : bool, s : u32, t : SocketType, p : SocketParameter, v : Option<Value>, c : Option<Connection>) -> Self
+    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameter, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self
     {
         Self {
             is_outgoing: io,
@@ -29,12 +31,13 @@ impl Socket
             type_: t,
             parameters: p,
             permitted: HashSet::new(),
+            default_value: d,
             value: v,
             connection: c
         }
     }
 
-    pub fn is_permitted(&self, query : Type) -> bool
+    pub fn is_permitted(&self, query : DataType) -> bool
     {
         self.permitted.contains(&query)
     }
@@ -49,8 +52,9 @@ impl Display for Socket
 
         write!(
             f,
-            "{} {} {} {}\n    PARAMETERS\n    PERMITTED\n    VALUE\n    CONNECTION",
-            direction, repetition, self.slot, self.type_
+            "{} {} {} {}\n    PARAMETERS\n    PERMITTED\n    VALUE{}",
+            direction, repetition, self.slot, self.type_,
+            self.connection.as_ref().map_or("".to_owned(), |par| "\n    ".to_owned() + &par.to_string())
         )
     }
 }
