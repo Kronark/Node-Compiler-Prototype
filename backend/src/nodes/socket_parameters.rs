@@ -1,27 +1,20 @@
 use std::fmt::Display;
 
-// TODO: might be smart to move the "default value" parameter to the main socket struct, as all socket types have it in common
 pub enum SocketParameter {
-    Named(String),
+    Named,
     Number {
         min: String,
         max: String,
         step: String,
-        default: String,
     },
-    Select(String),
-    Switch {
-        active: String,
-        inactive: String,
-        default: String,
-    },
+    Select,
+    Switch,
     Text {
         min: String,
         max: String,
         valid: String,
-        default: String,
     },
-    Color(String)
+    Colour,
 }
 
 impl Display for SocketParameter
@@ -30,7 +23,7 @@ impl Display for SocketParameter
     {
         write!(
             f,
-            "{}",
+            "Parameters:\n{}",
             "Display not implemented for SocketParameters."
         )
     }
