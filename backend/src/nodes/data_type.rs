@@ -1,14 +1,15 @@
 use std::ops::Deref;
 use std::fmt::Display;
-use std::hash::{Hash, Hasher};
+use std::hash::Hash;
 use std::cmp::{PartialEq, Eq};
 
-pub struct Type
+#[derive(Hash, PartialEq, Eq)]
+pub struct DataType
 {
     pub identifier: String
 }
 
-impl Type
+impl DataType
 {
     pub fn new(i : &str) -> Self
     {
@@ -19,7 +20,7 @@ impl Type
     }
 }
 
-impl Deref for Type
+impl Deref for DataType
 {
     type Target = String;
 
@@ -29,7 +30,7 @@ impl Deref for Type
     }
 }
 
-impl Display for Type
+impl Display for DataType
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
     {
@@ -40,21 +41,3 @@ impl Display for Type
         )
     }
 }
-
-impl Hash for Type
-{
-    fn hash<H : Hasher>(&self, state: &mut H)
-    {
-        self.identifier.hash(state)
-    }
-}
-
-impl PartialEq for Type
-{
-    fn eq(&self, other: &Self) -> bool
-    {
-        self.identifier == other.identifier
-    }
-}
-
-impl Eq for Type {}
