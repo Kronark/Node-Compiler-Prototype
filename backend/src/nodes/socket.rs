@@ -2,6 +2,7 @@ use std::fmt::Display;
 use std::collections::HashSet;
 use crate::nodes::connection::Connection;
 use crate::nodes::socket_type::SocketType;
+use crate::nodes::socket_parameters::SocketParameter;
 use crate::nodes::value::Value;
 use crate::nodes::r#type::Type;
 
@@ -11,7 +12,7 @@ pub struct Socket
     pub is_repetition: bool,
     pub slot: u32,
     pub type_: SocketType,
-    pub parameters: u8,
+    pub parameters: SocketParameter,
     pub permitted: HashSet<Type>,
     pub value: Option<Value>,
     pub connection: Option<Connection>
@@ -19,14 +20,14 @@ pub struct Socket
 
 impl Socket
 {
-    pub fn new(io : bool, ir : bool, s : u32, t : SocketType, v : Option<Value>, c : Option<Connection>) -> Self
+    pub fn new(io : bool, ir : bool, s : u32, t : SocketType, p : SocketParameter, v : Option<Value>, c : Option<Connection>) -> Self
     {
         Self {
             is_outgoing: io,
             is_repetition: ir,
             slot: s,
             type_: t,
-            parameters: 0,
+            parameters: p,
             permitted: HashSet::new(),
             value: v,
             connection: c
