@@ -10,10 +10,9 @@ An abstraction layer to keep track of the currently active project root space fo
 
 ## Requires
 
-- Nodes
-    - Node Data Type
+- [Communication](../communication/communication.md)
 
 ## Required By
 
-- [Compiler](../compilation/compiler.md)
+- [Compiler](../compilation/node_compiler.md)
 - [Dependencies](../dependencies/dependency_graph.md)

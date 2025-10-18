@@ -5,6 +5,8 @@ Parses relevant data from the node file formats described in `formats/node_file_
 ## Requires
 
 - [Node](../nodes/node.md)
+- [Meta Node](../nodes/meta_node.md)
+- [Frontend Node Serialisation](../../frontend/node_file_format/serialisation.md)
 
 ## Required By
 

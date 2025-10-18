@@ -1,6 +1,6 @@
 # Communication ([Frontend](../frontend.md))
 
-The module responsible for *receiving* and *dispatching* data from and to the [backend](../../backend/backend.md). Communication overhead needs to be minimised, so utilising a non-network-based approach such as *shared memory* would be beneficial.
+The module responsible for *receiving* and *dispatching* data from and to the [backend](../../backend/backend.md). Communication overhead needs to be minimised, so utilising a non-network-based approach such as *shared memory* or *ABIs* would be beneficial.
 
 ## Requires
 
@@ -8,4 +8,4 @@ The module responsible for *receiving* and *dispatching* data from and to the [b
 
 ## Required By
 
-*Nothing*
+- [Menu](../user_interface/tools/menu/menu.md)
