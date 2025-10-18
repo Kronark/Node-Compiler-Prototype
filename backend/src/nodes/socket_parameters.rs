@@ -1,7 +1,7 @@
 use std::fmt::Display;
 
 // TODO: might be smart to move the "default value" parameter to the main socket struct, as all socket types have it in common
-enum SocketParameter {
+pub enum SocketParameter {
     Named(String),
     Number {
         min: String,
@@ -21,6 +21,7 @@ enum SocketParameter {
         valid: String,
         default: String,
     },
+    Color(String)
 }
 
 impl Display for SocketParameter
