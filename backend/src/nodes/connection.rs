@@ -1,16 +1,16 @@
 use std::fmt::Display;
-use crate::nodes::r#type::Type;
+use crate::nodes::{data_type::DataType, vbi::VBI};
 
 pub struct Connection
 {
-    pub instance_id: u32,
-    pub socket_slot: u32,
-    pub type_: Type
+    pub instance_id: VBI,
+    pub socket_slot: VBI,
+    pub type_: DataType
 }
 
 impl Connection
 {
-    pub const fn new(i : u32, s : u32, t : Type) -> Self
+    pub const fn new(i : VBI, s : VBI, t : DataType) -> Self
     {
         Self {
             instance_id: i,
