@@ -1,12 +1,12 @@
 use std::ops::{ Deref, DerefMut };
 use std::iter::IntoIterator;
 
-pub struct Value
+pub struct DataValue
 {
     data: Vec<u8>
 }
 
-impl<const N:usize> From<&[u8;N]> for Value
+impl<const N:usize> From<&[u8;N]> for DataValue
 {
     fn from(value: &[u8;N]) -> Self
     {
@@ -16,7 +16,7 @@ impl<const N:usize> From<&[u8;N]> for Value
     }
 }
 
-impl<const N:usize> From<[u8;N]> for Value
+impl<const N:usize> From<[u8;N]> for DataValue
 {
     fn from(value: [u8;N]) -> Self
     {
@@ -26,7 +26,7 @@ impl<const N:usize> From<[u8;N]> for Value
     }
 }
 
-impl From<&[u8]> for Value
+impl From<&[u8]> for DataValue
 {
     fn from(value: &[u8]) -> Self
     {
@@ -36,7 +36,7 @@ impl From<&[u8]> for Value
     }
 }
 
-impl From<&str> for Value
+impl From<&str> for DataValue
 {
     fn from(s: &str) -> Self
     {
@@ -46,7 +46,7 @@ impl From<&str> for Value
     }
 }
 
-impl From<Vec<u8>> for Value
+impl From<Vec<u8>> for DataValue
 {
     fn from(data: Vec<u8>) -> Self
     {
@@ -54,7 +54,7 @@ impl From<Vec<u8>> for Value
     }
 }
 
-impl From<u32> for Value
+impl From<u32> for DataValue
 {
     fn from(num: u32) -> Self
     {
@@ -64,7 +64,7 @@ impl From<u32> for Value
     }
 }
 
-impl From<f32> for Value
+impl From<f32> for DataValue
 {
     fn from(num: f32) -> Self
     {
@@ -74,20 +74,20 @@ impl From<f32> for Value
     }
 }
 
-impl Value
+impl DataValue
 {
-    pub fn new<T: Into<Value>>(data: T) -> Self
+    pub fn new<T: Into<DataValue>>(data: T) -> Self
     {
         data.into()
     }
 
-    pub fn set<T: Into<Value>>(&mut self, data: T)
+    pub fn set<T: Into<DataValue>>(&mut self, data: T)
     {
         *self = data.into();
     }
 }
 
-impl AsRef<[u8]> for Value
+impl AsRef<[u8]> for DataValue
 {
     fn as_ref(&self) -> &[u8]
     {
@@ -95,7 +95,7 @@ impl AsRef<[u8]> for Value
     }
 }
 
-impl IntoIterator for Value
+impl IntoIterator for DataValue
 {
     type Item = u8;
     type IntoIter = <Vec<u8> as IntoIterator>::IntoIter;
@@ -106,7 +106,7 @@ impl IntoIterator for Value
     }
 }
 
-impl Deref for Value
+impl Deref for DataValue
 {
     type Target = [u8];
 
@@ -116,7 +116,7 @@ impl Deref for Value
     }
 }
 
-impl DerefMut for Value
+impl DerefMut for DataValue
 {
     fn deref_mut(&mut self) -> &mut Self::Target
     {
