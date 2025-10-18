@@ -8,4 +8,4 @@ A necessary component of the compilation procedure. During backwards traversal o
 
 ## Required By
 
-- [Compiler](./compiler.md)
+- [Compiler](./node_compiler.md)

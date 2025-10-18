@@ -13,12 +13,10 @@ An internal data type representing a node socket. Parsed from any of the file fo
 
 ## Requires
 
-- Nodes
-    - Socket Parameters
-    - Socket Type
-    - Type
-    - Value
-    - Connection
+- [Connection](./connection.md)
+- [Socket Parameters](./socket_parameters.md)
+- [Socket Type](./socket_type.md)
+- [Value](./value.md)
 
 ## Required By
 
