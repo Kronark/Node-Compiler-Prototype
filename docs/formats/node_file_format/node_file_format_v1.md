@@ -130,7 +130,7 @@ item id = vbi ;
 instance type = vbi ;
 instance name = string ;
 
-socket flag = "00", 6 * bit ;
+socket flag = "0", 7 * bit ;
 
 socket type index = vbi ;
 socket port slot = vbi ;
