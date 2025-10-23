@@ -54,3 +54,4 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
         - [Issues](./user_interface/tools/issues/issues.md)
         - [Menu](./user_interface/tools/menu/menu.md)
     - [Window](./user_interface/window/window.md)
+    - [Project](./user_interface/project/project.md)
