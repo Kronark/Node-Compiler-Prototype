@@ -1,6 +1,6 @@
 <!--
 Notes:
-- N denotes variable byte integers, where the most significant bit flags an additional byte to be read, byte ordering is little endian
+- N denotes variable byte integers (vbi's), where the most significant bit flags an additional byte to be read, byte ordering is little endian
 -->
 
 # Markdown Representation
