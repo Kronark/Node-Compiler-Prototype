@@ -7,6 +7,7 @@ An abstraction layer to keep track of the currently active project root space fo
 - switching projects
 - creating projects
 - renaming projects
+- moving projects
 
 ## Requires
 
