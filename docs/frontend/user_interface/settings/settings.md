@@ -4,7 +4,7 @@ Module responsible for storing settings data in memory and providing easy access
 
 ## Requires
 
-- [Clipboard](../../user_input/clipboard/clipboard.md)
+- [Project](../project/project.md)
 
 ## Required By
 
