@@ -13,8 +13,9 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
 - [Communication](./communication/communication.md)
 - [History](./history/history.md)
 - Parsing
-    - [Node Parsing](./node_file_format/parsing.md)
     - [Layout Parsing](./layout_file_format/parsing.md)
+    - [Node Parsing](./node_file_format/parsing.md)
+    - [Settings Parsing](./settings_file_format/parsing.md)
 - Properties
     - [Collapsible](./properties/collapsible/collapsible.md)
     - [Dragable](./properties/dragable/dragable.md)
@@ -37,8 +38,9 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
         - [Tunnel Node](./renderables/nodes/compiler_nodes/tunnel.md)
         - [Type Node](./renderables/nodes/compiler_nodes/type.md)
 - Serialisation
-    - [Node Serialisation](./node_file_format/serialisation.md)
     - [Layout Serialisation](./layout_file_format/serialisation.md)
+    - [Node Serialisation](./node_file_format/serialisation.md)
+    - [Settings Serialisation](./settings_file_format/serialisation.md)
 - User Input
     - [Clipboard](./user_input/clipboard/clipboard.md)
     - [Hotkeys](./user_input/hotkeys/hotkeys.md)
@@ -49,9 +51,10 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
         - [Grid](./user_interface/graph_view/grid/grid.md)
         - [Overlays](./user_interface/graph_view/overlays/overlays.md)
         - [Layout Generation](./layout_file_format/generation.md)
+    - [Project](./user_interface/project/project.md)
+    - [Settings](./user_interface/settings/settings.md)
     - Tools
         - [Inspector](./user_interface/tools/inspector/inspector.md)
         - [Issues](./user_interface/tools/issues/issues.md)
         - [Menu](./user_interface/tools/menu/menu.md)
     - [Window](./user_interface/window/window.md)
-    - [Project](./user_interface/project/project.md)
