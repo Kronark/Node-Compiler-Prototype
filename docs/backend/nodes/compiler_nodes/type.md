@@ -16,13 +16,7 @@ ___
     - Inactive: "Not Packaged" (Default)
     - Active: "Packaged"
 
-4. Text Input - "Name"
-    - Minimum: "1"
-    - Maximum: ""
-    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_"
-    - Default: "new_type"
-    - *Notes*:
-        - Type name specification may be overhauled with a module path system akin to namespaces in traditional programming.
+4. Named Input - "Identifier"
 
 5. Named Output - "Data"
 
