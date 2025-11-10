@@ -18,15 +18,7 @@ Else If *1* is *inactive*:<br>
 
 End If
 
-3. Number Input - "Slot"<br>
-    - Minimum: "1"
-    - Maximum: ""
-    - Step: "1"
-    - Default: "1"
-    - *Notes*:
-        - Slot values put all possible sockets of a node definition into a specific order (regardless if a given socket is visible or not). The value therefore needs to be unique within a given node space. *However this approach to socket ordering is not compatible with port broadcasting and thus needs to be revisited*.
-
-4. Text Input - "Name"<br>
+3. Text Input - "Name"<br>
     - Minimum: "0"
     - Maximum: ""
     - Valid: ""
@@ -34,7 +26,7 @@ End If
 
 If *1* is *active*:<br>
 
-5. Select Input - "Type"<br>
+4. Select Input - "Type"<br>
     - "Colour"
     - "Named"
     - "Number"
@@ -42,19 +34,19 @@ If *1* is *active*:<br>
     - "Switch"
     - "Text" (Default)
 
-6. Switch Input - Unnamed<br>
+5. Switch Input - Unnamed<br>
     - Inactive: "No Repetition" (Default)
     - Active: "Repetition"
 
-If *6* is *active*:<br>
+If *5* is *active*:<br>
 
-7. Number Input - "Repetition Minimum"
+6. Number Input - "Repetition Minimum"
     - Minimum: "1"
     - Maximum: ""
     - Step: "1"
     - Default: "1"
 
-8. Number Input - "Repetition Maximum"
+7. Number Input - "Repetition Maximum"
     - Minimum: "1"
     - Maximum: ""
     - Step: "1"
@@ -64,15 +56,15 @@ End If
 
 End If
 
-9. *Variable amount of socket-type specific settings - see [socket parameters](../socket_parameters.md)*
+8. *Variable amount of socket-type specific settings - see [socket parameters](../socket_parameters.md)*
 
 If *1* is *active*:<br>
 
-10. Named Output - *Dynamic Name*
+9. Named Output - *Dynamic Name*
 
 Else If *1* is *inactive*:<br>
 
-10. Named Input - *Dynamic Name*
+9. Named Input - *Dynamic Name*
 
 End If
 
