@@ -5,7 +5,7 @@ The settings file format for the node compiler *prototype* is the TOML file form
 1. Project
     - Name: Text
     - Local Folder: Filepath
-2. Socket Order
+2. Sockets
     - Sorting: Selection (`Ascending Alphanumerical`, `Descending Alphanumerical`)
     - Split I/O: Checkbox
 3. Pins
@@ -29,11 +29,52 @@ The settings file format for the node compiler *prototype* is the TOML file form
 9. Nodes
     - Rules: Colour -> Identifier[]
 
-Identifiers can be any subset of a type or node identifier, subsets targetting entire modules. Wildcard behaviour is achieved by solely stating the project identifier, applying a rule to the entire project. Pin shape, pin colour and connection colour identifiers are expected to reference *data* types, comment colour and group colour identifiers are expected to reference *category* types and node colour identifiers are expected to reference *node* types.
+Identifiers can be any subset of a type or node identifier, subsets targetting entire modules. Wildcard behaviour is achieved by solely stating the project identifier, applying a rule to the entire project. If a more specific rule is encountered, it overwrites the effect of the more general rule. Pin shape, pin colour and connection colour identifiers are expected to reference *data* types, comment colour and group colour identifiers are expected to reference *category* types and node colour identifiers are expected to reference *node* types.
 
 On project creation, a new settings file is generated and the contents of the last opened project are copied to the new file. If the created project is the first node compiler project on the given machine, a default settings file is generated, with most customisations initialising as blank fields.
 
-Example file:
+Example file (`<project_hash>` represents the random hash string assigned to a project):
 ```TOML
-[]
+[project]
+name = "My Project"
+local_folder = "path/to/some/folder/my_project"
+
+[sockets]
+sorting = 0
+split = true
+
+[pins]
+circle = ["<project_hash>"]
+square = ["<project_hash>:module-1:type-a", "<project_hash>:module-1:module-2:type-b"]
+diamond = []
+rectangle = ["<project_hash>:module-3"]
+default = "FF26FF"
+[pins.rules]
+FF0000 = ["<project_hash>:module-1:type-a", "<project_hash>:module-2"]
+12FFAA = ["<project_hash>"]
+
+[connections]
+shape = 1
+subpins = 0
+default = "FFFFFF"
+[connections.rules]
+00F0F0 = ["<project_hash>:module-1:type-a", "<project_hash>:module-2"]
+121212 = ["<project_hash>"]
+
+[comments]
+default = "101010"
+[comments.rules]
+FFFF00 = [0, 1]
+FF0000 = [2]
+
+[groups]
+default = "333333"
+[groups.rules]
+FFFF00 = [1]
+FF0000 = [0, 2]
+
+[nodes]
+FA0000 = ["<project_hash>:module-1", "<project_hash>:module-2"]
+009900 = ["<project_hash>:module-3"]
+00FF00 = ["<project_hash>:module-3:node-a"]
 ```
