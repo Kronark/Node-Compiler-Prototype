@@ -1,6 +1,6 @@
 <!--
 Notes:
-- N denotes variable byte integers, where the most significant bit flags an additional byte to be read, byte ordering is little endian
+- N denotes variable byte integers (vbi's), where the most significant bit flags an additional byte to be read, byte ordering is little endian
 -->
 
 # Markdown Representation
@@ -41,7 +41,7 @@ Notes:
     - instance socket count [N]
     - instance sockets:
         - socket flags [1]:
-            - PADDING [2 bit]
+            - PADDING [1 bit]
             - type and direction [3 bits]:
                 - 000 = outgoing named
                 - 001 = incoming named
@@ -53,6 +53,7 @@ Notes:
             - repetitive [1 bit]
             - connected [1 bit]
             - switch value [1 bit]
+            - package [1 bit]
         - socket type index [N]
         - socket port slot [N]
         - if incoming:
@@ -129,7 +130,7 @@ item id = vbi ;
 instance type = vbi ;
 instance name = string ;
 
-socket flag = "00", 6 * bit ;
+socket flag = "0", 7 * bit ;
 
 socket type index = vbi ;
 socket port slot = vbi ;
