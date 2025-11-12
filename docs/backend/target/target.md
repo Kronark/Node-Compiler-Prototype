@@ -1,10 +1,8 @@
-# Targets ([Backend](../../backend.md))
+# Target ([Backend](../../backend.md))
 
-TODO: state system used only for targets now using identifiers, remove any value usages etc
+The target state system of the node compiler. Targets allow down-stream nodes to specify a state, which will be passed along during back-traversal to trigger the activation of specific subgraphs. This provides the functionality of targetting multiple different outputs using a singular node definition.
 
-The state system of the node compiler. States provide users with access to some memory during the compilation process. Practically, states function as a node editor equivalent to a variable in textual programming. They store some form of data, which can be referenced by a unique string considered the *state id*.
-
-The node compiler only provides built-in functionality for *setting* and *getting* state values. All additional functionality such as *appending*, *incrementing* or *boolean checking* are to be constructed via [meta nodes](../nodes/meta_node.md).
+Targets are identified via unique [identifiers](../nodes/identifier.md). This module is responsible for storing these identifiers and providing functionality to keep track of a target during connection traversal of the [compiler](../compilation/node_compiler.md).
 
 ## Requires
 
