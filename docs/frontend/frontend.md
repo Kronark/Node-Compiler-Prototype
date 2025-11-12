@@ -26,7 +26,6 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
     - [Nodes](./renderables/nodes/node.md)
     - Compiler Nodes:
         - [Broadcast Node](./renderables/nodes/compiler_nodes/broadcast.md)
-        - [Get Node](./renderables/nodes/compiler_nodes/get.md)
         - [Input Node](./renderables/nodes/compiler_nodes/input.md)
         - [Item Node](./renderables/nodes/compiler_nodes/item.md)
         - [Option Node](./renderables/nodes/compiler_nodes/option.md)
@@ -34,7 +33,8 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
         - [Package Node](./renderables/nodes/compiler_nodes/package.md)
         - [Pair Node](./renderables/nodes/compiler_nodes/pair.md)
         - [Port Node](./renderables/nodes/compiler_nodes/port.md)
-        - [Set Node](./renderables/nodes/compiler_nodes/set.md)
+        - [Receiver Node](./renderables/nodes/compiler_nodes/receiver.md)
+        - [Transmitter Node](./renderables/nodes/compiler_nodes/transmitter.md)
         - [Tunnel Node](./renderables/nodes/compiler_nodes/tunnel.md)
         - [Type Node](./renderables/nodes/compiler_nodes/type.md)
 - Serialisation
@@ -49,7 +49,7 @@ The (GUI) frontend of the Kronark Node Compiler is written in ***Go***. It's sta
     - Graph View
         - [Camera](./user_interface/graph_view/camera/camera.md)
         - [Grid](./user_interface/graph_view/grid/grid.md)
-        - [Overlays](./user_interface/graph_view/overlays/overlays.md)
+        - [Overlay](./user_interface/graph_view/overlay/overlay.md)
         - [Layout Generation](./layout_file_format/generation.md)
     - [Project](./user_interface/project/project.md)
     - [Settings](./user_interface/settings/settings.md)

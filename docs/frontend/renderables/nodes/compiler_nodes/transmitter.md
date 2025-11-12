@@ -1,4 +1,4 @@
-# Set Node ([Frontend](../../../frontend.md))
+# Transmitter Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for setting a value of a [*compiler state*](../../state/state.md).
 
@@ -8,9 +8,7 @@ ___
 
 2. Named Input - "Name"
 
-3. Named Input - "Value"
-
-4. Named Output - "Continue"
+3. Named Output - "Continue"
 
 ___
 
