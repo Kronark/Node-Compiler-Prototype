@@ -4,22 +4,9 @@ A compiler node responsible for providing a node graph with an output stream, as
 
 ___
 
-1. Repetitive Text Input - "Module"<br>
-    - Minimum: "0"
-    - Maximum: ""
-    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
-    - Default: ""
+1. Named Input - "Identifier"<br>
 
-2. Text Input - "Name"<br>
-    - Minimum: "1"
-    - Maximum: ""
-    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_ 0123456789"
-    - Default: "New Node"
-
-3. Colour Input - "Colour"<br>
-    - Default: "0, 0, 0"
-
-4. Repetitive Named Input - Unnamed
+2. Repetitive Named Input - Unnamed
 
 ___
 
@@ -27,8 +14,8 @@ An output node, much like its [input node](./input.md) counterpart, can not be i
 
 ## Requires
 
-- [Group](../../groups/group.md)
+- [Identifier](./identifier.md)
 
 ## Required By
 
-*Nothing*
+- [Port](./port.md)

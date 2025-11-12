@@ -1,6 +1,6 @@
 # Group ([Frontend](../../frontend.md))
 
-A draggable box capable of *containing* node instances and comments, allowing the collective dragging of all contained elements. If *node collapsing* is every implemented, node groups would also be collapsible.
+A draggable box capable of *containing* node instances and comments, allowing the collective dragging of all contained elements. Associated with a category index for colouring rules, where `0` indicates the default.
 
 ## Requires
 
@@ -11,4 +11,9 @@ A draggable box capable of *containing* node instances and comments, allowing th
 - [Collapsible](../../properties/collapsible/collapsible.md)
 - [Selectable](../../properties/selectable/selectable.md)
 - [Resizable](../../properties/resizable/resizeable.md)
-- [Overlay](../../user_interface/graph_view/overlays/overlays.md)
+- [Input Node](../nodes/compiler_nodes/input.md)
+- [Identifier Node](../nodes/compiler_nodes/identifier.md)
+- [Transmitter Node](../nodes/compiler_nodes/transmitter.md)
+- [Receiver Node](../nodes/compiler_nodes/receiver.md)
+- [Layout Serialisation](../../layout_file_format/serialisation.md)
+- [Node Serialisation](../../node_file_format/serialisation.md)
