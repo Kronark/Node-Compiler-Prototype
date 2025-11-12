@@ -1,6 +1,6 @@
 # Type Node ([Frontend](../../../frontend.md))
 
-A compiler node responsible for adding type information to a data stream. The name associated with a type is used to control which connections can be established. A type node's sockets are defined as follows:
+A compiler node responsible for adding type information to a data stream. The [name](../identifier.md) associated with a type is used to control which connections can be established. A type node's sockets are defined as follows:
 
 ___
 
@@ -16,13 +16,7 @@ ___
     - Inactive: "Not Packaged" (Default)
     - Active: "Packaged"
 
-4. Text Input - "Name"
-    - Minimum: "1"
-    - Maximum: ""
-    - Valid: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_"
-    - Default: "new_type"
-    - *Notes*:
-        - Type name specification may be overhauled with a module path system akin to namespaces in traditional programming.
+4. Named Input - "Identifier"
 
 5. Named Output - "Data"
 

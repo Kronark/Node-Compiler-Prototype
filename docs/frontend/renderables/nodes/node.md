@@ -17,6 +17,6 @@ The node space component to this frontend version of the datatype should provide
 
 ## Required By
 
-- [Node Serialisation](../../node_file_format/serialisation.md)
-- [Layout Serialisation](../../layout_file_format/serialisation.md)
 - [Comment](../comments/comment.md)
+- [Traversal](../../user_input/traversal/traversal.md)
+- [Overlay](../../user_interface/graph_view/overlay/overlay.md)
