@@ -1,6 +1,8 @@
-# Get Node ([Backend](../../backend.md))
+# Receiver Node ([Backend](../../backend.md))
 
 A compiler node responsible for getting the value of a [*compiler state*](../../state/state.md).
+
+TODO: utilise identifier for state - since only used for compilation targets --> output activation instead of value
 
 ___
 
@@ -17,7 +19,7 @@ The "name" has to be an [identifier](../identifier.md). If no state id matching 
 ## Requires
 
 - [Node](../node.md)
-- [State](../../state/state.md)
+- [Target](../../target/target.md)
 
 ## Required By
 
