@@ -1,6 +1,6 @@
 # Receiver Node ([Frontend](../../../frontend.md))
 
-A compiler node responsible for getting the value of a [*compiler state*](../../state/state.md).
+A compiler node responsible for receiving the [target](../../../../backend/target/target.md) set by a [transmitter](./transmitter.md) during back-traversal.
 
 ___
 
@@ -8,11 +8,11 @@ ___
 
 2. Named Input - "Name"
 
-3. Named Output - "Value"
+3. Named Output - "Activation"
 
 ___
 
-The "name" has to be an [identifier](../identifier.md). If no state id matching the provided id can be found, the output socket returns an empty value.
+The "name" has to be a [target identifier](../identifier.md). If no target id matching the provided id can be found, the "activation" output emits `false`. If the target id matches the target set during back traversal, `true` is emitted.
 
 ## Requires
 

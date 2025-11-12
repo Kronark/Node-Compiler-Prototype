@@ -1,6 +1,6 @@
 # Transmitter Node ([Frontend](../../../frontend.md))
 
-A compiler node responsible for setting a value of a [*compiler state*](../../state/state.md).
+A compiler node responsible for transmitting a [target](../../../../backend/target/target.md) along a connection chain during back-traversal.
 
 ___
 
@@ -12,7 +12,7 @@ ___
 
 ___
 
-The "name" has to be an [identifier](../identifier.md). The "continue" output socket serves the single purpose of allowing traversel during node compilation - it does not carry any value and merely propagates activation.
+The "name" has to be an [target identifier](../identifier.md). The "continue" output socket serves the single purpose of allowing traversel during node compilation - it does not carry any value and merely propagates activation.
 
 ## Requires
 
