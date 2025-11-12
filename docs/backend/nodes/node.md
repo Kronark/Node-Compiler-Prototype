@@ -19,5 +19,5 @@ An internal data type representing a custom node space. Parsed from any of the f
 - [Meta Node](./meta_node.md)
 - [Input Node](./compiler_nodes/input.md)
 - [Output Node](./compiler_nodes/output.md)
-- [Set Node](./compiler_nodes/set.md)
-- [Get Node](./compiler_nodes/get.md)
+- [Transmitter Node](./compiler_nodes/transmitter.md)
+- [Receiver Node](./compiler_nodes/receiver.md)

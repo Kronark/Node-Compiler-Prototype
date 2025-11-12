@@ -5,10 +5,18 @@ The settings file format for the node compiler *prototype* is the TOML file form
 1. Project
     - Name: Text
     - Local Folder: Filepath
-2. Sockets
+2. Icons
+    - Input / Output Colour: Colour
+    - Identifier Colour: Colour
+    - Type / Option / Package / Item Colour: Colour
+    - Port / Pair / Broadcast Colour: Colour
+    - Transmitter / Receiver Colour: Colour
+    - Tunnel Colour: Colour
+    - TODO: add colour configurations for other icons
+3. Sockets
     - Sorting: Selection (`Ascending Alphanumerical`, `Descending Alphanumerical`)
     - Split I/O: Checkbox
-3. Pins
+4. Pins
     - Circle: Identifier[]
     - Square: Identifier[]
     - Diamond: Identifier[]
@@ -20,13 +28,13 @@ The settings file format for the node compiler *prototype* is the TOML file form
     - Subpins: Selection (`Circle`, `Square`, `Diamond`)
     - Default: Colour
     - Rules: Colour -> Identifier[]
-7. Comments
+6. Comments
     - Default: Colour
     - Rules: Colour -> Number[]
-8. Groups
+7. Groups
     - Default: Colour
     - Rules: Colour -> Number[]
-9. Nodes
+8. Nodes
     - Rules: Colour -> Identifier[]
 
 Identifiers can be any subset of a type or node identifier, subsets targetting entire modules. Wildcard behaviour is achieved by solely stating the project identifier, applying a rule to the entire project. If a more specific rule is encountered, it overwrites the effect of the more general rule. Pin shape, pin colour and connection colour identifiers are expected to reference *data* types, comment colour and group colour identifiers are expected to reference *category* types and node colour identifiers are expected to reference *node* types.
@@ -38,6 +46,14 @@ Example file (`<project_hash>` represents the random hash string assigned to a p
 [project]
 name = "My Project"
 local_folder = "path/to/some/folder/my_project"
+
+[icons]
+input_output = "FF0000"
+identifier = "00FF00"
+type_option_package_item = "0000FF"
+port_pair_broadcast = "FFFF00"
+transmitter_receiver = "00FFFF"
+tunnel = "FFFFFF"
 
 [sockets]
 sorting = 0
