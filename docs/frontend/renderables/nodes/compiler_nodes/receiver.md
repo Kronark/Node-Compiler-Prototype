@@ -1,4 +1,4 @@
-# Get Node ([Frontend](../../../frontend.md))
+# Receiver Node ([Frontend](../../../frontend.md))
 
 A compiler node responsible for getting the value of a [*compiler state*](../../state/state.md).
 
@@ -12,7 +12,7 @@ ___
 
 ___
 
-The "name" has to be an [identifier](../identifier.md). If no state identifier matching the provided identifier can be found, the output socket returns an empty value.
+The "name" has to be an [identifier](../identifier.md). If no state id matching the provided id can be found, the output socket returns an empty value.
 
 ## Requires
 
