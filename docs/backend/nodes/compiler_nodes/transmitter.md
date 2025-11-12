@@ -1,6 +1,8 @@
-# Set Node ([Backend](../../backend.md))
+# Transmitter Node ([Backend](../../backend.md))
 
 A compiler node responsible for setting a value of a [*compiler state*](../../state/state.md).
+
+TODO: utilise identifier for state - since only used for compilation targets
 
 ___
 
@@ -8,9 +10,7 @@ ___
 
 2. Named Input - "Name"
 
-3. Named Input - "Value"
-
-4. Named Output - "Continue"
+3. Named Output - "Continue"
 
 ___
 
@@ -19,7 +19,7 @@ The "name" has to be an [identifier](../identifier.md). The "continue" output so
 ## Requires
 
 - [Node](../node.md)
-- [State](../../state/state.md)
+- [Target](../../target/target.md)
 
 ## Required By
 
