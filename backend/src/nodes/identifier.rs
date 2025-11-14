@@ -1,9 +1,12 @@
 use core::fmt;
-use std::{collections::HashMap, fmt::Display, sync::{Arc, Mutex, Weak, OnceLock}};
+use std::{fmt::Display, sync::OnceLock};
+use parking_lot::{RwLock};
+use lasso::{Rodeo, Spur};
+
 
 // ========== Globals ==========
 
-static IDENTIFIER_COMPONENT_REGISTRY: OnceLock<Arc<IdentifierComponentRegistry>> = OnceLock::new();
+static IDENTIFIER_COMPONENT_INTERNER: OnceLock<IdentifierComponentInterner> = OnceLock::new();
 
 // ========== Errors ==========
 
@@ -19,67 +22,69 @@ pub enum IdentifierError {
     InvalidComponent(IdentifierComponentError)
 }
 
-// ========== Identifier Component Registry ==========
+// ========== Identifier Component Interner ==========
 
-#[derive(Debug, Default)]
-pub struct IdentifierComponentRegistry {
-    registry: Mutex<HashMap<String, Weak<str>>>
+pub type IdentifierComponentReference = Spur;
+
+pub struct IdentifierComponentInterner {
+    data: RwLock<Rodeo>
 }
 
-impl IdentifierComponentRegistry {
+impl IdentifierComponentInterner {
     pub fn new() -> Self {
-        Self { registry: Mutex::new(HashMap::new()) }
+        Self {
+            data: RwLock::new(Rodeo::default())
+        }
     }
 
-    pub fn intern(&self, s: &str) -> Result<Arc<str>, IdentifierComponentError> {
-        if s.is_empty() {
+    pub fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
+        if datum.is_empty() {
             return Err(IdentifierComponentError::Empty)
         }
 
-        if let Some(c) = s.chars().find(|&c| !matches!(c, 'a'..='z' | '-')) {
-            return Err(IdentifierComponentError::InvalidCharacter(c))
+        // bytes is faster here since it skips decoding utf8
+        if let Some(&byte) = datum.as_bytes().iter().find(|&&byte| !(b'a'..=b'z').contains(&byte) && byte != b'-') {
+            return Err(IdentifierComponentError::InvalidCharacter(byte as char))
         }
 
-        let mut registry = self.registry.lock().unwrap();
+        Ok(self.data.write().get_or_intern(datum))
+    }
 
-        if let Some(existing_weak) = registry.get(s) {
-            if let Some(existing_arc) = existing_weak.upgrade() {
-                return Ok(existing_arc);
-            }
-        }
+    pub fn resolve(&self, symbol: IdentifierComponentReference) -> &'static str {
+        let data = self.data.read();
+        let datum: &str = data.resolve(&symbol);
 
-        let arc_str: Arc<str> = Arc::from(s);
-        registry.insert(s.to_string(), Arc::downgrade(&arc_str));
-        Ok(arc_str)
+        // only possible because the interner is global and lives as long as the program runs
+        unsafe { &*(datum as *const str) }
     }
 }
 
-pub fn identifier_component_registry() -> &'static Arc<IdentifierComponentRegistry> {
-    IDENTIFIER_COMPONENT_REGISTRY.get_or_init(|| Arc::new(IdentifierComponentRegistry::new()))
+pub fn identifier_component_interner() -> &'static IdentifierComponentInterner {
+    IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| IdentifierComponentInterner::new())
 }
 
 // ========== Identifier Component ==========
 
 #[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct IdentifierComponent {
-    inner: Arc<str>
+    data: IdentifierComponentReference
 }
 
 impl IdentifierComponent {
-    pub fn new<S: AsRef<str>>(s: S) -> Result<Self, IdentifierComponentError> {
+    pub fn new(data: &str) -> Result<Self, IdentifierComponentError> {
         Ok(Self {
-            inner: identifier_component_registry().intern(s.as_ref())?
+            data: identifier_component_interner().intern(data)?
         })
     }
 
-    pub fn data(&self) -> &str {
-        &self.inner
+    pub fn data(&self) -> &'static str {
+        identifier_component_interner().resolve(self.data)
     }
 }
 
 impl Display for IdentifierComponent {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        self.inner.fmt(f)
+        write!(f, "{}", self.data())
     }
 }
 
@@ -114,6 +119,10 @@ impl Identifier {
         }
 
         Ok(Self { components })
+    }
+
+    pub fn as_str(&self) -> String {
+        self.components.iter().map(|c| c.data()).collect::<Vec<_>>().join(":")
     }
 }
 

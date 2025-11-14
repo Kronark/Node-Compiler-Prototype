@@ -2,7 +2,7 @@ use crate::nodes::identifier::{Identifier, IdentifierComponent};
 mod nodes;
 
 fn main() {
-    let idc = identifier_component!("project");
-    let id2 = identifier!(idc.data(), "mathematics", "addition", "add-integers");
-    println!("{}", id2);
+    let a = identifier_component!("project-o");
+    let b = identifier!(a.data(), "mathematics", "algebra", "math");
+    println!("{}", b)
 }
