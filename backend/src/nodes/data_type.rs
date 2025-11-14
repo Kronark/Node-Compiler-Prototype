@@ -1,10 +1,9 @@
-use std::{collections::HashSet, fmt::Display, sync::{Arc, OnceLock}};
-use parking_lot::{RwLock};
-use crate::{nodes::identifier::{Identifier}};
+use std::{fmt::Display};
+use crate::{make_interner, nodes::identifier::Identifier};
 
-// ========== Globals ==========
+// ========== Data Type Interner ==========
 
-static TYPE_INTERNER: OnceLock<TypeInterner> = OnceLock::new();
+make_interner!(TYPE_INTERNER, TypeInterner, DataType, type_interner);
 
 // ========== Data Type ==========
 
@@ -15,11 +14,11 @@ pub struct DataType {
 }
 
 impl DataType {
-    pub fn new(i : Identifier, p : bool) -> Self {
-        Self {
+    pub fn new(i : Identifier, p : bool) -> Arc<Self> {
+        type_interner().intern(Self {
             is_package: p,
             identifier: i
-        }
+        })
     }
 
     pub fn is_package(&self) -> bool {
@@ -54,34 +53,4 @@ macro_rules! data_type {
     ($identifier:expr, $is_package:expr) => {{
         $crate::DataType::new($identifier, $is_package)
     }};
-}
-
-// ========== Data Type Interner ==========
-
-pub struct TypeInterner {
-    data: RwLock<HashSet<Arc<DataType>>>
-}
-
-impl TypeInterner {
-    fn new() -> Self {
-        Self {
-            data: RwLock::new(HashSet::new())
-        }
-    }
-
-    fn intern(&self, datum: DataType) -> Arc<DataType> {
-        let mut data = self.data.write();
-
-        if let Some(existing_datum) = data.get(&datum) {
-            return existing_datum.clone();
-        }
-
-        let new_reference = Arc::new(datum);
-        data.insert(new_reference.clone());
-        new_reference
-    }
-}
-
-pub fn type_interner() -> &'static TypeInterner {
-    TYPE_INTERNER.get_or_init(|| TypeInterner::new())
 }
