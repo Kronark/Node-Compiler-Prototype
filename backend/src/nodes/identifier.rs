@@ -90,8 +90,8 @@ impl Display for IdentifierComponent {
 
 #[macro_export]
 macro_rules! identifier_component {
-    ( $x:expr ) => {{
-        $crate::IdentifierComponent::new( $x ).expect("Invalid character(s)!")
+    ( $string:expr ) => {{
+        $crate::IdentifierComponent::new( $string ).expect("Invalid character(s)!")
     }};
 }
 
@@ -134,7 +134,7 @@ impl Display for Identifier {
 
 #[macro_export]
 macro_rules! identifier {
-    ( $( $x:expr ),+ $(,)? ) => {{
-        $crate::Identifier::new([ $( $x ),+ ]).expect("Invalid identifier component(s)!")
+    ( $( $strings:expr ),+ $(,)? ) => {{
+        $crate::Identifier::new([ $( $strings ),+ ]).expect("Invalid identifier component(s)!")
     }};
 }
