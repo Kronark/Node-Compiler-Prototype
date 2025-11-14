@@ -21,7 +21,7 @@ impl Display for Connection {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
-            "Connection from {}, slot {}, {}",
+            "instance {}, slot {}, {}",
             self.instance_id, self.socket_slot, self.type_
         )
     }
