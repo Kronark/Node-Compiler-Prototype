@@ -37,7 +37,12 @@ impl Display for DataType {
         if self.is_package {
             packaged = "packaged";
         }
-        write!(f, "{} ~ {}", packaged, self.identifier)
+        
+        write!(
+            f,
+            "{} ~ {}",
+            packaged, self.identifier
+        )
     }
 }
 
