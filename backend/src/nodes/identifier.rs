@@ -3,7 +3,7 @@ use std::{collections::HashMap, fmt::Display, sync::{Arc, Mutex, Weak, OnceLock}
 
 // ========== Globals ==========
 
-static IDENTIFIER_REGISTRY: OnceLock<Arc<IdentifierComponentRegistry>> = OnceLock::new();
+static IDENTIFIER_COMPONENT_REGISTRY: OnceLock<Arc<IdentifierComponentRegistry>> = OnceLock::new();
 
 // ========== Errors ==========
 
@@ -54,8 +54,8 @@ impl IdentifierComponentRegistry {
     }
 }
 
-pub fn identifier_registry() -> &'static Arc<IdentifierComponentRegistry> {
-    IDENTIFIER_REGISTRY.get_or_init(|| Arc::new(IdentifierComponentRegistry::new()))
+pub fn identifier_component_registry() -> &'static Arc<IdentifierComponentRegistry> {
+    IDENTIFIER_COMPONENT_REGISTRY.get_or_init(|| Arc::new(IdentifierComponentRegistry::new()))
 }
 
 // ========== Identifier Component ==========
@@ -66,13 +66,13 @@ pub struct IdentifierComponent {
 }
 
 impl IdentifierComponent {
-    pub fn new<S: AsRef<str>>(s: S, registry: &IdentifierComponentRegistry) -> Result<Self, IdentifierComponentError> {
+    pub fn new<S: AsRef<str>>(s: S) -> Result<Self, IdentifierComponentError> {
         Ok(Self {
-            inner: registry.intern(s.as_ref())?
+            inner: identifier_component_registry().intern(s.as_ref())?
         })
     }
 
-    pub fn as_str(&self) -> &str {
+    pub fn data(&self) -> &str {
         &self.inner
     }
 }
@@ -81,6 +81,13 @@ impl Display for IdentifierComponent {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.inner.fmt(f)
     }
+}
+
+#[macro_export]
+macro_rules! identifier_component {
+    ( $x:expr ) => {{
+        $crate::IdentifierComponent::new( $x ).expect("Invalid character(s)!")
+    }};
 }
 
 // ========== Identifier ==========
@@ -98,7 +105,7 @@ impl Identifier {
     {
         let mut components = Vec::new();
         for part in parts {
-            let component = IdentifierComponent::new(part.as_ref(), identifier_registry()).map_err(IdentifierError::InvalidComponent)?;
+            let component = IdentifierComponent::new(part.as_ref()).map_err(IdentifierError::InvalidComponent)?;
             components.push(component);
         }
 
@@ -112,7 +119,7 @@ impl Identifier {
 
 impl Display for Identifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "{}", self.components.iter().map(|c| c.as_str()).collect::<Vec<_>>().join(":"))
+        write!(f, "{}", self.components.iter().map(|c| c.data()).collect::<Vec<_>>().join(":"))
     }
 }
 
