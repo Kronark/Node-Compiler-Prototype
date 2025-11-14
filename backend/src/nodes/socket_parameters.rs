@@ -17,10 +17,8 @@ pub enum SocketParameter {
     Colour,
 }
 
-impl Display for SocketParameter
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
-    {
+impl Display for SocketParameter {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
             "Parameters:\n{}",
