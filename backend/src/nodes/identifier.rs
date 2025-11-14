@@ -60,7 +60,7 @@ pub fn identifier_component_registry() -> &'static Arc<IdentifierComponentRegist
 
 // ========== Identifier Component ==========
 
-#[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Debug)]
+#[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct IdentifierComponent {
     inner: Arc<str>
 }
@@ -92,7 +92,7 @@ macro_rules! identifier_component {
 
 // ========== Identifier ==========
 
-#[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Debug)]
+#[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct Identifier {
     components: Vec<IdentifierComponent>
 }
