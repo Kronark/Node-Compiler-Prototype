@@ -46,6 +46,16 @@ impl Display for DataType {
     }
 }
 
+#[macro_export]
+macro_rules! data_type {
+    ($identifier:expr) => {
+        $crate::DataType::new($identifier, false)
+    };
+    ($identifier:expr, $is_package:expr) => {{
+        $crate::DataType::new($identifier, $is_package)
+    }};
+}
+
 // ========== Data Type Interner ==========
 
 pub struct TypeInterner {
