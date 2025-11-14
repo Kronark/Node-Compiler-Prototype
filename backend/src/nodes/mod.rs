@@ -9,5 +9,6 @@ pub mod data_value;
 pub mod data_type;
 pub mod vbi;
 pub mod node_settings;
+pub mod node_roots;
 pub mod node;
 pub mod type_interner;
