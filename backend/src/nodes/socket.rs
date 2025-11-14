@@ -7,8 +7,7 @@ use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
 use crate::nodes::vbi::VBI;
 
-pub struct Socket
-{
+pub struct Socket {
     pub is_outgoing: bool,
     pub is_repetition: bool,
     pub slot: VBI,
@@ -20,10 +19,8 @@ pub struct Socket
     pub connection: Option<Connection>
 }
 
-impl Socket
-{
-    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameter, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self
-    {
+impl Socket {
+    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameter, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self {
         Self {
             is_outgoing: io,
             is_repetition: ir,
@@ -37,16 +34,13 @@ impl Socket
         }
     }
 
-    pub fn is_permitted(&self, query : DataType) -> bool
-    {
+    pub fn is_permitted(&self, query : DataType) -> bool {
         self.permitted.contains(&query)
     }
 }
 
-impl Display for Socket
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result
-    {
+impl Display for Socket {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let direction : &str = if self.is_outgoing { "<" } else { ">" };
         let repetition : &str = if self.is_repetition { "↻" } else { "⁠—" };
 
