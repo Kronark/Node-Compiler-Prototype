@@ -67,19 +67,19 @@ impl Display for SocketParameters {
 #[macro_export]
 macro_rules! socket_parameters {
     (named) => {
-        $crate::SocketParameters::Named
+        $crate::nodes::socket_parameters::SocketParameters::Named
     };
 
     (switch) => {
-        $crate::SocketParameters::Switch
+        $crate::nodes::socket_parameters::SocketParameters::Switch
     };
 
     (color) => {
-        $crate::SocketParameters::Color
+        $crate::nodes::socket_parameters::SocketParameters::Color
     };
 
     (number, min: $min:expr, max: $max:expr, step: $step:expr) => {
-        $crate::SocketParameters::Number {
+        $crate::nodes::socket_parameters::SocketParameters::Number {
             min: $min.into(),
             max: $max.into(),
             step: $step.into(),
@@ -87,7 +87,7 @@ macro_rules! socket_parameters {
     };
 
     (text, min: $min:expr, max: $max:expr, valid: $valid:expr) => {
-        $crate::SocketParameters::Text {
+        $crate::nodes::socket_parameters::SocketParameters::Text {
             min: $min.into(),
             max: $max.into(),
             valid: $valid.into(),
@@ -95,7 +95,7 @@ macro_rules! socket_parameters {
     };
 
     (select $(, $opt:expr )* $(,)?) => {
-        $crate::SocketParameters::Select {
+        $crate::nodes::socket_parameters::SocketParameters::Select {
             options: vec![$($opt.into(),)*]
         }
     };
