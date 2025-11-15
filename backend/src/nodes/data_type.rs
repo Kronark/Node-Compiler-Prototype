@@ -7,7 +7,7 @@ make_interner!(TYPE_INTERNER, TypeInterner, DataType, type_interner);
 
 // ========== Data Type ==========
 
-#[derive(Hash, PartialEq, Eq)]
+#[derive(Hash, PartialEq, Eq, Clone)]
 pub struct DataType {
     is_package: bool,
     identifier: Identifier
