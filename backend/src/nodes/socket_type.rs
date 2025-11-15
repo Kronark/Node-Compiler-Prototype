@@ -25,26 +25,26 @@ impl Display for SocketType {
 #[macro_export]
 macro_rules! socket_type {
     (named) => {
-        $crate::SocketType::Named
+        $crate::nodes::socket_type::SocketType::Named
     };
 
     (number) => {
-        $crate::SocketType::Number
+        $crate::nodes::socket_type::SocketType::Number
     };
 
     (select) => {
-        $crate::SocketType::Select
+        $crate::nodes::socket_type::SocketType::Select
     };
 
     (switch) => {
-        $crate::SocketType::Switch
+        $crate::nodes::socket_type::SocketType::Switch
     };
 
     (text) => {
-        $crate::SocketType::Text
+        $crate::nodes::socket_type::SocketType::Text
     };
 
     (color) => {
-        $crate::SocketType::Color
+        $crate::nodes::socket_type::SocketType::Color
     };
 }
