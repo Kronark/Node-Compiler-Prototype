@@ -7,6 +7,7 @@ use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
 use crate::nodes::vbi::VBI;
 
+// FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
     pub is_outgoing: bool,
     pub is_repetition: bool,
