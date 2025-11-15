@@ -51,15 +51,13 @@ impl NodeRoots {
 
 impl Display for NodeRoots {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        writeln!(f, "root connections:")?;
-
-        let mut iter = self.connections.values().flatten().peekable();
-        while let Some(connection) = iter.next() {
-            write!(f, "\t{}", connection)?;
-            if iter.peek().is_some() {
-                write!(f, ",")?;
+        if self.connections.is_empty() {
+            writeln!(f, "no output connections")?;
+        } else {
+            writeln!(f, "output connections:")?;
+            for connection in self.connections.values().flatten() {
+                writeln!(f, "    • {}", connection)?;
             }
-            writeln!(f)?;
         }
 
         Ok(())
