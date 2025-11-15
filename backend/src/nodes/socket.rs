@@ -1,11 +1,12 @@
 use std::fmt::Display;
-use std::collections::HashSet;
+use std::{collections::HashSet, sync::Arc};
 use crate::nodes::connection::Connection;
 use crate::nodes::socket_type::SocketType;
 use crate::nodes::socket_parameters::SocketParameters;
 use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
 
+// FIXME: socket currently only storing default and active values, no data types for either. make a data object that combines dataValue and dataType
 // FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
     pub is_outgoing: bool,
@@ -13,7 +14,7 @@ pub struct Socket {
     pub slot: u32,
     pub type_: SocketType,
     pub parameters: SocketParameters,
-    permitted: HashSet<DataType>,
+    permitted: HashSet<Arc<DataType>>,
     pub default_value: DataValue,
     pub value: Option<DataValue>,
     pub connection: Option<Connection>
@@ -26,29 +27,31 @@ impl Socket {
         s: u32,
         t: SocketType,
         param: SocketParameters,
-        perm: &[DataType],
         d: DataValue,
         v: Option<DataValue>,
         c: Option<Connection>,
+        perm: impl IntoIterator<Item = Arc<DataType>>,
     ) -> Self {
+        let permitted_set = perm.into_iter().collect::<HashSet<_>>();
+
         Self {
             is_outgoing: io,
             is_repetition: ir,
             slot: s,
             type_: t,
             parameters: param,
-            permitted: perm.iter().cloned().collect(),
+            permitted: permitted_set,
             default_value: d,
             value: v,
             connection: c
         }
     }
 
-    pub fn permit(&mut self, data_type: DataType) {
+    pub fn permit(&mut self, data_type: Arc<DataType>) {
         self.permitted.insert(data_type);
     }
 
-    pub fn forbid(&mut self, data_type: &DataType) {
+    pub fn forbid(&mut self, data_type: &Arc<DataType>) {
         self.permitted.remove(data_type);
     }
 
@@ -108,22 +111,21 @@ impl Display for Socket {
 macro_rules! out_socket {
     (
         slot: $slot:expr,
-        parameters: $params:expr,
         default: $default:expr
         $(, value: $value:expr)?
         $(, connection: $connection:expr)?
         $(, $($permitted:expr),* $(,)?)?
     ) => {{
-        $crate::Socket::new(
+        $crate::nodes::socket::Socket::new(
             true,
             false,
             $slot,
-            $crate::SocketType::Named,
-            $params,
+            $crate::nodes::socket_type::SocketType::Named,
+            $crate::nodes::socket_parameters::SocketParameters::Named,
             $default,
             None $(.or(Some($value)))?,
             None $(.or(Some($connection)))?,
-            &[$($($permitted),*)?]
+            (&[$($($permitted),*)?]).iter().cloned()
         )
     }};
 }
@@ -132,14 +134,14 @@ macro_rules! out_socket {
 macro_rules! in_socket {
     (
         slot: $slot:expr,
-        type: $type:expr,
+        type_: $type:expr,
         parameters: $params:expr,
         default: $default:expr
         $(, value: $value:expr)?
         $(, connection: $connection:expr)?
         $(, $($permitted:expr),* $(,)?)?
     ) => {{
-        $crate::Socket::new(
+        $crate::nodes::socket::Socket::new(
             false,
             false,
             $slot,
@@ -148,7 +150,7 @@ macro_rules! in_socket {
             $default,
             None $(.or(Some($value)))?,
             None $(.or(Some($connection)))?,
-            &[$($($permitted),*)?]
+            (&[$($($permitted),*)?]).iter().cloned()
         )
     }};
 }
@@ -157,14 +159,14 @@ macro_rules! in_socket {
 macro_rules! rep_socket {
     (
         slot: $slot:expr,
-        type: $type:expr,
+        type_: $type:expr,
         parameters: $params:expr,
         default: $default:expr
         $(, value: $value:expr)?
         $(, connection: $connection:expr)?
         $(, $($permitted:expr),* $(,)?)?
     ) => {{
-        $crate::Socket::new(
+        $crate::nodes::socket::Socket::new(
             false,
             true,
             $slot,
@@ -173,7 +175,7 @@ macro_rules! rep_socket {
             $default,
             None $(.or(Some($value)))?,
             None $(.or(Some($connection)))?,
-            &[$($($permitted),*)?]
+            (&[$($($permitted),*)?]).iter().cloned()
         )
     }};
 }
