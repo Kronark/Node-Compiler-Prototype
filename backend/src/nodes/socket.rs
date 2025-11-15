@@ -5,13 +5,12 @@ use crate::nodes::socket_type::SocketType;
 use crate::nodes::socket_parameters::SocketParameters;
 use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
-use crate::nodes::vbi::VBI;
 
 // FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
     pub is_outgoing: bool,
     pub is_repetition: bool,
-    pub slot: VBI,
+    pub slot: u32,
     pub type_: SocketType,
     pub parameters: SocketParameters,
     pub permitted: HashSet<DataType>,
@@ -21,7 +20,7 @@ pub struct Socket {
 }
 
 impl Socket {
-    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameters, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self {
+    pub fn new(io : bool, ir : bool, s : u32, t : SocketType, p : SocketParameters, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self {
         Self {
             is_outgoing: io,
             is_repetition: ir,
