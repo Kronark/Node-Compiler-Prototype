@@ -134,7 +134,7 @@ macro_rules! out_socket {
 macro_rules! in_socket {
     (
         slot: $slot:expr,
-        type_: $type:expr,
+        type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
         $(, value: $value:expr)?
@@ -159,7 +159,7 @@ macro_rules! in_socket {
 macro_rules! rep_socket {
     (
         slot: $slot:expr,
-        type_: $type:expr,
+        type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
         $(, value: $value:expr)?
