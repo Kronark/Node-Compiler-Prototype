@@ -37,6 +37,6 @@ impl Display for NodeType {
 #[macro_export]
 macro_rules! node_type {
     ($identifier:expr) => {{
-        $crate::NodeType::new($identifier)
+        $crate::nodes::node_type::NodeType::new($identifier)
     }};
 }

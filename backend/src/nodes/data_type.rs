@@ -48,10 +48,10 @@ impl Display for DataType {
 #[macro_export]
 macro_rules! data_type {
     ($identifier:expr) => {
-        $crate::DataType::new($identifier, false)
+        $crate::nodes::data_type::DataType::new($identifier, false)
     };
-    
+
     ($identifier:expr, $is_package:expr) => {{
-        $crate::DataType::new($identifier, $is_package)
+        $crate::nodes::data_type::DataType::new($identifier, $is_package)
     }};
 }
