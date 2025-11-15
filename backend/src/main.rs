@@ -9,7 +9,7 @@ fn main() {
 
     let i = rep_socket!(
         slot: 0,
-        type_: socket_type!(number),
+        type: socket_type!(number),
         parameters: socket_parameters!(number, min: "-50", max: "50", step: "0.5"),
         default: data_value!("hi!"),
         data_type!(identifier!("maths", "integer")),
