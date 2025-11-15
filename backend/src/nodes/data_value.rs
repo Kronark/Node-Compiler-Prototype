@@ -1,7 +1,7 @@
 use std::ops::{ Deref, DerefMut };
 use std::iter::IntoIterator;
 
-// TODO: implement interning for values to prevent duplicate results
+// OPTIMISE: implement interning for values to prevent duplicate results
 
 pub struct DataValue {
     data: Vec<u8>
@@ -45,22 +45,6 @@ impl From<Vec<u8>> for DataValue {
     }
 }
 
-impl From<u32> for DataValue {
-    fn from(num: u32) -> Self {
-        Self {
-            data: num.to_ne_bytes().to_vec(),
-        }
-    }
-}
-
-impl From<f32> for DataValue {
-    fn from(num: f32) -> Self {
-        Self {
-            data: num.to_ne_bytes().to_vec(),
-        }
-    }
-}
-
 impl DataValue {
     pub fn new<T: Into<DataValue>>(data: T) -> Self {
         data.into()
@@ -98,4 +82,70 @@ impl DerefMut for DataValue {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.data
     }
+}
+
+#[macro_export]
+macro_rules! data_value {
+    ($s:literal) => {{
+        const fn is_hex_char(c: u8) -> bool {
+            matches!(c,
+                b'0'..=b'9'
+                | b'a'..=b'f'
+                | b'A'..=b'F'
+            )
+        }
+
+        let s_bytes = $s.as_bytes();
+        let mut looks_hex = true;
+        let mut i = 0;
+        while i < s_bytes.len() {
+            let c = s_bytes[i];
+            if c == b' ' || c == b'_' {
+                i += 1;
+                continue;
+            }
+            if !is_hex_char(c) {
+                looks_hex = false;
+                break;
+            }
+            i += 1;
+        }
+
+        if looks_hex {
+            let cleaned: String = $s
+                .chars()
+                .filter(|c| !c.is_whitespace() && *c != '_')
+                .collect();
+
+            assert!(
+                cleaned.len() % 2 == 0,
+                "hex string must have an even number of digits"
+            );
+
+            let bytes: Vec<u8> = cleaned
+                .as_bytes()
+                .chunks(2)
+                .map(|p| {
+                    let s = core::str::from_utf8(p).unwrap();
+                    u8::from_str_radix(s, 16).unwrap()
+                })
+                .collect();
+
+            $crate::DataValue::from(bytes)
+        } else {
+            $crate::DataValue::from($s)
+        }
+    }};
+
+    ($($byte:expr),+ $(,)?) => {{
+        let mut v = Vec::<u8>::new();
+        $(
+            v.push($byte as u8);
+        )+
+        $crate::DataValue::from(v)
+    }};
+
+    ($value:expr) => {
+        $crate::DataValue::new($value)
+    };
 }
