@@ -1,11 +1,11 @@
 use std::{fmt::Display};
 use crate::{make_interner, nodes::identifier::Identifier};
 
-// ========== Node Settings Interner ==========
+// ========== Node Type Interner ==========
 
 make_interner!(NODE_TYPE_INTERNER, NodeTypeInterner, NodeType, node_type_interner);
 
-// ========== Data Type ==========
+// ========== Node Type ==========
 
 #[derive(Hash, PartialEq, Eq)]
 pub struct NodeType {
