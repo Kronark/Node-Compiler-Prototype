@@ -21,3 +21,30 @@ impl Display for SocketType {
         }
     }
 }
+
+#[macro_export]
+macro_rules! socket_type {
+    (named) => {
+        $crate::SocketType::Named
+    };
+
+    (number) => {
+        $crate::SocketType::Number
+    };
+
+    (select) => {
+        $crate::SocketType::Select
+    };
+
+    (switch) => {
+        $crate::SocketType::Switch
+    };
+
+    (text) => {
+        $crate::SocketType::Text
+    };
+
+    (color) => {
+        $crate::SocketType::Color
+    };
+}
