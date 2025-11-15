@@ -1,6 +1,8 @@
 use std::ops::{ Deref, DerefMut };
 use std::iter::IntoIterator;
 
+// TODO: implement interning for values to prevent duplicate results
+
 pub struct DataValue {
     data: Vec<u8>
 }
