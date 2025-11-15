@@ -8,10 +8,18 @@ pub struct DataValue {
     data: Vec<u8>
 }
 
+impl From<u8> for DataValue {
+    fn from(b: u8) -> Self {
+        Self {
+            data: vec![b]
+        }
+    }
+}
+
 impl<const N:usize> From<&[u8;N]> for DataValue {
     fn from(value: &[u8;N]) -> Self {
         Self {
-            data:value.to_vec()
+            data: value.to_vec()
         }
     }
 }
@@ -19,7 +27,7 @@ impl<const N:usize> From<&[u8;N]> for DataValue {
 impl<const N:usize> From<[u8;N]> for DataValue {
     fn from(value: [u8;N]) -> Self {
         Self {
-            data:value.to_vec()
+            data: value.to_vec()
         }
     }
 }
@@ -27,7 +35,7 @@ impl<const N:usize> From<[u8;N]> for DataValue {
 impl From<&[u8]> for DataValue {
     fn from(value: &[u8]) -> Self {
         Self {
-            data:value.to_vec()
+            data: value.to_vec()
         }
     }
 }
@@ -35,14 +43,24 @@ impl From<&[u8]> for DataValue {
 impl From<&str> for DataValue {
     fn from(s: &str) -> Self {
         Self {
-            data: s.as_bytes().to_vec(),
+            data: s.as_bytes().to_vec()
+        }
+    }
+}
+
+impl From<String> for DataValue {
+    fn from(s: String) -> Self {
+        Self {
+            data: s.as_bytes().to_vec()
         }
     }
 }
 
 impl From<Vec<u8>> for DataValue {
     fn from(data: Vec<u8>) -> Self {
-        Self { data }
+        Self {
+            data: data
+        }
     }
 }
 
@@ -99,66 +117,11 @@ impl Display for DataValue {
 
 #[macro_export]
 macro_rules! data_value {
-    ($s:literal) => {{
-        const fn is_hex_char(c: u8) -> bool {
-            matches!(c,
-                b'0'..=b'9'
-                | b'a'..=b'f'
-                | b'A'..=b'F'
-            )
-        }
-
-        let s_bytes = $s.as_bytes();
-        let mut looks_hex = true;
-        let mut i = 0;
-        while i < s_bytes.len() {
-            let c = s_bytes[i];
-            if c == b' ' || c == b'_' {
-                i += 1;
-                continue;
-            }
-            if !is_hex_char(c) {
-                looks_hex = false;
-                break;
-            }
-            i += 1;
-        }
-
-        if looks_hex {
-            let cleaned: String = $s
-                .chars()
-                .filter(|c| !c.is_whitespace() && *c != '_')
-                .collect();
-
-            assert!(
-                cleaned.len() % 2 == 0,
-                "hex string must have an even number of digits"
-            );
-
-            let bytes: Vec<u8> = cleaned
-                .as_bytes()
-                .chunks(2)
-                .map(|p| {
-                    let s = core::str::from_utf8(p).unwrap();
-                    u8::from_str_radix(s, 16).unwrap()
-                })
-                .collect();
-
-            $crate::DataValue::from(bytes)
-        } else {
-            $crate::DataValue::from($s)
-        }
-    }};
+    ($value:expr) => {
+        $crate::DataValue::from($value)
+    };
 
     ($($byte:expr),+ $(,)?) => {{
-        let mut v = Vec::<u8>::new();
-        $(
-            v.push($byte as u8);
-        )+
-        $crate::DataValue::from(v)
+        $crate::DataValue::from(Vec::from([$($byte as u8),+]))
     }};
-
-    ($value:expr) => {
-        $crate::DataValue::new($value)
-    };
 }
