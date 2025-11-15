@@ -2,7 +2,7 @@ use std::fmt::Display;
 use std::collections::HashSet;
 use crate::nodes::connection::Connection;
 use crate::nodes::socket_type::SocketType;
-use crate::nodes::socket_parameters::SocketParameter;
+use crate::nodes::socket_parameters::SocketParameters;
 use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
 use crate::nodes::vbi::VBI;
@@ -13,7 +13,7 @@ pub struct Socket {
     pub is_repetition: bool,
     pub slot: VBI,
     pub type_: SocketType,
-    pub parameters: SocketParameter,
+    pub parameters: SocketParameters,
     pub permitted: HashSet<DataType>,
     pub default_value: String,
     pub value: Option<DataValue>,
@@ -21,7 +21,7 @@ pub struct Socket {
 }
 
 impl Socket {
-    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameter, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self {
+    pub fn new(io : bool, ir : bool, s : VBI, t : SocketType, p : SocketParameters, d : String, v : Option<DataValue>, c : Option<Connection>) -> Self {
         Self {
             is_outgoing: io,
             is_repetition: ir,
@@ -47,8 +47,9 @@ impl Display for Socket {
 
         write!(
             f,
-            "{} {} {} {}\n    PARAMETERS\n    PERMITTED\n    VALUE{}",
+            "{} {} {} {}\n{}\n    PERMITTED\n    VALUE{}",
             direction, repetition, self.slot, self.type_,
+            self.parameters,
             self.connection.as_ref().map_or("".to_owned(), |par| "\n    ".to_owned() + &par.to_string())
         )
     }
