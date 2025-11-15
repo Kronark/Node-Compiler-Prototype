@@ -135,6 +135,6 @@ impl Display for Identifier {
 #[macro_export]
 macro_rules! identifier {
     ($($strings:expr),+ $(,)?) => {{
-        $crate::Identifier::new([$( $strings ),+]).expect("Invalid identifier component(s)!")
+        $crate::nodes::identifier::Identifier::new([$( $strings ),+]).expect("Invalid identifier component(s)!")
     }};
 }

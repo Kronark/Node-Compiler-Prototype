@@ -118,10 +118,10 @@ impl Display for DataValue {
 #[macro_export]
 macro_rules! data_value {
     ($value:expr) => {
-        $crate::DataValue::from($value)
+        $crate::nodes::data_value::DataValue::from($value)
     };
 
     ($($byte:expr),+ $(,)?) => {{
-        $crate::DataValue::from(Vec::from([$($byte as u8),+]))
+        $crate::nodes::data_value::DataValue::from(Vec::from([$($byte as u8),+]))
     }};
 }

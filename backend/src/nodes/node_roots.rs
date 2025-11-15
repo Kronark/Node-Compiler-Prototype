@@ -67,6 +67,6 @@ impl Display for NodeRoots {
 #[macro_export]
 macro_rules! node_roots {
     ($($connections:expr),+ $(,)?) => {{
-        $crate::NodeRoots::new([$( $connections ),+])
+        $crate::nodes::node_roots::NodeRoots::new([$( $connections ),+])
     }};
 }

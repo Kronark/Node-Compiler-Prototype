@@ -30,6 +30,6 @@ impl Display for Connection {
 #[macro_export]
 macro_rules! connection {
     ($instance_id:expr, $socket_slot:expr, $type_:expr) => {{
-        $crate::Connection::new($instance_id, $socket_slot, $type_)
+        $crate::nodes::connection::Connection::new($instance_id, $socket_slot, $type_)
     }};
 }
