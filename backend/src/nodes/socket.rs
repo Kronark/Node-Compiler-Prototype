@@ -59,18 +59,26 @@ impl Socket {
 
 impl Display for Socket {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let direction : &str = if self.is_outgoing { "<" } else { ">" };
-        let repetition : &str = if self.is_repetition { "↻" } else { "⁠—" };
+        fn indent(text: &str, level: usize) -> String {
+            let pad = "\t".repeat(level);
+            text.lines()
+                .map(|line| format!("{}{}", pad, line))
+                .collect::<Vec<_>>()
+                .join("\n")
+        }
+
+        let direction: &str = if self.is_outgoing { "<" } else { ">" };
+        let repetition: &str = if self.is_repetition { "↻" } else { "⁠—" };
 
         let permitted_string = if self.permitted.is_empty() {
             "no permitted types".to_string()
         } else {
             let bullet_points = self.permitted
                 .iter()
-                .map(|dt| format!("    • {}", dt))
+                .map(|dt| format!("• {}", dt))
                 .collect::<Vec<_>>()
                 .join("\n");
-            format!("permitted:\n{}", bullet_points)
+            format!("permitted:\n{}", indent(&bullet_points, 1))
         };
 
         let value_string = match &self.value {
@@ -85,13 +93,13 @@ impl Display for Socket {
 
         write!(
             f,
-            "{} {} {} {}\n{}\n{}\ndefault: {}\nvalue: {}\nconnection: {}",
+            "{} {} {} {}\n{}\n{}\n{}\n{}\n{}",
             direction, repetition, self.slot, self.type_,
-            self.parameters,
-            permitted_string,
-            self.default_value,
-            value_string,
-            connection_string
+            indent(&self.parameters.to_string(), 1),
+            indent(&permitted_string, 1),
+            indent(&format!("default: {}", self.default_value), 1),
+            indent(&format!("value: {}", value_string), 1),
+            indent(&format!("connection: {}", connection_string), 1),
         )
     }
 }
