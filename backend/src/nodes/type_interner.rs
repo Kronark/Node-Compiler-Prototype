@@ -17,7 +17,10 @@ macro_rules! make_interner {
                 }
             }
 
-            pub fn intern(&self, datum: $type_name) -> Arc<$type_name> {
+            pub fn intern(&self, datum: $type_name) -> Arc<$type_name>
+            where 
+                $type_name: std::hash::Hash + Eq
+            {
                 let mut data = self.data.write();
 
                 if let Some(existing_datum) = data.get(&datum) {
