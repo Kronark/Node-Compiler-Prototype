@@ -58,11 +58,16 @@ impl Display for Instance {
 
 #[macro_export]
 macro_rules! instance {
-    ($type:expr $(, $socket:expr )* $(,)?) => {{
-        let mut map = ::std::collections::HashMap::new();
-        $(
-            map.insert($socket.slot, $socket);
-        )*
-        $crate::Instance::new($type, map)
+    ($type:expr $(, $socket:expr)* $(,)?) => {{
+        $crate::nodes::instance::Instance {
+            type_: $type,
+            sockets: {
+                let mut map = std::collections::HashMap::new();
+                $(
+                    map.insert($socket.slot, $socket);
+                )*
+                map
+            },
+        }
     }};
 }
