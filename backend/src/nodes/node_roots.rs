@@ -1,41 +1,67 @@
-use std::{fmt::Display};
+use std::{collections::HashMap, fmt::Display};
 use crate::nodes::connection::Connection;
 
 // TODO: figure out best way to delete node root connections
 
 pub struct NodeRoots {
-    connections: Vec<Connection>
+    connections: HashMap<u32, Vec<Connection>>
 }
 
 impl NodeRoots {
-    pub fn new(c : Vec<Connection>) -> Self {
-        Self {
-            connections: c
+    pub fn new<I>(connections: I) -> Self
+    where
+        I: IntoIterator<Item = Connection>,
+    {
+        let mut map: HashMap<u32, Vec<Connection>> = HashMap::new();
+
+        for connection in connections {
+            map.entry(connection.instance_id)
+                .or_insert_with(Vec::new)
+                .push(connection);
         }
+
+        Self { connections: map }
     }
 
     pub fn add_connection(&mut self, connection: Connection) {
-        self.connections.push(connection);
+        self.connections.entry(connection.instance_id).or_insert_with(Vec::new).push(connection);
+    }
+
+    pub fn remove_connection(&mut self, instance_id: u32, socket_slot: u32) {
+        if let Some(vec) = self.connections.get_mut(&instance_id) {
+            vec.retain(|connection| connection.socket_slot != socket_slot);
+            if vec.is_empty() {
+                self.connections.remove(&instance_id);
+            }
+        }
+    }
+
+    pub fn remove_connections(&mut self, instance_id: u32) {
+        self.connections.remove(&instance_id);
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &Connection> {
-        self.connections.iter()
+        self.connections.values().flatten()
     }
 
     pub fn count(&self) -> usize {
-        self.connections.len()
+        self.connections.values().map(|vector| vector.len()).sum()
     }
 }
 
 impl Display for NodeRoots {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "root connections:")?;
-        for (index, connection) in self.connections.iter().enumerate() {
-            if index > 0 {
+
+        let mut iter = self.connections.values().flatten().peekable();
+        while let Some(connection) = iter.next() {
+            write!(f, "\t{}", connection)?;
+            if iter.peek().is_some() {
                 write!(f, ",")?;
             }
-            writeln!(f, "\t{}", connection)?;
+            writeln!(f)?;
         }
+
         Ok(())
     }
 }
@@ -43,6 +69,6 @@ impl Display for NodeRoots {
 #[macro_export]
 macro_rules! node_roots {
     ($($connections:expr),+ $(,)?) => {{
-        $crate::Connection::new([$( $connections ),+])
+        $crate::NodeRoots::new([$( $connections ),+])
     }};
 }
