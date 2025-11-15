@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use std::ops::{ Deref, DerefMut };
 use std::iter::IntoIterator;
 
@@ -81,6 +82,18 @@ impl Deref for DataValue {
 impl DerefMut for DataValue {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.data
+    }
+}
+
+impl Display for DataValue {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        for (index, byte) in self.data.iter().enumerate() {
+            if index > 0 {
+                write!(f, " ")?;
+            }
+            write!(f, "{:02x}", byte)?;
+        }
+        Ok(())
     }
 }
 
