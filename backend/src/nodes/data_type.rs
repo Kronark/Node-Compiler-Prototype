@@ -3,7 +3,7 @@ use crate::{make_interner, nodes::identifier::Identifier};
 
 // ========== Data Type Interner ==========
 
-make_interner!(TYPE_INTERNER, TypeInterner, DataType, type_interner);
+make_interner!(DATA_TYPE_INTERNER, DataTypeInterner, DataType, data_type_interner);
 
 // ========== Data Type ==========
 
@@ -15,7 +15,7 @@ pub struct DataType {
 
 impl DataType {
     pub fn new(i : Identifier, p : bool) -> Arc<Self> {
-        type_interner().intern(Self {
+        data_type_interner().intern(Self {
             is_package: p,
             identifier: i
         })

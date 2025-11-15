@@ -3,18 +3,18 @@ use crate::{make_interner, nodes::identifier::Identifier};
 
 // ========== Node Settings Interner ==========
 
-make_interner!(NODE_SETTINGS_INTERNER, NodeSettingsInterner, NodeSettings, node_settings_interner);
+make_interner!(NODE_TYPE_INTERNER, NodeTypeInterner, NodeType, node_type_interner);
 
 // ========== Data Type ==========
 
 #[derive(Hash, PartialEq, Eq)]
-pub struct NodeSettings {
+pub struct NodeType {
     identifier: Identifier
 }
 
-impl NodeSettings {
+impl NodeType {
     pub fn new(i : Identifier) -> Arc<Self> {
-        node_settings_interner().intern(Self {
+        node_type_interner().intern(Self {
             identifier: i
         })
     }
@@ -24,7 +24,7 @@ impl NodeSettings {
     }
 }
 
-impl Display for NodeSettings {
+impl Display for NodeType {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(
             f,
@@ -35,8 +35,8 @@ impl Display for NodeSettings {
 }
 
 #[macro_export]
-macro_rules! node_settings {
+macro_rules! node_type {
     ($identifier:expr) => {{
-        $crate::NodeSettings::new($identifier)
+        $crate::NodeType::new($identifier)
     }};
 }
