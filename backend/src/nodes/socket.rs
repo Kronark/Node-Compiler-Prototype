@@ -16,7 +16,7 @@ pub struct Socket {
     pub parameters: SocketParameters,
     permitted: HashSet<Arc<DataType>>,
     pub default_value: DataValue,
-    pub value: Option<DataValue>,
+    pub actual: Option<DataValue>,
     pub connection: Option<Connection>
 }
 
@@ -28,7 +28,7 @@ impl Socket {
         t: SocketType,
         param: SocketParameters,
         d: DataValue,
-        v: Option<DataValue>,
+        a: Option<DataValue>,
         c: Option<Connection>,
         perm: impl IntoIterator<Item = Arc<DataType>>,
     ) -> Self {
@@ -42,7 +42,7 @@ impl Socket {
             parameters: param,
             permitted: permitted_set,
             default_value: d,
-            value: v,
+            actual: a,
             connection: c
         }
     }
@@ -63,7 +63,7 @@ impl Socket {
 impl Display for Socket {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         fn indent(text: &str, level: usize) -> String {
-            let pad = "\t".repeat(level);
+            let pad = "    ".repeat(level);
             text.lines()
                 .map(|line| format!("{}{}", pad, line))
                 .collect::<Vec<_>>()
@@ -84,9 +84,9 @@ impl Display for Socket {
             format!("permitted:\n{}", indent(&bullet_points, 1))
         };
 
-        let value_string = match &self.value {
+        let value_string = match &self.actual {
             Some(value) => value.to_string(),
-            None => "no value".to_owned(),
+            None => "no actual data".to_owned(),
         };
 
         let connection_string = match &self.connection {
@@ -101,7 +101,7 @@ impl Display for Socket {
             indent(&self.parameters.to_string(), 1),
             indent(&permitted_string, 1),
             indent(&format!("default: {}", self.default_value), 1),
-            indent(&format!("value: {}", value_string), 1),
+            indent(&format!("actual: {}", value_string), 1),
             indent(&format!("connection: {}", connection_string), 1),
         )
     }
