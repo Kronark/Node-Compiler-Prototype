@@ -53,11 +53,11 @@ impl IdentifierComponentInterner {
         Ok(self.data.write().get_or_intern(datum))
     }
 
-    pub fn resolve(&self, symbol: IdentifierComponentReference) -> &'static str {
+    pub fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
         let data = self.data.read();
         let datum: &str = data.resolve(&symbol);
 
-        // only possible because the interner is global and lives as long as the program runs
+        // invariant of Interner: Once a string is interned it won't be modified
         unsafe { &*(datum as *const str) }
     }
 }
