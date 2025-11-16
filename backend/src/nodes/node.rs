@@ -51,7 +51,7 @@ impl Display for Node {
             i.sort_by_key(|(id, _)| *id);
 
             for (id, instance) in i {
-                writeln!(f, "    • {}", id)?;
+                writeln!(f, "    • {} ──────────────────────────────", id)?;
                 let i_str = instance.to_string();
                 for line in i_str.lines() {
                     writeln!(f, "        {}", line)?;

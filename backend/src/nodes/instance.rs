@@ -45,7 +45,7 @@ impl Display for Instance {
 
         writeln!(f, "sockets:")?;
         for (&slot, socket) in sockets {
-            writeln!(f, "    {} --------------------", slot)?;
+            writeln!(f, "    {} ────────────────────", slot)?;
             let socket_string = socket.to_string();
             for line in socket_string.lines() {
                 writeln!(f, "    {}", line)?;
