@@ -25,6 +25,15 @@ impl Pool {
         }
     }
 
+    pub fn reserve(&mut self, id: u32) -> u32 {
+        if id >= self.next {
+            self.next = id + 1;
+        } else {
+            self.free.remove(&id);
+        }
+        id
+    }
+
     pub fn release(&mut self, id: u32) {
         if id + 1 == self.next {
             self.next = self.next.saturating_sub(1);

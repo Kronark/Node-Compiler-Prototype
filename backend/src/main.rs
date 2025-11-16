@@ -1,10 +1,20 @@
 mod nodes;
 
 fn main() {
-    let ip = pool!();
-    let sp = pool!();
+    let mut ip = pool!();
+    let mut sp = pool!();
+
+    let i1 = ip.reserve(1);
+    let s1 = sp.reserve(0);
+    let s2 = sp.reserve(42);
+    let s3 = sp.reserve(69);
+    let i2 = ip.reserve(2);
+    let s4 = sp.reserve(2);
+    let s5 = sp.reserve(79);
+    let s6 = sp.reserve(33);
+
     let n = node!(
-        true,
+        false,
         type: node_type!(identifier!("project", "mathematics", "algebra", "add")),
         roots: node_roots!(
             connection!(42, 3, data_type!(identifier!("project", "numbers", "integer"))),
@@ -12,12 +22,12 @@ fn main() {
         ),
         id_pool: ip,
         slot_pool: sp,
-        1 => instance!(
+        i1 => instance!(
             node_type!(identifier!("project", "x64", "add", "add-registers")),
-            0 => out_socket!(
+            s1 => out_socket!(
                 default: data!(data_type!(identifier!("data", "hex")), data_value!(0x86))
             ),
-            42 => rep_socket!(
+            s2 => rep_socket!(
                 type: socket_type!(number),
                 parameters: socket_parameters!(number, min: "-50", max: "50", step: "0.5"),
                 default: data!(data_type!(identifier!("text", "utf8")), data_value!("hello!")),
@@ -26,7 +36,7 @@ fn main() {
                     data_type!(identifier!("maths", "float"))
                 ]
             ),
-            69 => in_socket!(
+            s3 => in_socket!(
                 type: socket_type!(color),
                 parameters: socket_parameters!(color),
                 default: data!(data_type!(identifier!("text", "utf8")), data_value!("bye!")),
@@ -36,12 +46,12 @@ fn main() {
                 ]
             )
         ),
-        4 => instance!(
+        i2 => instance!(
             node_type!(identifier!("project", "x64", "add", "add-registers")),
-            2 => out_socket!(
+            s4 => out_socket!(
                 default: data!(data_type!(identifier!("data", "hex")), data_value!(0xFF))
             ),
-            70 => rep_socket!(
+            s5 => rep_socket!(
                 type: socket_type!(number),
                 parameters: socket_parameters!(number, min: "-50", max: "50", step: "0.5"),
                 default: data!(data_type!(identifier!("text", "utf8")), data_value!("hi!")),
@@ -51,7 +61,7 @@ fn main() {
                     data_type!(identifier!("maths", "float"))
                 ]
             ),
-            55 => in_socket!(
+            s6 => in_socket!(
                 type: socket_type!(color),
                 parameters: socket_parameters!(color),
                 default: data!(data_type!(identifier!("text", "utf8")), data_value!("bye!")),
