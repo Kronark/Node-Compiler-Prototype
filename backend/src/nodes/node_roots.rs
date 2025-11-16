@@ -1,8 +1,8 @@
-use std::{collections::HashMap, fmt::Display};
 use crate::nodes::connection::Connection;
+use std::{collections::HashMap, fmt::Display};
 
 pub struct NodeRoots {
-    connections: HashMap<u32, Vec<Connection>>
+    connections: HashMap<u32, Vec<Connection>>,
 }
 
 impl NodeRoots {
@@ -22,7 +22,10 @@ impl NodeRoots {
     }
 
     pub fn add_connection(&mut self, connection: Connection) {
-        self.connections.entry(connection.instance_id).or_insert_with(Vec::new).push(connection);
+        self.connections
+            .entry(connection.instance_id)
+            .or_insert_with(Vec::new)
+            .push(connection);
     }
 
     pub fn remove_connection(&mut self, instance_id: u32, socket_slot: u32) {

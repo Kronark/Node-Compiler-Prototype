@@ -1,33 +1,31 @@
 use std::fmt::Display;
-use std::ops::{ Deref, DerefMut };
 use std::iter::IntoIterator;
+use std::ops::{Deref, DerefMut};
 
 // OPTIMISE: implement interning for values to prevent duplicate results
 
 pub struct DataValue {
-    data: Vec<u8>
+    data: Vec<u8>,
 }
 
 impl From<u8> for DataValue {
     fn from(b: u8) -> Self {
+        Self { data: vec![b] }
+    }
+}
+
+impl<const N: usize> From<&[u8; N]> for DataValue {
+    fn from(value: &[u8; N]) -> Self {
         Self {
-            data: vec![b]
+            data: value.to_vec(),
         }
     }
 }
 
-impl<const N:usize> From<&[u8;N]> for DataValue {
-    fn from(value: &[u8;N]) -> Self {
+impl<const N: usize> From<[u8; N]> for DataValue {
+    fn from(value: [u8; N]) -> Self {
         Self {
-            data: value.to_vec()
-        }
-    }
-}
-
-impl<const N:usize> From<[u8;N]> for DataValue {
-    fn from(value: [u8;N]) -> Self {
-        Self {
-            data: value.to_vec()
+            data: value.to_vec(),
         }
     }
 }
@@ -35,7 +33,7 @@ impl<const N:usize> From<[u8;N]> for DataValue {
 impl From<&[u8]> for DataValue {
     fn from(value: &[u8]) -> Self {
         Self {
-            data: value.to_vec()
+            data: value.to_vec(),
         }
     }
 }
@@ -43,7 +41,7 @@ impl From<&[u8]> for DataValue {
 impl From<&str> for DataValue {
     fn from(s: &str) -> Self {
         Self {
-            data: s.as_bytes().to_vec()
+            data: s.as_bytes().to_vec(),
         }
     }
 }
@@ -51,16 +49,14 @@ impl From<&str> for DataValue {
 impl From<String> for DataValue {
     fn from(s: String) -> Self {
         Self {
-            data: s.as_bytes().to_vec()
+            data: s.as_bytes().to_vec(),
         }
     }
 }
 
 impl From<Vec<u8>> for DataValue {
     fn from(data: Vec<u8>) -> Self {
-        Self {
-            data: data
-        }
+        Self { data: data }
     }
 }
 

@@ -5,26 +5,24 @@ pub enum SocketParameters {
     Number {
         min: String,
         max: String,
-        step: String
+        step: String,
     },
     Select {
-        options: Vec<String>
+        options: Vec<String>,
     },
     Switch,
     Text {
         min: String,
         max: String,
-        valid: String
+        valid: String,
     },
-    Color
+    Color,
 }
 
 impl Display for SocketParameters {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            SocketParameters::Named
-            | SocketParameters::Switch
-            | SocketParameters::Color => {
+            SocketParameters::Named | SocketParameters::Switch | SocketParameters::Color => {
                 write!(f, "no parameters")
             }
 
@@ -41,7 +39,7 @@ impl Display for SocketParameters {
                 Ok(())
             }
 
-            SocketParameters::Number { min, max, step} => {
+            SocketParameters::Number { min, max, step } => {
                 writeln!(f, "parameters:")?;
                 writeln!(f, "    • minimum: {}", min)?;
                 writeln!(f, "    • maximum: {}", max)?;
@@ -58,7 +56,7 @@ impl Display for SocketParameters {
                 writeln!(f, "parameters:")?;
                 writeln!(f, "    • minimum: {}", min)?;
                 writeln!(f, "    • maximum: {}", max)?;
-                write!(f,   "    • valid: {}", valid_text)
+                write!(f, "    • valid: {}", valid_text)
             }
         }
     }

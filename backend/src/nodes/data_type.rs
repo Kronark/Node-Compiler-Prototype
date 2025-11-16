@@ -1,23 +1,28 @@
-use std::{fmt::Display};
 use crate::{make_interner, nodes::identifier::Identifier};
+use std::fmt::Display;
 
 // ========== Data Type Interner ==========
 
-make_interner!(DATA_TYPE_INTERNER, DataTypeInterner, DataType, data_type_interner);
+make_interner!(
+    DATA_TYPE_INTERNER,
+    DataTypeInterner,
+    DataType,
+    data_type_interner
+);
 
 // ========== Data Type ==========
 
 #[derive(Hash, PartialEq, Eq, Clone)]
 pub struct DataType {
     is_package: bool,
-    identifier: Identifier
+    identifier: Identifier,
 }
 
 impl DataType {
-    pub fn new(i : Identifier, p : bool) -> Arc<Self> {
+    pub fn new(i: Identifier, p: bool) -> Arc<Self> {
         data_type_interner().intern(Self {
             is_package: p,
-            identifier: i
+            identifier: i,
         })
     }
 
@@ -36,12 +41,8 @@ impl Display for DataType {
         if self.is_package {
             packaged = "packaged";
         }
-        
-        write!(
-            f,
-            "{} ~ {}",
-            packaged, self.identifier
-        )
+
+        write!(f, "{} ~ {}", packaged, self.identifier)
     }
 }
 
@@ -51,7 +52,5 @@ macro_rules! data_type {
         $crate::nodes::data_type::DataType::new($identifier, false)
     };
 
-    ($identifier:expr, $is_package:expr) => {{
-        $crate::nodes::data_type::DataType::new($identifier, $is_package)
-    }};
+    ($identifier:expr, $is_package:expr) => {{ $crate::nodes::data_type::DataType::new($identifier, $is_package) }};
 }
