@@ -40,7 +40,8 @@ impl IdentifierComponentInterner {
         IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| Self::new())
     }
 
-    fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
+    // takes 'static self to avoid accidentally using Self::new in place of Self::get
+    fn intern(&'static self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
         if datum.is_empty() {
             return Err(IdentifierComponentError::Empty)
         }
