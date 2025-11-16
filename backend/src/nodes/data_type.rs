@@ -1,16 +1,5 @@
-use crate::{make_interner, nodes::identifier::Identifier};
+use crate::nodes::identifier::Identifier;
 use std::fmt::Display;
-
-// ========== Data Type Interner ==========
-
-make_interner!(
-    DATA_TYPE_INTERNER,
-    DataTypeInterner,
-    DataType,
-    data_type_interner
-);
-
-// ========== Data Type ==========
 
 #[derive(Hash, PartialEq, Eq, Clone)]
 pub struct DataType {
@@ -19,11 +8,11 @@ pub struct DataType {
 }
 
 impl DataType {
-    pub fn new(i: Identifier, p: bool) -> Arc<Self> {
-        data_type_interner().intern(Self {
+    pub fn new(i: Identifier, p: bool) -> Self {
+        Self {
             is_package: p,
             identifier: i,
-        })
+        }
     }
 
     pub fn is_package(&self) -> bool {

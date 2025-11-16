@@ -1,10 +1,9 @@
 use crate::nodes::{instance::Instance, node_roots::NodeRoots, node_type::NodeType, pool::Pool};
-use std::{collections::HashMap, fmt::Display, sync::Arc};
+use std::{collections::HashMap, fmt::Display};
 
-// TODO: track what socket slots are used in separate data structure
 pub struct Node {
     pub is_compiler_node: bool,
-    pub type_: Arc<NodeType>,
+    pub type_: NodeType,
     pub roots: NodeRoots,
     pub id_pool: Pool,
     pub slot_pool: Pool,
@@ -14,7 +13,7 @@ pub struct Node {
 impl Node {
     pub fn new(
         icn: bool,
-        t: Arc<NodeType>,
+        t: NodeType,
         r: NodeRoots,
         ip: Pool,
         sp: Pool,
@@ -70,7 +69,6 @@ impl Display for Node {
                 }
             }
         }
-
         Ok(())
     }
 }

@@ -1,14 +1,5 @@
-use crate::{make_interner, nodes::identifier::Identifier};
+use crate::nodes::identifier::Identifier;
 use std::fmt::Display;
-
-// ========== Node Type Interner ==========
-
-make_interner!(
-    NODE_TYPE_INTERNER,
-    NodeTypeInterner,
-    NodeType,
-    node_type_interner
-);
 
 // ========== Node Type ==========
 
@@ -18,8 +9,8 @@ pub struct NodeType {
 }
 
 impl NodeType {
-    pub fn new(i: Identifier) -> Arc<Self> {
-        node_type_interner().intern(Self { identifier: i })
+    pub fn new(i: Identifier) -> Self {
+        Self { identifier: i }
     }
 
     pub fn identifier(&self) -> &Identifier {

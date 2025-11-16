@@ -4,15 +4,14 @@ use crate::nodes::data_type::DataType;
 use crate::nodes::socket_parameters::SocketParameters;
 use crate::nodes::socket_type::SocketType;
 use std::fmt::Display;
-use std::{collections::HashSet, sync::Arc};
+use std::collections::HashSet;
 
-// FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
     pub is_outgoing: bool,
     pub is_repetition: bool,
     pub type_: SocketType,
     pub parameters: SocketParameters,
-    permitted: HashSet<Arc<DataType>>,
+    permitted: HashSet<DataType>,
     pub default: Data,
     pub actual: Option<Data>,
     pub connection: Option<Connection>,
@@ -27,7 +26,7 @@ impl Socket {
         d: Data,
         a: Option<Data>,
         c: Option<Connection>,
-        perm: impl IntoIterator<Item = Arc<DataType>>,
+        perm: impl IntoIterator<Item = DataType>,
     ) -> Self {
         let permitted_set = perm.into_iter().collect::<HashSet<_>>();
 
@@ -43,11 +42,11 @@ impl Socket {
         }
     }
 
-    pub fn permit(&mut self, data_type: Arc<DataType>) {
+    pub fn permit(&mut self, data_type: DataType) {
         self.permitted.insert(data_type);
     }
 
-    pub fn forbid(&mut self, data_type: &Arc<DataType>) {
+    pub fn forbid(&mut self, data_type: &DataType) {
         self.permitted.remove(data_type);
     }
 

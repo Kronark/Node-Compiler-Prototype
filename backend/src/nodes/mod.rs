@@ -13,4 +13,3 @@ pub mod pool;
 pub mod socket;
 pub mod socket_parameters;
 pub mod socket_type;
-pub mod type_interner;
