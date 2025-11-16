@@ -6,7 +6,6 @@
 - Variable names that are reserved by keywords and can't be circumvented elegantly are denoted with an additional "_" suffix
 - Fields are grouped by purpose
 - Imports are alphabetically ordered
-- Types need to be explicitely defined (no `auto`, `any` or similar)
 - All files need an empty line at the end
 
 ## Comments
