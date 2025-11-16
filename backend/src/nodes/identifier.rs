@@ -108,14 +108,14 @@ pub struct Identifier {
 }
 
 impl Identifier {
-    pub fn new<I, T>(parts: I) -> Result<Self, IdentifierError>
+    pub fn new<I, T>(raw_components: I) -> Result<Self, IdentifierError>
     where
         I: IntoIterator<Item = T>,
         T: AsRef<str>
     {
         let mut components = Vec::new();
-        for part in parts {
-            let component = IdentifierComponent::new(part.as_ref()).map_err(IdentifierError::InvalidComponent)?;
+        for raw_component in raw_components {
+            let component = IdentifierComponent::new(raw_component.as_ref()).map_err(IdentifierError::InvalidComponent)?;
             components.push(component);
         }
 
