@@ -23,20 +23,20 @@ pub enum IdentifierError {
 
 // ========== Identifier Component Interner ==========
 
-pub type IdentifierComponentReference = Spur;
+type IdentifierComponentReference = Spur;
 
-pub struct IdentifierComponentInterner {
+struct IdentifierComponentInterner {
     data: RwLock<Rodeo>
 }
 
 impl IdentifierComponentInterner {
-    pub fn new() -> Self {
+    fn new() -> Self {
         Self {
             data: RwLock::new(Rodeo::default())
         }
     }
 
-    pub fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
+    fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
         if datum.is_empty() {
             return Err(IdentifierComponentError::Empty)
         }
@@ -53,7 +53,7 @@ impl IdentifierComponentInterner {
         Ok(self.data.write().get_or_intern(datum))
     }
 
-    pub fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
+    fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
         let data = self.data.read();
         let datum: &str = data.resolve(&symbol);
 
