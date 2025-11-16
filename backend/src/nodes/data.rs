@@ -1,13 +1,13 @@
 use crate::nodes::{data_type::DataType, data_value::DataValue};
-use std::{fmt::Display, sync::Arc};
+use std::fmt::Display;
 
 pub struct Data {
-    pub type_: Arc<DataType>,
+    pub type_: DataType,
     pub value: DataValue,
 }
 
 impl Data {
-    pub fn new(dt: Arc<DataType>, v: DataValue) -> Self {
+    pub fn new(dt: DataType, v: DataValue) -> Self {
         Self {
             type_: dt,
             value: v,

@@ -1,6 +1,6 @@
 use core::fmt;
-use lasso::{Rodeo, Spur};
-use parking_lot::RwLock;
+use lasso::{Spur, ThreadedRodeo};
+use std::fmt::Write;
 use std::{fmt::Display, sync::OnceLock};
 
 // ========== Globals ==========
@@ -26,13 +26,13 @@ pub enum IdentifierError {
 type IdentifierComponentReference = Spur;
 
 struct IdentifierComponentInterner {
-    data: RwLock<Rodeo>,
+    data: ThreadedRodeo,
 }
 
 impl IdentifierComponentInterner {
     fn new() -> Self {
         Self {
-            data: RwLock::new(Rodeo::default()),
+            data: ThreadedRodeo::new(),
         }
     }
 
@@ -40,7 +40,6 @@ impl IdentifierComponentInterner {
         IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| Self::new())
     }
 
-    // takes 'static self to avoid accidentally using Self::new in place of Self::get
     fn intern(
         &'static self,
         datum: &str,
@@ -49,22 +48,17 @@ impl IdentifierComponentInterner {
             return Err(IdentifierComponentError::Empty);
         }
 
-        // bytes is faster here since it skips decoding utf8
         if let Some(&byte) = datum.as_bytes().iter().find(|&&byte| {
             !(b'a'..=b'z').contains(&byte) && !(b'0'..=b'9').contains(&byte) && byte != b'-'
         }) {
             return Err(IdentifierComponentError::InvalidCharacter(byte as char));
         }
 
-        Ok(self.data.write().get_or_intern(datum))
+        Ok(self.data.get_or_intern(datum))
     }
 
     fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
-        let data = self.data.read();
-        let datum: &str = data.resolve(&symbol);
-
-        // invariant of Interner: Once a string is interned it won't be modified
-        unsafe { &*(datum as *const str) }
+        self.data.resolve(&symbol)
     }
 }
 
@@ -124,27 +118,18 @@ impl Identifier {
 
         Ok(Self { components })
     }
-
-    pub fn as_str(&self) -> String {
-        self.components
-            .iter()
-            .map(|c| c.data())
-            .collect::<Vec<_>>()
-            .join(":")
-    }
 }
 
 impl Display for Identifier {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> fmt::Result {
-        write!(
-            f,
-            "{}",
-            self.components
-                .iter()
-                .map(|c| c.data())
-                .collect::<Vec<_>>()
-                .join(":")
-        )
+        if let Some(first) = self.components.first() {
+            f.write_str(first.data())?;
+            for component in self.components.iter().skip(1) {
+                f.write_char(':')?;
+                f.write_str(component.data())?;
+            }
+        }
+        Ok(())
     }
 }
 

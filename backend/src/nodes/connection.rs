@@ -1,14 +1,14 @@
 use crate::nodes::data_type::DataType;
-use std::{fmt::Display, sync::Arc};
+use std::{fmt::Display};
 
 pub struct Connection {
     pub instance_id: u32,
     pub socket_slot: u32,
-    pub type_: Arc<DataType>,
+    pub type_: DataType,
 }
 
 impl Connection {
-    pub const fn new(i: u32, s: u32, t: Arc<DataType>) -> Self {
+    pub const fn new(i: u32, s: u32, t: DataType) -> Self {
         Self {
             instance_id: i,
             socket_slot: s,

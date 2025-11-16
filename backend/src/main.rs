@@ -1,4 +1,5 @@
 use rand::Rng;
+
 mod nodes;
 
 fn main() {
@@ -13,13 +14,12 @@ fn main() {
     let s4 = sp.reserve(2);
     let s5 = sp.reserve(79);
     let s6 = sp.reserve(33);
-
     let n = node!(
         false,
         type: node_type!(identifier!("project", "mathematics", "algebra", "add")),
         roots: node_roots!(
             connection!(42, 3, data_type!(identifier!("project", "numbers", "integer"))),
-            connection!(33, 6, data_type!(identifier!("project", "numbers", "float")))
+            connection!(33, 6,  data_type!(identifier!("project", "numbers", "float")))
         ),
         id_pool: ip,
         slot_pool: sp,
