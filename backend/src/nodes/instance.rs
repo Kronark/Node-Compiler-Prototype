@@ -22,8 +22,8 @@ impl Instance {
         &self.sockets
     }
 
-    pub fn set_socket(&mut self, socket: Socket) {
-        self.sockets.insert(socket.slot, socket);
+    pub fn set_socket(&mut self, slot: u32, socket: Socket) {
+        self.sockets.insert(slot, socket);
     }
 
     pub fn get_socket(&mut self, slot: u32) -> Option<&mut Socket> {
@@ -40,11 +40,12 @@ impl Display for Instance {
             return Ok(());
         }
 
-        let mut sockets: Vec<_> = self.sockets.values().collect();
-        sockets.sort_by_key(|socket| socket.slot);
+        let mut sockets: Vec<_> = self.sockets.iter().collect();
+        sockets.sort_by_key(|&(&slot, _)| slot);
 
         writeln!(f, "sockets:")?;
-        for socket in sockets {
+        for (&slot, socket) in sockets {
+            writeln!(f, "    {} --------------------", slot)?;
             let socket_string = socket.to_string();
             for line in socket_string.lines() {
                 writeln!(f, "    {}", line)?;
@@ -57,10 +58,10 @@ impl Display for Instance {
 
 #[macro_export]
 macro_rules! instance {
-    ($type:expr $(, $socket:expr)* $(,)?) => {{
+    ($type:expr $(, $slot:expr => $socket:expr)* $(,)?) => {{
         $crate::nodes::instance::Instance::new(
             $type,
-            [$( ($socket.slot, $socket) ),*].into_iter().collect()
+            [$( ($slot, $socket) ),*].into_iter().collect()
         )
     }};
 }

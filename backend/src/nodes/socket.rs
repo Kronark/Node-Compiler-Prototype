@@ -11,7 +11,6 @@ use crate::nodes::data_type::DataType;
 pub struct Socket {
     pub is_outgoing: bool,
     pub is_repetition: bool,
-    pub slot: u32,
     pub type_: SocketType,
     pub parameters: SocketParameters,
     permitted: HashSet<Arc<DataType>>,
@@ -24,7 +23,6 @@ impl Socket {
     pub fn new(
         io: bool,
         ir: bool,
-        s: u32,
         t: SocketType,
         param: SocketParameters,
         d: DataValue,
@@ -37,7 +35,6 @@ impl Socket {
         Self {
             is_outgoing: io,
             is_repetition: ir,
-            slot: s,
             type_: t,
             parameters: param,
             permitted: permitted_set,
@@ -96,8 +93,8 @@ impl Display for Socket {
 
         write!(
             f,
-            "{} {} {} {}\n{}\n{}\n{}\n{}\n{}",
-            direction, repetition, self.slot, self.type_,
+            "{} {} {}\n{}\n{}\n{}\n{}\n{}",
+            direction, repetition, self.type_,
             indent(&self.parameters.to_string(), 1),
             indent(&permitted_string, 1),
             indent(&format!("default: {}", self.default_value), 1),
@@ -110,7 +107,6 @@ impl Display for Socket {
 #[macro_export]
 macro_rules! out_socket {
     (
-        slot: $slot:expr,
         default: $default:expr
         $(, value: $value:expr)?
         $(, connection: $connection:expr)?
@@ -119,7 +115,6 @@ macro_rules! out_socket {
         $crate::nodes::socket::Socket::new(
             true,
             false,
-            $slot,
             $crate::nodes::socket_type::SocketType::Named,
             $crate::nodes::socket_parameters::SocketParameters::Named,
             $default,
@@ -133,7 +128,6 @@ macro_rules! out_socket {
 #[macro_export]
 macro_rules! in_socket {
     (
-        slot: $slot:expr,
         type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
@@ -144,7 +138,6 @@ macro_rules! in_socket {
         $crate::nodes::socket::Socket::new(
             false,
             false,
-            $slot,
             $type,
             $params,
             $default,
@@ -158,7 +151,6 @@ macro_rules! in_socket {
 #[macro_export]
 macro_rules! rep_socket {
     (
-        slot: $slot:expr,
         type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
@@ -169,7 +161,6 @@ macro_rules! rep_socket {
         $crate::nodes::socket::Socket::new(
             false,
             true,
-            $slot,
             $type,
             $params,
             $default,
