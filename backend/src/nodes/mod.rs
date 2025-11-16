@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+pub mod pool;
 pub mod identifier;
 pub mod socket;
 pub mod socket_type;
