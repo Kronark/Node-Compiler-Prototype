@@ -1,6 +1,8 @@
 mod nodes;
 
 fn main() {
+    let ip = pool!();
+    let sp = pool!();
     let n = node!(
         true,
         type: node_type!(identifier!("project", "mathematics", "algebra", "add")),
@@ -8,6 +10,8 @@ fn main() {
             connection!(42, 3, data_type!(identifier!("project", "numbers", "integer"))),
             connection!(33, 6, data_type!(identifier!("project", "numbers", "float")))
         ),
+        id_pool: ip,
+        slot_pool: sp,
         1 => instance!(
             node_type!(identifier!("project", "x64", "add", "add-registers")),
             0 => out_socket!(

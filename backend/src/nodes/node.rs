@@ -1,5 +1,5 @@
 use std::{collections::HashMap, fmt::Display, sync::Arc};
-use crate::nodes::{instance::Instance, node_roots::NodeRoots, node_type::NodeType};
+use crate::nodes::{instance::Instance, node_roots::NodeRoots, node_type::NodeType, pool::Pool};
 
 // TODO: track what socket slots are used in separate data structure
 pub struct Node
@@ -7,15 +7,19 @@ pub struct Node
     pub is_compiler_node: bool,
     pub type_: Arc<NodeType>,
     pub roots: NodeRoots,
+    pub id_pool: Pool,
+    pub slot_pool: Pool,
     instances: HashMap<u32, Instance>
 }
 
 impl Node {
-    pub fn new(icn: bool, t: Arc<NodeType>, r: NodeRoots, i: HashMap<u32, Instance>) -> Self {
+    pub fn new(icn: bool, t: Arc<NodeType>, r: NodeRoots, ip: Pool, sp: Pool, i: HashMap<u32, Instance>) -> Self {
         Self {
             is_compiler_node: icn,
             type_: t,
             roots: r,
+            id_pool: ip,
+            slot_pool: sp,
             instances: i,
         }
     }
@@ -68,13 +72,17 @@ macro_rules! node {
     (
         $is_built_in:expr,
         type: $type:expr,
-        roots: $roots:expr
+        roots: $roots:expr,
+        id_pool: $id_pool:expr,
+        slot_pool: $slot_pool:expr
         $(, $id:expr => $instance:expr )* $(,)?
     ) => {{
         $crate::nodes::node::Node::new(
             $is_built_in,
             $type,
             $roots,
+            $id_pool,
+            $slot_pool,
             [$( ($id, $instance) ),*].into_iter().collect::<std::collections::HashMap<_, _>>()
         )
     }};
