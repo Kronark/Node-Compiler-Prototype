@@ -3,7 +3,6 @@ use std::{fmt::Display, sync::OnceLock};
 use parking_lot::{RwLock};
 use lasso::{Rodeo, Spur};
 
-
 // ========== Globals ==========
 
 static IDENTIFIER_COMPONENT_INTERNER: OnceLock<IdentifierComponentInterner> = OnceLock::new();
