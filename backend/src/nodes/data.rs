@@ -1,5 +1,5 @@
-use std::{fmt::Display, sync::Arc};
 use crate::nodes::{data_type::DataType, data_value::DataValue};
+use std::{fmt::Display, sync::Arc};
 
 pub struct Data {
     pub type_: Arc<DataType>,
@@ -10,7 +10,7 @@ impl Data {
     pub fn new(dt: Arc<DataType>, v: DataValue) -> Self {
         Self {
             type_: dt,
-            value: v
+            value: v,
         }
     }
 }

@@ -1,10 +1,10 @@
-use std::fmt::Display;
-use std::{collections::HashSet, sync::Arc};
 use crate::nodes::connection::Connection;
 use crate::nodes::data::Data;
-use crate::nodes::socket_type::SocketType;
-use crate::nodes::socket_parameters::SocketParameters;
 use crate::nodes::data_type::DataType;
+use crate::nodes::socket_parameters::SocketParameters;
+use crate::nodes::socket_type::SocketType;
+use std::fmt::Display;
+use std::{collections::HashSet, sync::Arc};
 
 // FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
@@ -15,7 +15,7 @@ pub struct Socket {
     permitted: HashSet<Arc<DataType>>,
     pub default: Data,
     pub actual: Option<Data>,
-    pub connection: Option<Connection>
+    pub connection: Option<Connection>,
 }
 
 impl Socket {
@@ -39,7 +39,7 @@ impl Socket {
             permitted: permitted_set,
             default: d,
             actual: a,
-            connection: c
+            connection: c,
         }
     }
 
@@ -51,7 +51,7 @@ impl Socket {
         self.permitted.remove(data_type);
     }
 
-    pub fn is_permitted(&self, query : DataType) -> bool {
+    pub fn is_permitted(&self, query: DataType) -> bool {
         self.permitted.contains(&query)
     }
 }
@@ -72,7 +72,8 @@ impl Display for Socket {
         let permitted_string = if self.permitted.is_empty() {
             "no permitted types".to_string()
         } else {
-            let bullet_points = self.permitted
+            let bullet_points = self
+                .permitted
                 .iter()
                 .map(|dt| format!("• {}", dt))
                 .collect::<Vec<_>>()
@@ -83,42 +84,36 @@ impl Display for Socket {
         writeln!(
             f,
             "{} {} {}\n{}\n{}\n{}\n{}",
-            direction, repetition, self.type_,
+            direction,
+            repetition,
+            self.type_,
             indent(&self.parameters.to_string(), 1),
             indent(&permitted_string, 1),
             indent(&format!("default:"), 1),
             indent(&format!("{}", self.default), 2),
         )?;
 
-        let actual_string= match &self.actual {
+        let actual_string = match &self.actual {
             Some(actual) => format!(
                 "{}\n{}",
                 indent("actual:", 1),
                 indent(&format!("{}", actual), 2)
             ),
-            None => indent("no actual data", 1).to_owned()
+            None => indent("no actual data", 1).to_owned(),
         };
 
-        writeln!(
-            f,
-            "{}",
-            actual_string,
-        )?;
+        writeln!(f, "{}", actual_string,)?;
 
-        let connection_string= match &self.connection {
+        let connection_string = match &self.connection {
             Some(connection) => format!(
                 "{}\n{}",
                 indent("connection:", 1),
                 indent(&format!("{}", connection), 2)
             ),
-            None => indent("no connection data", 1).to_owned()
+            None => indent("no connection data", 1).to_owned(),
         };
 
-        writeln!(
-            f,
-            "{}",
-            connection_string,
-        )
+        writeln!(f, "{}", connection_string,)
     }
 }
 

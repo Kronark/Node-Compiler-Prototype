@@ -1,19 +1,25 @@
-use std::{collections::HashMap, fmt::Display, sync::Arc};
 use crate::nodes::{instance::Instance, node_roots::NodeRoots, node_type::NodeType, pool::Pool};
+use std::{collections::HashMap, fmt::Display, sync::Arc};
 
 // TODO: track what socket slots are used in separate data structure
-pub struct Node
-{
+pub struct Node {
     pub is_compiler_node: bool,
     pub type_: Arc<NodeType>,
     pub roots: NodeRoots,
     pub id_pool: Pool,
     pub slot_pool: Pool,
-    instances: HashMap<u32, Instance>
+    instances: HashMap<u32, Instance>,
 }
 
 impl Node {
-    pub fn new(icn: bool, t: Arc<NodeType>, r: NodeRoots, ip: Pool, sp: Pool, i: HashMap<u32, Instance>) -> Self {
+    pub fn new(
+        icn: bool,
+        t: Arc<NodeType>,
+        r: NodeRoots,
+        ip: Pool,
+        sp: Pool,
+        i: HashMap<u32, Instance>,
+    ) -> Self {
         Self {
             is_compiler_node: icn,
             type_: t,
@@ -39,7 +45,9 @@ impl Node {
 
 impl Display for Node {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        writeln!(f, "{} {}", 
+        writeln!(
+            f,
+            "{} {}",
             if self.is_compiler_node { "♦" } else { "♣" },
             self.type_
         )?;

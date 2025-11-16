@@ -6,7 +6,7 @@ pub enum SocketType {
     Select,
     Switch,
     Text,
-    Color
+    Color,
 }
 
 impl Display for SocketType {
@@ -17,7 +17,7 @@ impl Display for SocketType {
             SocketType::Select => write!(f, "select"),
             SocketType::Switch => write!(f, "switch"),
             SocketType::Text => write!(f, "text"),
-            &SocketType::Color => write!(f, "colour")
+            &SocketType::Color => write!(f, "colour"),
         }
     }
 }

@@ -2,13 +2,13 @@ use std::collections::BTreeSet;
 
 #[derive(Clone)]
 pub struct Pool {
-    allocated: BTreeSet<u32>
+    allocated: BTreeSet<u32>,
 }
 
 impl Pool {
     pub fn new() -> Self {
         Self {
-            allocated: BTreeSet::new()
+            allocated: BTreeSet::new(),
         }
     }
 

@@ -1,25 +1,28 @@
 #[macro_export]
 macro_rules! make_interner {
     ($global_name:ident, $interner_name:ident, $type_name:ty, $getter_name:ident) => {
-        use std::{collections::HashSet, sync::{Arc, OnceLock}};
         use parking_lot::RwLock;
+        use std::{
+            collections::HashSet,
+            sync::{Arc, OnceLock},
+        };
 
         static $global_name: OnceLock<$interner_name> = OnceLock::new();
 
         pub struct $interner_name {
-            data: RwLock<HashSet<Arc<$type_name>>>
+            data: RwLock<HashSet<Arc<$type_name>>>,
         }
 
         impl $interner_name {
             fn new() -> Self {
                 Self {
-                    data: RwLock::new(HashSet::new())
+                    data: RwLock::new(HashSet::new()),
                 }
             }
 
             pub fn intern(&self, datum: $type_name) -> Arc<$type_name>
-            where 
-                $type_name: std::hash::Hash + Eq
+            where
+                $type_name: std::hash::Hash + Eq,
             {
                 let mut data = self.data.write();
 

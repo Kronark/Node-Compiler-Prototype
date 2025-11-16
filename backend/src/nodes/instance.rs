@@ -1,17 +1,14 @@
-use std::{collections::HashMap, fmt::Display, sync::Arc};
 use crate::nodes::{node_type::NodeType, socket::Socket};
+use std::{collections::HashMap, fmt::Display, sync::Arc};
 
 pub struct Instance {
     pub type_: Arc<NodeType>,
-    pub sockets: HashMap<u32, Socket>
+    pub sockets: HashMap<u32, Socket>,
 }
 
 impl Instance {
     pub fn new(type_: Arc<NodeType>, sockets: HashMap<u32, Socket>) -> Self {
-        Self {
-            type_,
-            sockets
-        }
+        Self { type_, sockets }
     }
 
     pub fn node_type(&self) -> &NodeType {
