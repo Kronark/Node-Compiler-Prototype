@@ -1,14 +1,13 @@
-use std::{collections::HashMap, fmt::Display};
+use std::{collections::HashMap, fmt::Display, sync::Arc};
 use crate::nodes::{node_type::NodeType, socket::Socket};
 
-pub struct Instance
-{
-    pub type_: NodeType,
+pub struct Instance {
+    pub type_: Arc<NodeType>,
     pub sockets: HashMap<u32, Socket>
 }
 
 impl Instance {
-    pub fn new(type_: NodeType, sockets: HashMap<u32, Socket>) -> Self {
+    pub fn new(type_: Arc<NodeType>, sockets: HashMap<u32, Socket>) -> Self {
         Self {
             type_,
             sockets
@@ -48,7 +47,7 @@ impl Display for Instance {
         for socket in sockets {
             let socket_string = socket.to_string();
             for line in socket_string.lines() {
-                writeln!(f, "\t{}", line)?;
+                writeln!(f, "    {}", line)?;
             }
         }
 
@@ -59,15 +58,9 @@ impl Display for Instance {
 #[macro_export]
 macro_rules! instance {
     ($type:expr $(, $socket:expr)* $(,)?) => {{
-        $crate::nodes::instance::Instance {
-            type_: $type,
-            sockets: {
-                let mut map = std::collections::HashMap::new();
-                $(
-                    map.insert($socket.slot, $socket);
-                )*
-                map
-            },
-        }
+        $crate::nodes::instance::Instance::new(
+            $type,
+            [$( ($socket.slot, $socket) ),*].into_iter().collect()
+        )
     }};
 }
