@@ -2,7 +2,7 @@ mod nodes;
 
 fn main() {
     let n = node!(
-        false,
+        true,
         type: node_type!(identifier!("project", "mathematics", "algebra", "add")),
         roots: node_roots!(
             connection!(42, 3, data_type!(identifier!("project", "numbers", "integer"))),
