@@ -14,7 +14,7 @@ impl Pool {
         }
     }
 
-    pub fn assign(&mut self) -> u32 {
+    pub fn allocate(&mut self) -> u32 {
         if let Some(&id) = self.free.iter().next() {
             self.free.remove(&id);
             id
