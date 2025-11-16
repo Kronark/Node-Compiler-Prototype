@@ -1,8 +1,6 @@
 use std::{collections::HashMap, fmt::Display};
 use crate::nodes::connection::Connection;
 
-// TODO: figure out best way to delete node root connections
-
 pub struct NodeRoots {
     connections: HashMap<u32, Vec<Connection>>
 }
