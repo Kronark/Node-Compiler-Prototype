@@ -42,3 +42,10 @@ impl Pool {
         !self.free.contains(&id)
     }
 }
+
+#[macro_export]
+macro_rules! pool {
+    () => {
+        $crate::nodes::pool::Pool::new()
+    };
+}
