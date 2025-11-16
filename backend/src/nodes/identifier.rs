@@ -36,6 +36,10 @@ impl IdentifierComponentInterner {
         }
     }
 
+    fn get() -> &'static Self {
+        IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| Self::new())
+    }
+
     fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
         if datum.is_empty() {
             return Err(IdentifierComponentError::Empty)
@@ -62,9 +66,6 @@ impl IdentifierComponentInterner {
     }
 }
 
-pub fn identifier_component_interner() -> &'static IdentifierComponentInterner {
-    IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| IdentifierComponentInterner::new())
-}
 
 // ========== Identifier Component ==========
 
@@ -76,12 +77,12 @@ pub struct IdentifierComponent {
 impl IdentifierComponent {
     pub fn new(data: &str) -> Result<Self, IdentifierComponentError> {
         Ok(Self {
-            data: identifier_component_interner().intern(data)?
+            data: IdentifierComponentInterner::get().intern(data)?
         })
     }
 
     pub fn data(&self) -> &'static str {
-        identifier_component_interner().resolve(self.data)
+        IdentifierComponentInterner::get().resolve(self.data)
     }
 }
 
