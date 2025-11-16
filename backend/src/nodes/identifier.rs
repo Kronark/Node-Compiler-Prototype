@@ -23,20 +23,25 @@ pub enum IdentifierError {
 
 // ========== Identifier Component Interner ==========
 
-pub type IdentifierComponentReference = Spur;
+type IdentifierComponentReference = Spur;
 
-pub struct IdentifierComponentInterner {
+struct IdentifierComponentInterner {
     data: RwLock<Rodeo>
 }
 
 impl IdentifierComponentInterner {
-    pub fn new() -> Self {
+    fn new() -> Self {
         Self {
             data: RwLock::new(Rodeo::default())
         }
     }
 
-    pub fn intern(&self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
+    fn get() -> &'static Self {
+        IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| Self::new())
+    }
+
+    // takes 'static self to avoid accidentally using Self::new in place of Self::get
+    fn intern(&'static self, datum: &str) -> Result<IdentifierComponentReference, IdentifierComponentError> {
         if datum.is_empty() {
             return Err(IdentifierComponentError::Empty)
         }
@@ -53,7 +58,7 @@ impl IdentifierComponentInterner {
         Ok(self.data.write().get_or_intern(datum))
     }
 
-    pub fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
+    fn resolve(&'static self, symbol: IdentifierComponentReference) -> &'static str {
         let data = self.data.read();
         let datum: &str = data.resolve(&symbol);
 
@@ -62,9 +67,6 @@ impl IdentifierComponentInterner {
     }
 }
 
-pub fn identifier_component_interner() -> &'static IdentifierComponentInterner {
-    IDENTIFIER_COMPONENT_INTERNER.get_or_init(|| IdentifierComponentInterner::new())
-}
 
 // ========== Identifier Component ==========
 
@@ -76,12 +78,12 @@ pub struct IdentifierComponent {
 impl IdentifierComponent {
     pub fn new(data: &str) -> Result<Self, IdentifierComponentError> {
         Ok(Self {
-            data: identifier_component_interner().intern(data)?
+            data: IdentifierComponentInterner::get().intern(data)?
         })
     }
 
     pub fn data(&self) -> &'static str {
-        identifier_component_interner().resolve(self.data)
+        IdentifierComponentInterner::get().resolve(self.data)
     }
 }
 
