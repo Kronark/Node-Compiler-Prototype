@@ -43,7 +43,11 @@ impl IdentifierComponentInterner {
         }
 
         // bytes is faster here since it skips decoding utf8
-        if let Some(&byte) = datum.as_bytes().iter().find(|&&byte| !(b'a'..=b'z').contains(&byte) && byte != b'-') {
+        if let Some(&byte) = datum.as_bytes().iter().find(|&&byte| 
+            !(b'a'..=b'z').contains(&byte) &&
+            !(b'0'..=b'9').contains(&byte) &&
+            byte != b'-'
+        ) {
             return Err(IdentifierComponentError::InvalidCharacter(byte as char))
         }
 
