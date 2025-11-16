@@ -1,12 +1,11 @@
 use std::fmt::Display;
 use std::{collections::HashSet, sync::Arc};
 use crate::nodes::connection::Connection;
+use crate::nodes::data::Data;
 use crate::nodes::socket_type::SocketType;
 use crate::nodes::socket_parameters::SocketParameters;
-use crate::nodes::data_value::DataValue;
 use crate::nodes::data_type::DataType;
 
-// FIXME: socket currently only storing default and active values, no data types for either. make a data object that combines dataValue and dataType
 // FIXME: overhaul socket slot as separate object with node space based assignment
 pub struct Socket {
     pub is_outgoing: bool,
@@ -14,8 +13,8 @@ pub struct Socket {
     pub type_: SocketType,
     pub parameters: SocketParameters,
     permitted: HashSet<Arc<DataType>>,
-    pub default_value: DataValue,
-    pub actual: Option<DataValue>,
+    pub default: Data,
+    pub actual: Option<Data>,
     pub connection: Option<Connection>
 }
 
@@ -25,8 +24,8 @@ impl Socket {
         ir: bool,
         t: SocketType,
         param: SocketParameters,
-        d: DataValue,
-        a: Option<DataValue>,
+        d: Data,
+        a: Option<Data>,
         c: Option<Connection>,
         perm: impl IntoIterator<Item = Arc<DataType>>,
     ) -> Self {
@@ -38,7 +37,7 @@ impl Socket {
             type_: t,
             parameters: param,
             permitted: permitted_set,
-            default_value: d,
+            default: d,
             actual: a,
             connection: c
         }
@@ -81,25 +80,44 @@ impl Display for Socket {
             format!("permitted:\n{}", indent(&bullet_points, 1))
         };
 
-        let value_string = match &self.actual {
-            Some(value) => value.to_string(),
-            None => "no actual data".to_owned(),
-        };
-
-        let connection_string = match &self.connection {
-            Some(conn) => conn.to_string(),
-            None => "no connection".to_owned(),
-        };
-
-        write!(
+        writeln!(
             f,
-            "{} {} {}\n{}\n{}\n{}\n{}\n{}",
+            "{} {} {}\n{}\n{}\n{}\n{}",
             direction, repetition, self.type_,
             indent(&self.parameters.to_string(), 1),
             indent(&permitted_string, 1),
-            indent(&format!("default: {}", self.default_value), 1),
-            indent(&format!("actual: {}", value_string), 1),
-            indent(&format!("connection: {}", connection_string), 1),
+            indent(&format!("default:"), 1),
+            indent(&format!("{}", self.default), 2),
+        )?;
+
+        let actual_string= match &self.actual {
+            Some(actual) => format!(
+                "{}\n{}",
+                indent("actual:", 1),
+                indent(&format!("{}", actual), 2)
+            ),
+            None => indent("no actual data", 1).to_owned()
+        };
+
+        writeln!(
+            f,
+            "{}",
+            actual_string,
+        )?;
+
+        let connection_string= match &self.connection {
+            Some(connection) => format!(
+                "{}\n{}",
+                indent("connection:", 1),
+                indent(&format!("{}", connection), 2)
+            ),
+            None => indent("no connection data", 1).to_owned()
+        };
+
+        writeln!(
+            f,
+            "{}",
+            connection_string,
         )
     }
 }
@@ -108,9 +126,9 @@ impl Display for Socket {
 macro_rules! out_socket {
     (
         default: $default:expr
-        $(, value: $value:expr)?
+        $(, actual: $actual:expr)?
         $(, connection: $connection:expr)?
-        $(, $($permitted:expr),* $(,)?)?
+        $(, permitted: [ $($permitted:expr),* $(,)? ])?
     ) => {{
         $crate::nodes::socket::Socket::new(
             true,
@@ -118,7 +136,7 @@ macro_rules! out_socket {
             $crate::nodes::socket_type::SocketType::Named,
             $crate::nodes::socket_parameters::SocketParameters::Named,
             $default,
-            None $(.or(Some($value)))?,
+            None $(.or(Some($actual)))?,
             None $(.or(Some($connection)))?,
             (&[$($($permitted),*)?]).iter().cloned()
         )
@@ -131,9 +149,9 @@ macro_rules! in_socket {
         type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
-        $(, value: $value:expr)?
+        $(, actual: $actual:expr)?
         $(, connection: $connection:expr)?
-        $(, $($permitted:expr),* $(,)?)?
+        $(, permitted: [ $($permitted:expr),* $(,)? ])?
     ) => {{
         $crate::nodes::socket::Socket::new(
             false,
@@ -141,7 +159,7 @@ macro_rules! in_socket {
             $type,
             $params,
             $default,
-            None $(.or(Some($value)))?,
+            None $(.or(Some($actual)))?,
             None $(.or(Some($connection)))?,
             (&[$($($permitted),*)?]).iter().cloned()
         )
@@ -154,9 +172,9 @@ macro_rules! rep_socket {
         type: $type:expr,
         parameters: $params:expr,
         default: $default:expr
-        $(, value: $value:expr)?
+        $(, actual: $actual:expr)?
         $(, connection: $connection:expr)?
-        $(, $($permitted:expr),* $(,)?)?
+        $(, permitted: [ $($permitted:expr),* $(,)? ])?
     ) => {{
         $crate::nodes::socket::Socket::new(
             false,
@@ -164,7 +182,7 @@ macro_rules! rep_socket {
             $type,
             $params,
             $default,
-            None $(.or(Some($value)))?,
+            None $(.or(Some($actual)))?,
             None $(.or(Some($connection)))?,
             (&[$($($permitted),*)?]).iter().cloned()
         )
