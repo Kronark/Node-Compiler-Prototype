@@ -1,3 +1,4 @@
+use rand::Rng;
 mod nodes;
 
 fn main() {
@@ -73,4 +74,20 @@ fn main() {
         ),
     );
     println!("{}", n);
+
+    let mut test_pool = pool!();
+    let mut rng = rand::rng();
+    let mut allocated_ids = Vec::new();
+    for _ in 0..20 {
+        if rng.random_bool(0.6) || allocated_ids.is_empty() {
+            let id = test_pool.allocate();
+            allocated_ids.push(id);
+            println!("allocated {}", id);
+        } else {
+            let index = rng.random_range(0..allocated_ids.len());
+            let id = allocated_ids.remove(index);
+            test_pool.release(id);
+            println!("release {}", id);
+        }
+    }
 }
