@@ -36,11 +36,11 @@ impl Node {
 impl Display for Node {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "{} {}", 
-            if self.is_compiler_node { "•" } else { "♣" },
+            if self.is_compiler_node { "♦" } else { "♣" },
             self.type_
         )?;
 
-        writeln!(f, "{}", self.roots)?;
+        write!(f, "{}", self.roots)?;
 
         if self.instances.is_empty() {
             writeln!(f, "no instances")?;
