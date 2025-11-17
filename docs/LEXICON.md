@@ -1,49 +1,63 @@
 # Lexicon
 
-## Node Compiler (also: "Compiler")
+## Node Compiler (also: "the Compiler")
 
-The tool developed in this repository. It is a *compiler* due to the fact that it gathers a high level abstraction in its entirety (the node graphs) and transforms it into a lower level abstraction (any target format of a byte sequence). It is ***not*** an *interpreter* because it does *not necessarily* process one node at a time. Further, it does *not* transform nodes into an intermediate representation from the perspective of the program. Furthermore, nodes do *not* output the result of their operation, they output instructions to achieve such a result. Node compiler projects are *not* runnable executables, they are a source format that requires transformation to become an instance of the desired target - transformation that is considered *compilation*.
+The Node Compiler is developed here, in this repository. It is called a *compiler* because it takes the **node graphs**, a high level abstraction, and transforms it into a target format of a byte sequence, a lower level abstraction. It is not considered an *interpreter* because it does not restricted to processing one **node** at a time, nor does it need to transform nodes into an *intermediary state* from the perspective of the program. Furthermore, **nodes** output instructions for a program, rather than processing that program themselves.
+
+Note that Node Compiler projects are not runnable executables, they are a source format that requires transformation, *compilation*, to become an instance of the desired target.
 
 ## Node
 
-A draggable collection of sockets which is expected to perform a specific operation on provided input values. Contains at least one pin for connection establishment to other nodes. In context of the compiler, a node is an abstract concept living in memory only.
+A node is draggable collection of **sockets** which is expected to perform a specific operation on provided input values. A node contains at least one **pin** in order to connect to other nodes. In the context of **the Compiler**, a node is an abstract concept living in memory only.
 
-## Node Instance (also: "Node", "Instance")
+## Node Instance (also: "node", "instance")
 
-An instance is an individual of a group, each member of which shares the same underlying definition or purpose. A *node* instance is an instance of a definition describing a node. In context of the compiler, a node instance is the actual visualisation of a node, visible to the user within a node space. Each node instance is associated with a (possibly, but not necessarily) unique title. Note that the appreviated referral to node instances as "node" should only happen in a context where it is clear that "node instances" are meant.
+A node instance is a single realisation of a node. In the context of the Compiler, a node instance is the visual representation of a **node**, which allows it to be used within a **node space**. Each node instance can be associated with a unique title. Note that the abbreviated reference to node instances as "node" should only happen in a context where it is clear that "node instances" are meant.
+
+## Node Graph
+
+A node graph is the full chain of connected **node instances** that represents what **the Compiler** will generate if it is ran.
 
 ## Socket
 
-An individual input of a node instance. Associated with a label and / or an input field of a specific type. Depending on this type, a pin is associated with the given socket for connection establishment. Sockets are associated with a direction. In context of the compiler, a socket can only be associated with an input field if it is of incoming / input direction. If the socket is of outgoing / output direction, it can merely be labeled.
+A socket is an individual input of a **node instance**. Associated with a label and/or an **input field** of a specific **type**. Depending on this type, a **pin** is created for the given socket to allow for other sockets of the same type to connect. In the context of the Compiler, sockets are associated with a direction: a socket can only be associated with an **input field** if it is in the incoming / input direction. Otherwise, the socket is in the outgoing / output direction, it can only be labeled.
 
 ## Pin
 
-A connection point of a socket within a node instance. In context of the compiler, the creation of a new connection is initialised by clicking a given pin. Further, the completion of a connection procedure is accomplished by clicking another pin. Additionally note that a pin of an output socket can initialise *many* connections and one of an input socket can only ever hold *one* connection.
+A pin is the connection point of a **socket** within a **node instance**. In the context of the Compiler, a new **connection** is created by selecting a pin on one **node**, then selecting a different pin on another. Additionally, note that while a pin of an output socket can initialise *multiple* connections, a pin of an input socket can only ever hold *one* connection.
 
 ## Connection
 
-A line of communication between two node instances. Can only be created between an output socket of one node and an input socket of another node. Transfers data from the origin to the target.
+A line of communication between two **node instances**. Can only be created between an output **socket** of one **node** and an input socket of another node. Transfers data from the origin / output to the target / input.
 
-## Node Appearance (also: "Appearance")
+## Socket Type (also: "type")
 
-The visual manifestation of a node. It encompasses not only the array of sockets possibly contained within a given node's instances, but also its colour. Note that in context of the compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
+A socket type determines what data is allowed to be input / connected to a specific **socket**. In the context of the Compiler, these types can be string, number, boolean, or user-specific.
+
+## Input Field
+
+In the context of the Compiler, an input field is where the user can input information into a **node**. An input field is ignored if a **connection** is already established with the associated **pin**. The type of data that can be put into an input field are determined by the associated **socket's** **type**.
+
+## Node Appearance (also: "appearance")
+
+A node's appearance is how a **node** looks. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the Compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
 
 ## Built-in Node
 
-A node that represents embedded functionality of the compiler. It is not defined via internal node network and thus can not be opened up. Their purpose is to give users node representations for compiler specific operations associated with the appearance of a node.
+A built-in node is a **node** that represents embedded functionality of the Compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users representations of nodes for compiler specific operations associated with the appearance of a node.
 
 ## Custom Node
 
-A node that has been constructed by a user of the compiler, representing functionality that is not defined by the compiler's underlying programming, but by the node graph within it. It can therefore be opened up, read and modified at all times.
+A custom node is a **node** that has been constructed by a user of the Compiler, representing functionality that is not defined by the Compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
 
-## Node Definition (also: "Definition)
+## Node Definition (also: "definition")
 
-A graph of nodes that defines the behaviour and appearance of a custom node. It lives within the node space associated with a specific custom node. Note that *not all* node graphs are node definitions, since a node graph in a projects *main space* does not define a custom node.
+A node definition is a graph of nodes that defines the behaviour and **appearance** of a custom node. It lives within the node space associated with a specific custom node. Note that not *all* node graphs are node definitions, since a node graph in a projects *main space* does not define a custom node.
 
-## Node Space (also: "Space")
+## Node Space (also: "space")
 
-A virtual area in which a node graph lives. Note that all node definitions live in a node space, but not all node spaces contain a node definition.
+A node space is a virtual area in which a **node graph** lives. Note that all **node definitions** live in a node space, but not all node spaces contain a node definition.
 
-## Main Space (also. "Main")
+## Main Space (also. "main")
 
-A node space representing the *entry point* of a given project. It does not define a custom node and thus can not be instantiated. Formerly considered the "root space".
+Main space is the **node space** representing the *entry point* of a given project. It does not define a custom node and thus can not be instantiated. Formerly considered the "root space".
