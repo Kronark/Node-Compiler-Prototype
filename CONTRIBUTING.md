@@ -1,4 +1,4 @@
-# Contribution
+# Contributing
 
 ## Documentation
 British english for documentation, US english for source code. Decision made by popular demand of the core team.
@@ -27,6 +27,7 @@ All relevant functionality should be thoroughly tested, both in the backend and 
     - `backend`, `be`, `b` or similar for *backend*
     - `frontend`, `fe`, `f` or similar for *frontend*
     - `documenation`, `docs`, `d` or similar for *documentation*
+    - `general`, `gen`, `g` or similar for *general* (reserved for management)
 
 ## Tasks
 
