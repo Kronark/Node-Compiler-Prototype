@@ -1,5 +1,8 @@
 # Contribution
 
+## Documentation
+British english for documentation, US english for source code. Decision made by popular demand of the core team.
+
 ## Code
 
 - *Catch-all*: Naming generally adheres to the language specific standard, if not noted otherwise below
@@ -10,7 +13,7 @@
 
 ## Comments
 
-Place comments above statements where it is not immediately obvious from that statement, what or why it is being done. This includes many of the **rust macros** used to quickly define traits of a given data structure. In general, they should describe *why* the statement exists, not *what* it is doing.
+Place comments above statements where it is not immediately obvious from that statement, what or why it is being done. This includes many of the **rust macros** used to quickly define traits of a given data structure. In general, they should describe *why* the statement exists, not *what* it is doing. Comments should utilise british spelling as they are considered part of the documentation.
 
 ## Testing
 
