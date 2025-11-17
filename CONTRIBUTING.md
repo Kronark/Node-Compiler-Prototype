@@ -34,5 +34,5 @@ All relevant functionality should be thoroughly tested, both in the backend and 
 Necessary implementation workload is defined in the markdown files in `docs/`. Different tasks have varying dependencies, which are linked in each respective task file. On task completion, the task file is rewritten into adequate of the produced code. The current full dependency tree of all tasks can be visualised as follows:
 
 <p align="center">
-    <img style="display:block;" src="./assets/dependency_graph.drawio.svg">
+    <img style="display:block;" src="./docs/assets/dependency_graph.drawio.svg">
 </p>
