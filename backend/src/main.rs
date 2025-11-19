@@ -78,7 +78,7 @@ fn main() {
     let mut test_pool = pool!();
     let mut rng = rand::rng();
     let mut allocated_ids = Vec::new();
-    for _ in 0..20 {
+    for _ in 0..50 {
         if rng.random_bool(0.6) || allocated_ids.is_empty() {
             let id = test_pool.allocate();
             allocated_ids.push(id);
