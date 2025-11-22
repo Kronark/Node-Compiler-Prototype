@@ -36,7 +36,7 @@ In the context of the compiler, an input field is where the user can input infor
 
 ## Node Appearance (also: "appearance")
 
-A node's appearance is how a **node** looks. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
+A node's appearance is what a **node** looks like. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
 
 ## Built-in Node (also: "built-in")
 
@@ -44,7 +44,7 @@ A built-in node is a **node** that represents embedded functionality of the comp
 
 ## Custom Node
 
-A custom node is a **node** that has been constructed by a user of the compiler. Its purpose is not defined by the compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
+A custom node is a **node** that has been constructed by a user of the compiler. Its purpose is not defined by the compiler's underlying programming, but by the **node graph** within it, and can therefore be opened up, read and modified at all times.
 
 ## Node Definition (also: "definition")
 
