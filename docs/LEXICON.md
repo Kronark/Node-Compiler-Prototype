@@ -40,11 +40,11 @@ A node's appearance is how a **node** looks. It encompasses not only the list of
 
 ## Built-in Node (also: "built-in")
 
-A built-in node is a **node** that represents embedded functionality of the compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users nodes that represent compiler specific operations associated with the appearance of a node.
+A built-in node is a **node** that represents embedded functionality of the compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users nodes that depict compiler specific operations associated with the appearance of a node.
 
 ## Custom Node
 
-A custom node is a **node** that has been constructed by a user of the compiler, representing functionality that is not defined by the compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
+A custom node is a **node** that has been constructed by a user of the compiler. Its purpose is not defined by the compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
 
 ## Node Definition (also: "definition")
 
@@ -56,4 +56,4 @@ A node space is a virtual area in which a **node graph** lives. Note that all **
 
 ## Main Space (also: "main")
 
-A main space is the **node space** representing the *entry point* of a given project. It does not define a custom node and thus can not be instantiated. Formerly considered the "root space".
+A main space is the **node space** denoting the *entry point* of a given project. It does not define a custom node and thus can not be instantiated. Formerly considered the "root space".
