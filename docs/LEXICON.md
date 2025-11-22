@@ -28,7 +28,7 @@ A pin is the connection point of a **socket** within a **node instance**. In the
 
 ## Connection
 
-A line of communication between two **node instances**. Can only be created between an output **socket** of one **node** and an input socket of another node. Transfers data from the origin / output to the target / input.
+A line of communication between two **node instances**. Can only be created between an output socket of one node and an input socket of another node. Transfers data from the origin / output to the target / input.
 
 ## Input Field
 
