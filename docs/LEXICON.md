@@ -54,6 +54,6 @@ A node definition is a graph of nodes that defines the behaviour and **appearanc
 
 A node space is a virtual area in which a **node graph** lives. Note that all **node definitions** live in a node space, but not all node spaces contain a node definition.
 
-## Main Space (also. "main")
+## Main Space (also: "main")
 
 Main space is the **node space** representing the *entry point* of a given project. It does not define a custom node and thus can not be instantiated. Formerly considered the "root space".
