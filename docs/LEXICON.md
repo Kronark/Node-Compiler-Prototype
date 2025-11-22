@@ -38,7 +38,7 @@ In the context of the Compiler, an input field is where the user can input infor
 
 A node's appearance is how a **node** looks. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the Compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
 
-## Built-in Node
+## Built-in Node (also: "built-in")
 
 A built-in node is a **node** that represents embedded functionality of the Compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users representations of nodes for compiler specific operations associated with the appearance of a node.
 
