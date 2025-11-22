@@ -16,7 +16,7 @@ A node instance is a single realisation of a node. In the context of the Compile
 
 ## Node Graph
 
-A node graph is the full chain of connected **node instances** that represents what **the Compiler** will generate if it is ran.
+A node graph is a chain of connected **node instances**. In the context of **the Compiler**, this is what will generate the result of a program when run.
 
 ## Socket
 
