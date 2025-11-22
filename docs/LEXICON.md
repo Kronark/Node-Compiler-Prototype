@@ -40,7 +40,7 @@ A node's appearance is how a **node** looks. It encompasses not only the list of
 
 ## Built-in Node (also: "built-in")
 
-A built-in node is a **node** that represents embedded functionality of the compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users representations of nodes for compiler specific operations associated with the appearance of a node.
+A built-in node is a **node** that represents embedded functionality of the compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users nodes that represent compiler specific operations associated with the appearance of a node.
 
 ## Custom Node
 
