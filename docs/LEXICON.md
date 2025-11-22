@@ -20,7 +20,7 @@ A node graph is the full chain of connected **node instances** that represents w
 
 ## Socket
 
-A socket is an individual input of a **node instance**. Associated with a label and/or an **input field** of a specific **type**. Depending on this type, a **pin** is created for the given socket to allow for other sockets of the same type to connect. In the context of the Compiler, sockets are associated with a direction. A socket can only be associated with an **input field** if it is in the incoming / input direction. Otherwise, the socket is in the outgoing / output direction, it can only be labeled.
+A socket is an individual input of a **node instance**. Associated with a label and/or an **input field** of a specific type. Depending on this type, a **pin** is created for the given socket to allow for other sockets of the same type to connect. In the context of the Compiler, sockets are associated with a direction. A socket can only be associated with an **input field** if it is in the incoming / input direction. Otherwise, the socket is in the outgoing / output direction, it can only be labeled.
 
 ## Pin
 
@@ -29,10 +29,6 @@ A pin is the connection point of a **socket** within a **node instance**. In the
 ## Connection
 
 A line of communication between two **node instances**. Can only be created between an output **socket** of one **node** and an input socket of another node. Transfers data from the origin / output to the target / input.
-
-## Socket Type (also: "type")
-
-A socket type determines what data is allowed to be input / connected to a specific **socket**. In the context of the Compiler, these types can be string, number, boolean, or user-specific.
 
 ## Input Field
 
