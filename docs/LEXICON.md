@@ -1,6 +1,6 @@
 # Lexicon
 
-## Node Compiler (also: "the Compiler")
+## Node Compiler (also: "compiler")
 
 The Node Compiler is developed here, in this repository. It is called a *compiler* because it takes the **node graphs**, a high level abstraction, and transforms it into a target format of a byte sequence, a lower level abstraction. It is not considered an *interpreter* because it does not restricted to processing one **node** at a time, nor does it need to transform nodes into an *intermediary state* from the perspective of the program. Furthermore, **nodes** output instructions for a program, rather than processing that program themselves.
 
@@ -8,23 +8,23 @@ Note that Node Compiler projects are not runnable executables, they are a source
 
 ## Node
 
-A node is draggable collection of **sockets** which is expected to perform a specific operation on provided input values. A node contains at least one **pin** in order to connect to other nodes. In the context of **the Compiler**, a node is an abstract concept living in memory only.
+A node is draggable collection of **sockets** which is expected to perform a specific operation on provided input values. A node contains at least one **pin** in order to connect to other nodes. In the context of **the compiler**, a node is an abstract concept living in memory only.
 
 ## Node Instance (also: "node", "instance")
 
-A node instance is a single realisation of a node. In the context of the Compiler, a node instance is the visual representation of a **node**, which allows it to be used within a **node space**. Each node instance can be associated with a unique title. Note that the abbreviated reference to node instances as "node" should only happen in a context where it is clear that "node instances" are meant.
+A node instance is a single realisation of a node. In the context of the compiler, a node instance is the visual representation of a **node**, which allows it to be used within a **node space**. Each node instance can be associated with a unique title. Note that the abbreviated reference to node instances as "node" should only happen in a context where it is clear that "node instances" are meant.
 
 ## Node Graph
 
-A node graph is a chain of connected **node instances**. In the context of **the Compiler**, this is what will generate the result of a program when run.
+A node graph is a chain of connected **node instances**. In the context of **the compiler**, this is what will generate the result of a program when run.
 
 ## Socket
 
-A socket is an individual input of a **node instance**. Associated with a label and/or an **input field** of a specific type. Depending on this type, a **pin** is created for the given socket to allow for other sockets of the same type to connect. In the context of the Compiler, sockets are associated with a direction. A socket can only be associated with an **input field** if it is in the incoming / input direction. Otherwise, the socket is in the outgoing / output direction, it can only be labeled.
+A socket is an individual input of a **node instance**. Associated with a label and/or an **input field** of a specific type. Depending on this type, a **pin** is created for the given socket to allow for other sockets of the same type to connect. In the context of the compiler, sockets are associated with a direction. A socket can only be associated with an **input field** if it is in the incoming / input direction. Otherwise, the socket is in the outgoing / output direction, it can only be labeled.
 
 ## Pin
 
-A pin is the connection point of a **socket** within a **node instance**. In the context of the Compiler, a new **connection** is created by selecting a pin on one **node**, then selecting a different pin on another. Additionally, note that while a pin of an output socket can initialise *multiple* connections, a pin of an input socket can only ever hold *one* connection.
+A pin is the connection point of a **socket** within a **node instance**. In the context of the compiler, a new **connection** is created by selecting a pin on one **node**, then selecting a different pin on another. Additionally, note that while a pin of an output socket can initialise *multiple* connections, a pin of an input socket can only ever hold *one* connection.
 
 ## Connection
 
@@ -32,19 +32,19 @@ A line of communication between two **node instances**. Can only be created betw
 
 ## Input Field
 
-In the context of the Compiler, an input field is where the user can input information into a **node**. An input field is ignored if a **connection** is already established with the associated **pin**. The type of data that can be put into an input field are determined by the associated **socket's** **type**.
+In the context of the compiler, an input field is where the user can input information into a **node**. An input field is ignored if a **connection** is already established with the associated **pin**. The type of data that can be put into an input field are determined by the associated **socket's** **type**.
 
 ## Node Appearance (also: "appearance")
 
-A node's appearance is how a **node** looks. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the Compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
+A node's appearance is how a **node** looks. It encompasses not only the list of **sockets** possibly contained within a given node's **instances**, but also its colour. In the context of the compiler, the title of a node *instance* is not considered part of the underlying node's appearance, as it is unique to each instantiation. Similarly, specific values of a node instance's sockets are also not considered part of a node's appearance - merely their (possible) existence and associated ordering.
 
 ## Built-in Node (also: "built-in")
 
-A built-in node is a **node** that represents embedded functionality of the Compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users representations of nodes for compiler specific operations associated with the appearance of a node.
+A built-in node is a **node** that represents embedded functionality of the compiler. It is not defined via a **node graph** and thus it is not possible to view its components. Their purpose is to give users representations of nodes for compiler specific operations associated with the appearance of a node.
 
 ## Custom Node
 
-A custom node is a **node** that has been constructed by a user of the Compiler, representing functionality that is not defined by the Compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
+A custom node is a **node** that has been constructed by a user of the compiler, representing functionality that is not defined by the compiler's underlying programming, but by the **node graph** within it. Because of this, it can be opened up, read and modified at all times.
 
 ## Node Definition (also: "definition")
 
