@@ -1,6 +1,6 @@
 # Identifier ([Backend](../backend.md))
 
-A data type used to represent identifiers for [nodes](./node_settings.md) and [types](./type.md) in memory. Effectively a wrapper around an array of heap-allocated strings. The first sub-string in an identifier is reserved for the [unique project identifier hash](../project/project.md), which can not be defined by a user. The last sub-string in an identifier represents the *name* of the element to be identified. Any sub-strings between first and last are considered "modules" for the purpose of namespacing.
+A data type used to represent identifiers for [nodes](./node_settings.md), [types](./type.md) and [targets](../target/target.md) in memory. Effectively a wrapper around an array of heap-allocated strings. The first sub-string in an identifier is reserved for the [unique project identifier hash](../project/project.md), which can not be defined by a user. The last sub-string in an identifier represents the *name* of the element to be identified. Any sub-strings between first and last are considered "modules" for the purpose of namespacing.
 
 Any identifier sub-string besides the project hash (the character set is tbd.) is strictly limited to *lowercase latin* characters (a-z) and the *hyphen* (-) character. The hyphen is included strictly for multi-word naming capabilities. It can not be placed at the beginning or end of an identifier sub-string.
 
