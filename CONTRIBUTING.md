@@ -6,7 +6,7 @@ By submitting a contribution to this *Kronark Node Compiler Prototype* project, 
 
 ## Developer Certificate of Origin (DCO)
 
-Each commit has to be signed off by the contributor it originated from, to ensure all contributions are made with proper authorisation. This means, each commit message needs to include a `Signed-off-by: <NAME> <EMAIL>` suffix, which matches the *public* name and email of the contributor. This can be accomplished automatically by committing via `git commit -s -m 'COMMIT MESSAGE'`. You can read the DCO [here](./legal/DCO.md) or [online](https://developercertificate.org/).
+Each commit has to be signed off by the contributor it originated from, to ensure all contributions are made with proper authorisation. This means, each commit message needs to include a `Signed-off-by: <NAME> <EMAIL>` suffix, which matches the *public* name and email of the contributor. This can be accomplished automatically by committing via `git commit -s -m 'COMMIT MESSAGE'`. It can be activated by default within VSCode by navigating to `preferences > settings` and activating `Git: Always Sign Off`. You can read the DCO [here](./legal/DCO.md) or [online](https://developercertificate.org/).
 
 ## Version Control
 
